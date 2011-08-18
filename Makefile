@@ -23,3 +23,5 @@ veryclean:
 	rm -f *~ *.*%
 	rm -f $(FILE).pdf $(FILE).ps
 
+q:
+	pdflatex ${FILE}

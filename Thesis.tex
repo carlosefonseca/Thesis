@@ -112,16 +112,13 @@
 \addcontentsline{toc}{section}{\listfigurename}
 \cleardoublepage 
 
-% Nomenclature
-%
-% entries of nomenclature list
-\addcontentsline{toc}{section}{Acronyms}
 \input{Thesis_Nomenclature} % file "Thesis_Nomenclature.tex"
+
 %
 % Insert glossary/nomenclature section produced by MakeIndex
 %\printnomenclature
 % Add entry in the table of contents as section
-\addcontentsline{toc}{section}{\nomname}
+%\addcontentsline{toc}{section}{\nomname}
 \cleardoublepage
 
 % Set arabic numbering (1,2,...) after preface
@@ -134,13 +131,13 @@
 %  Chapters
 % ----------------------------------------------------------------------
 
-%\input{Thesis_Introduction}
 
 \input{Chapters/1_Introduction}
 \input{Chapters/2_Related_Work}
-\input{Chapters/3_Implementation}
-\input{Chapters/4_Evaluation}
-\input{Chapters/5_Conclusions}
+\input{Chapters/3_Solution_Requirements}
+\input{Chapters/4_Implementation}
+\input{Chapters/5_Evaluation}
+\input{Chapters/6_Conclusions}
 
 % ----------------------------------------------------------------------
 %  Appendix (optional)
