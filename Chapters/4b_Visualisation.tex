@@ -1,0 +1,46 @@
+\section{Visualization} % (fold)
+\label{sub:visualization}
+
+The greatest challenge of our work was the creation of the visualization part for its requirements. We will now explain this piece of Eagle Eye, its architecture, visualization techniques, sorting and filtering capabilities.
+
+\subsection{Overview}
+We wanted to make the visualization simple and easy to use, while keeping it flexible enough to allow for an enjoyable experience.
+
+After the backend has finished the all the processing that is needed, the visualization can be opened and all images that were added to the backend's processing list will appear. After loading the metadata, the user is presented with a set of options on the top toolbar, which is the only \ac{UI} needed to use the system. \todo{Add picture}
+
+
+According to \todo{insert the reference of the dude who claimed that a 32x32px image was the minimum for recognition}, an image with 32 pixels per side is the minimum size that allows a user to recognize an image.
+
+\red{Unsure about how well this fits here…} Upon loading Eagle Eye's visualization system, thousands of images might be displayed and this 32 pixel might not be met and, therefore, it might be difficult for the user to recognize what is on display from a single image, but since a lot of them are being displayed, the user might be capable of making sense of the groups by their main colors.
+
+Manipulation of the canvas is always possible, meaning the user can, at any time, use the mouse to drag the canvas around to pan the view or, by clicking or scrolling, zoom in and out of the canvas. Zooming goes between the view of thousands of images at the same time, until the full screen view of one of them, and everything in between in a smooth way.
+
+\subsubsection{The toolbar}
+
+The user can then use the functions on the toolbar to filter and sort differently. The toolbar is divided in three sections: Navigation, Display and Filtering.
+
+The navigation section contains some basic functions that work similarly to the current web browsers. There are buttons for back and forward between display states and a save button for bookmarking the current display state, allowing the user to easily get back to it later.
+
+The middle section contains two options to change the image display:  the sorting options and the display overlays button. The former presents the available sorting options for the current collection, based on the available metadata and on the best ways to display them. One of the options is selected at all times and the content is presented accordingly. Changing the selected option causes the images in display to move around to the new position and form a different sort order. This sorting and disposition options will be explained in a latter section.
+The other button in the display section of the toolbar enables or disables a layer of information on top of the images. This layer distinguishes the groups of images in display by painting them with a different colors and presents a name for them, depending on the selection sort option. Grouping will also be explained bellow. 
+
+The third and final section of the toolbar is the filter section. It contains controls to filter images by using simple text and to visually select images on the canvas. This options will also be explained bellow.
+
+%%%%%%%%%%%%%%%%%%%%%%%
+
+\hide{As referred on \ref{sub:design_decisions} we built the visualization with the DeepZoom technology of Microsoft's Silverlight, a platform for developing interactive applications for the web that mimics the development of native applications for Microsoft's Windows operating system.}
+
+\subsection{Functionalities}
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%
+It runs inside a browser window which can make a very immersive experience when put in fullscreen, since it has a really small space dedicated for controls, levying the rest for images.
+
+
+The system loads the DeepZoom files and the 
+
+
+% subsection visualization (end)
