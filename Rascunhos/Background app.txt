@@ -1,0 +1,4 @@
+Since our system needs some time to gather features from images, there's an application that can be left running in the background for some hours (depending on the amount of images) to process previously selected folders.
+Since the main purpose of this thesis is the visualization, we didn't create a decent user interface like the one described above but with more 
+
+Because of sudden architectural changes during the development process,

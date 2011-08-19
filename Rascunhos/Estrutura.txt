@@ -1,0 +1,21 @@
+Estrutura
+
+Abstract
+1. Introduction (5/6)
+2. Related Work (20)
+3. "our system" (30/40)
+	- Requirements (ligação ao 2.)
+		- Justificar tamanho das libs
+	- Backend
+		- Extracted Features
+		- Architecture
+		- Framework
+		- Plugins
+		- Persistency
+		- etc
+	- Interface
+		- Descrição Geral
+		- Layout -> Treemap
+		- Interacção / Exploração
+4. Avaliação (10/15)
+5. Conclusão e Trabalho Futuro (3/4)

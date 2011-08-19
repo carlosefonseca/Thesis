@@ -101,8 +101,8 @@
 		<string>Chapters/1_Introduction.tex</string>
 	</array>
 	<key>showFileHierarchyDrawer</key>
-	<true/>
+	<false/>
 	<key>windowFrame</key>
-	<string>{{450, 3}, {1080, 1055}}</string>
+	<string>{{0, 0}, {1231, 778}}</string>
 </dict>
 </plist>

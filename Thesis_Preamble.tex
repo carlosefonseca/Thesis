@@ -339,7 +339,7 @@
 %            menucolor=red,    % color for Acrobat menu items
             menucolor=black,  % color for Acrobat menu items
 %            pagecolor=red,    % color for links to other pages
-            pagecolor=black,  % color for links to other pages
+%            pagecolor=black,  % color for links to other pages
 %            urlcolor=cyan,    % color for linked URLs
             urlcolor=black,   % color for linked URLs
 	          bookmarks=true,         % create PDF bookmarks
@@ -428,8 +428,10 @@
 
 % My Commands
 
+\newcommand{\hide}[1]{}
 \newcommand{\super}[1]{\ensuremath{^{\textrm{#1}}}}
 \newcommand{\fig}[1]{fig. \ref{fig:#1}}
+\newcommand{\Fig}[1]{Fig. \ref{fig:#1}}
 \newcommand{\cm}{\Checkmark}
 \newcommand{\todo}[1]{\textcolor{red}{TODO: #1}}
 \newcommand{\red}[1]{\textcolor{red}{#1}}

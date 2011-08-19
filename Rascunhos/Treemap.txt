@@ -1,0 +1,32 @@
+OTM(int[] L, int n (#groups), Rect R) {
+	if (n = 1) return R
+	RP = pickPivotElement - Middle or Largest
+	R1.height = R.height
+	R1.width = size of L1…Lp-1
+	(LB, LC) = Split Lp+1…Ln
+		   Make the split where it makes Rp.aspectRatio ~ 1
+	Calc Rp, R2, R3
+	OTM(La, Lb, Lc)
+
+
+QTM(int[] L, int n (#groups), Rect R) {
+1a	if (n = 1):
+		return Rect(size of elements)
+1b	if (n = 2):
+		return Rect { Rect + Rect }
+	…
+2	RP = pickPivotElement - Middle or Largest
+3	R1.height = R.height
+	R1.width = size of L1…Lp-1
+4	(LB, LC) = Split Lp+1…Ln
+		   Make the split where it makes Rp.aspectRatio ~ 1
+5	Calc Rp, R2, R3
+6a	OTM(La, Lb, Lc)
+6b	Translate the rectangles in RP, R2, and R3 to avoid overlapping R1 or each other.
+6c	Even out the rectangles in the sub-regions in the following manner. 
+	- Make sure that RP and R2 have the same width.
+	- Make sure that RP and R2 together have the same height as R1.
+	- Make sure that R3 has the same height as R1.
+	> Each of these evening steps can be accomplished similarly by finding if one of the regions is too small.
+	> Then if it is not wide enough, add the extra amount to the width of the rectangles in that region that touch the right boundary of the region.
+	- Do the analogous action to rectangles not tall enough.
