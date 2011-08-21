@@ -1,13 +1,12 @@
 \section{Visualization} % (fold)
 \label{sub:visualization}
 
-The greatest challenge of our work was the creation of the visualization part for its requirements. We will now explain this piece of Eagle Eye, its architecture, visualization techniques, sorting and filtering capabilities.
+The greatest challenge of this work was the creation of the visualization part for its requirements. We will now describe this part of Eagle Eye, its architecture, visualization techniques, sorting and filtering capabilities.
 
 \subsection{Overview}
 We wanted to make the visualization simple and easy to use, while keeping it flexible enough to allow for an enjoyable experience.
 
 After the backend has finished the all the processing that is needed, the visualization can be opened and all images that were added to the backend's processing list will appear. After loading the metadata, the user is presented with a set of options on the top toolbar, which is the only \ac{UI} needed to use the system. \todo{Add picture}
-
 
 According to \todo{insert the reference of the dude who claimed that a 32x32px image was the minimum for recognition}, an image with 32 pixels per side is the minimum size that allows a user to recognize an image.
 
@@ -64,6 +63,26 @@ One problem of the tree map display is that group sequence is irrelevant. Groups
 
 Currently we are using this layout system only for the date display since the use of columns makes visualization harder, requiring either some panning around the canvas or selecting the group using the filter tools explained ahead. This is an area we must improve, and we will discuss some ideas later on.
 
+
+\subsubsection{Filtering} % (fold)
+
+In addition to the sorting options explained above, Eagle Eye also provides the user with the ability to filter images. This allows the user to focus on a specific group of pictures that are his focus of interest at the moment.
+
+For instance, the user might want to only see photos of a day, or a person, or person in a specific day or even pictures that are mostly blue.
+
+For all this, Eagle Eye provides two ways to specify this kinds of constraints: using the filter bar or selecting pictures on the canvas, and we will now look into both them.
+
+The filter bar's purpose mimics a regular search box, similar to the ones that exist on applications like Internet browsers, file browsers or photo browsers \refs: it provides a way for the user to type what he is looking for and get some suggestions to help him with the search. Since we wanted a simple \ac{UI}, we figured that we had to provide smart suggestions to the user, so that he can feel comfortable using it for multiple types of searches. Searches are performed immediately upon selecting the desired filter. Currently, searches are intersections (commonly ``and'') of the entries in the filter bar but after adding adequate \ac{UI}, it will be possible to also use unions (commonly ``or'').
+
+Every piece of the metadata can be used as a filter and the suggestions list shows what are the available options and what type of metadata they relate to, for instance, when looking for a person's name, the ``keyword'' metadata type is shown, when searching for a place, both ``keyword'' and ``path'' types might be presented, if the path to the pictures included the place where they were taken.
+
+This examples are quite simple but we wanted to go further and allow searches like ``Summer'', for all photos taken around the summer time in all years, ``May 2010``, for all pictures taken during that month, ``Has 2 people'' for photos that have been detected to have people in them. \red{Although some of these have not been implemented yet, they are in the plans.}
+
+The second filter method allows the manual selection of images from the canvas, either by a common mouse drag-and-drop on the canvas or by selecting entire groups with a mouse click. This two interaction options can be activated on the respecting button on the end of the toolbar. 
+
+As explained above, the filter bar intersects its elements immediately after being added but that kind of behavior would make it impossible for the user to make multiple selections, so this feature gathers the various selections and when the user forces the filtering, all the selections are gathered together and added to the rest of the filter.
+
+\red{Since the selections are displayed in the same way text filters are, the removal of a selection is made in the same way.}
 
 %%%%%%%%%%%%%%%%%%%%%%%
 
