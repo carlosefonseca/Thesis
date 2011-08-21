@@ -31,9 +31,9 @@ The third and final section of the toolbar is the filter section. It contains co
 
 \subsection{Disposition of Images on Canvas}
 
-The different ways to dispose the images on the canvas was a matter that required some exploration of possibilities \todo{insert references}. We chose a few options to allow some flexibility for the user, while trying to keep the interface simple.
+The different ways to dispose the images on the canvas was a matter that required some exploration of possibilities \refs. We chose a few options to allow some flexibility for the user, while trying to keep the interface simple.
 
-We are now going to explain the image sorting into groups and the different ways the user can arrange those groups on the canvas.
+We are now going to explain how do we sort images into groups and the different ways the user can arrange those groups on the canvas.
 
 \subsubsection{Sorting images into groups}
 
@@ -50,7 +50,19 @@ The last option currently available to the user is grouping by path which groups
 On the canvas, group boundaries are identifiable by discrete gray borders and, when the Show Overlays function is active, by color rectangles that also contain the groups' names.
 
 
-\subsubsection{Sorting images into groups}
+\subsubsection{Different dispositions}
+
+After having the images grouped by any of the sorting options referred on the previous section, the system has to know how to display them on the canvas.
+
+We looked into various options \refs and picked the ones that we thought that made sense and also that would be easier for the user to understand. We chose a tree map view and a column-based linear view. Both of these are grid-based layouts, meaning that images are positioned inside a defined grid on the canvas. We also looked into free positioning systems like \refs but they make it harder for the user to understand the images within, since some images will be covered by others. When displaying thousands of images, it's important to make them easy to see, and mixing them up wasn't the appropriate thing to do. We focused on other ways for making it easier to the user see what matters and we will talk about them later on.
+
+The first layout technique we employed was the tree map. The problem with tree maps is that they are designed for areas that can take many forms, from squares to thin lines \todo{insert tree map image}. Applying tree maps to images calls for the adaptation of the algorithms to make sure the areas can correctly hold the images and that all images in all groups have the same size and are positioned in the same grid, to make them easier to view. This ideas are supported by \todo{gajo} on his work in the Quantum treemaps. We tried to apply Quantum tree maps as our tree map algorithm but due to it's complexity and recurring problems, we adapted the tree maps of \todo{gajo}, as used in Prefuse \todo{verify} \refs to the reality of the image grid. This new algorithm was much easier to understand and implement, although  it might require a small fine running for a couple of edge cases.
+
+Our tree map algorithm displays larger groups first, leaving the smaller ones to the end and makes an effort to layout groups as rectangles with an aspect ratio as close as possible to the screen's aspect ratio, for when the user zooms in, the groups fill the screen. There's also an effort to fill the space left between larger groups, making the display more compact and with less holes.
+
+One problem of the tree map display is that group sequence is irrelevant. Groups are positioned by their size, which is unacceptable for sorting options that require some sequence, like sorting by time. For this we created a linear display that uses columns and displays groups sequentially. Each group may fill part of a column or various columns, depending on their size. With the aim of reducing wasted space, groups that fit on the wasted space left by the previous group use that space to display themselves. This is useful  to collapse the couple pictures the user might take of his regular day between days that he went on a trip and took a much larger number of photographs.
+
+Currently we are using this layout system only for the date display since the use of columns makes visualization harder, requiring either some panning around the canvas or selecting the group using the filter tools explained ahead. This is an area we must improve, and we will discuss some ideas later on.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%
