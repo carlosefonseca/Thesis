@@ -5,7 +5,7 @@ Abstract
 2. Related Work (20)
 3. "our system" (30/40)
 	- Requirements (ligação ao 2.)
-		- Justificar tamanho das libs
+    		- Justificar tamanho das libs
 	- Backend
 		- Extracted Features
 		- Architecture
