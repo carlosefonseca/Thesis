@@ -428,6 +428,22 @@
 
 % My Commands
 
+\newenvironment{enum}{
+	\begin{enumerate}
+	  \setlength{\itemsep}{1pt}
+	  \setlength{\parskip}{0pt}
+	  \setlength{\parsep}{0pt}}{
+	\end{enumerate}
+}
+
+\newenvironment{myitemize}{
+	\begin{itemize}
+	  \setlength{\itemsep}{1pt}
+	  \setlength{\parskip}{0pt}
+	  \setlength{\parsep}{0pt}}{
+	\end{itemize}
+}
+
 \newcommand{\hide}[1]{}
 \newcommand{\super}[1]{\ensuremath{^{\textrm{#1}}}}
 \newcommand{\fig}[1]{fig. \ref{fig:#1}}

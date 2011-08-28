@@ -99,13 +99,13 @@ At the center of the visualization is the DeepZoom canvas. By default, it displa
 The ``collection.xml'' also contains some metadata for each image, added by the backend. The visualization parses the file and extracts this metadata which is then processed and indexed.
 
 Since the transport is a text file, we used a simple, text based, key/value capable encoding \red{system}: JSON \refs. The backend encodes key/value pairs of metadata for each image \todo{meter um exemplo em código} and the visualization decodes and aggregates them in indexers, one indexer for each type of metadata. Eagle Eye has a few indexers that know how to read and process different types of data:
-\begin{itemize}
+\begin{myitemize}
 	\item{a generic indexer, for basic text or number values}
 	\item{a date indexer, that gathers images by day}
 	\item{a color indexer that gathers images by color, using \red{N} bins for \todo{lalala}}
 	\item{a keyword indexer that indexes images by each one of the associated keywords}
 	\item{a path indexer that indexes images by the folder where they resided when added}
-\end{itemize}
+\end{myitemize}
 
 The indexers are managed by a metadata collection manager that handles, for instance, the XML parsing and creation and retrieval of indexers.
 
@@ -124,6 +124,8 @@ We use memoization to avoid repeated calculations for common display types. If a
 
 
 \subsubsection{Reducing Clutter}
+\label{ss:stacks}
+
 This work displays a great quantity of images at the same time and we thought that we could help the user by reducing some unnecessary clutter.
 
 Sometimes users take more than one photo of the same thing and they do it for different reasons, some of them simple and others more technical. Some people just didn't like the previous photo or they want to make sure they have a few options to pick the best one and so they take more. Bursts of photographs are a similar case of this behavior but resulting in a larger image count.
@@ -138,7 +140,7 @@ For our implementation, we decided to group images automatically based on the pr
 
 For the display we decided to show all images of the group in the space of one, but displaying the first image at regular size and reducing the others to a smaller size, perceptible when looking closer and keeping the ability to zoom in on each of them and see them in fullscreen. This way we can reduce the clutter without fully hiding repeated images. \todo{images}
 
-Obviously that this can have both false positives or false negatives 
+Obviously that this can have both false positives or false negatives but in our tests those were in a small number. \ac{UI} to fix that could be added but we don't feel that was essential.
 
 
 %%%% Conclusion %%%%

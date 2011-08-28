@@ -27,24 +27,17 @@ The major achievements of the present work...
 \section{Future Work}
 \label{section:future}
 
-A few ideas for future work...
+During the realization of this work, many ideas popped in our minds but we didn't had the time to work on them.
 
-\begin{itemize}
+The most important effort that must be done to this work is a rearrangement of the backend and its connection to the visualization. As we've seen on chapter \ref{cha:eagle_eye}, both parts of this work are currently separated and the backend is a command line utility. Our idea was to create an graphical application where the user could enter the folder paths he want's added to Eagle Eye and then the application would do the needed work on the background, using free resources, and when it was done, the user could enter in the visualization mode without the need to open a browser window.
 
-	\item better integration
+The second important thing to do is to improve the feature extraction plugins. The color plugin, for instance should be able to better identify colors in images instead of simply make an average. More data should also be extracted from the EXIF, for instance, location data should be translated into place names\footnote{The action of turning GPS coordinates into addresses is called reverse geocoding. An example of a provider of such service: \url{http://code.google.com/apis/maps/documentation/geocoding/index.html\#ReverseGeocoding}}
 
-	\item user choses the tags he wants to use
+On the visualization part, the linear disposition, used mainly by the date view, should be improved to make more clear the distinction between days, months, years. Another idea for a different disposition born from the stacking of similar photos discussed in section \ref{ss:stacks}, where one image is bigger than the rest, to help identify what is on what group.
 
-	\item gps data
+To conclude, we think it needs to be more slideshow friendly, so that by the press of a button on the \ac{UI} or on the keyboard, a sequence of images could be viewed in fullscreen without having to drag and drop the canvas between each image. 
 
-	\item main colors of an image  
-	
-	\item better ideas for the linear view
-	
-	\item add AND or OR	
-
-\end{itemize}
-
+In our view, Eagle Eye would be a useful photo viewer that could be used by anyone that has some computer knowledge and a photo database on the computer.
 
 \cleardoublepage
 

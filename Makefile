@@ -16,6 +16,14 @@ all:
 	${PATH}/pdflatex  ${FILE}
 	${PATH}/pdflatex  ${FILE}
 
+allq:
+	${PATH}/pdflatex -interaction=nonstopmode ${FILE}
+	${PATH}/makeindex $(FILE).nlo -s nomencl.ist -o $(FILE).nls
+	${PATH}/bibtex ${FILE}
+	${PATH}/pdflatex -interaction=nonstopmode ${FILE}
+	${PATH}/pdflatex -interaction=nonstopmode ${FILE}
+
+
 clean:
 	(rm -rf *.aux *.bbl *.blg *.nlo *.nls *.idx *.ind *.ilg *.lof *.log *.lop *.lot *.out *.spl *.toc)
 
