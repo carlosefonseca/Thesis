@@ -1,45 +1,72 @@
 \chapter{Solution Requirements} % (fold)
 \label{chapter:solution_requirements}
 
-\todo{Fix bellow}
-
-Our survey was based on various types of previous work from the last ten years. Image browsers and technology have evolved a lot since then but there still isn't a definitive way for a user to look at his photo collection and understand its content and evolution. 
+Our survey was based on various types of previous work from the last ten years. Image browsers and technology have evolved a lot since then but there still isn't a definitive way for a user to look at his larger photo collection and understand its content and evolution.
 
 We have the vision of a system that displays a large set of user’s photos at the same time, in various arrangements, revealing patterns, differences and similarities between them.
 
-For this to happen, the system must be able to handle thousands of images and display them all on the screen while maintaining responsiveness and giving useful information. The system's \ac{UI} should be clear and easy to use, allowing the user to navigate through the display of photos, through zooming and panning, and to reorganize the display the photos in a number of ways.
+For this to happen, the system must meet some requirements that we will specify on this chapter.
 
-The system should also gather as much information as it can from the photos, such as date and time, relevant colors, presence of people, type of photograph, user organization or location. While some of this information is already embedded in today's digital photographs as metadata, written by the digital camera when the photo was taken, others are usually not and need to be calculated or extracted. Faces and relevant color information are an example of that and the system must be prepared to extract this features from the image. The system must provide some capability for other feature extraction methods to be easily added in the future. All this information will then be used by the user to reorganize and filter the photos on display.
-
-
-We will now detail the work done, taking this requirements into account.
-
-% section motivation (end)
 
 \section{Goals} % (fold)
 \label{sec:goals}
 
-``In this section we present the main goals to achieve in this work, as well as the design goals to the final solution described later in this document.''
-
+We will now expose the main goals for this thesis as well as some design goals that the work must feature.
 
 \subsection{Main Goal} % (fold)
 \label{sub:main_goal}
 
-main goal
+The main goal of this thesis is to provide a different approach to the photo collection browsing reality.
+
+More specifically, the work should:
+
+\begin{myitemize}
+	\item{provide the user with a full view of his photo collection, by displaying a large number of images in a single screen;}
+	\item{allow the manipulation of the display of images so that the user can create different views that allow new perceptions of his collection.}
+\end{myitemize}
+
+With this capabilities, the work should be able to provide the user not only with a better understanding of the collection but also with an easy and interesting way to visually combine and view photographs.
+
+
+%be able to handle thousands of images and display them all on the screen while maintaining responsiveness and giving useful information. The system's \ac{UI} should be clear and easy to use, allowing the user to navigate through the display of photos, through zooming and panning, and to reorganize the display the photos in a number of ways.
+
+%The system should also gather as much information as it can from the photos, such as date and time, relevant colors, presence of people, type of photograph, user organization or location. While some of this information is already embedded in today's digital photographs as metadata, written by the digital camera when the photo was taken, others are usually not and need to be calculated or extracted. Faces and relevant color information are an example of that and the system must be prepared to extract this features from the image. The system must provide some capability for other feature extraction methods to be easily added in the future. All this information will then be used by the user to reorganize and filter the photos on display.
+
+
+%§ We will now detail the work done, taking this requirements into account.
 
 % subsection main_goal (end)
 
-\subsection{Design Goal} % (fold)
+\subsection{Design Goals} % (fold)
 \label{sub:design_goal}
 
-``Due to the different requirements of this work, we now introduce the several design goals that influ- enced its development:''
+\red{We also defined some additional requirements related to the design of the solution.}
 
 \subsubsection{Ease of Use} % (fold)
 \label{ssub:ease_of_use}
 
-...
-
+Ease of use is one of the most important characteristics of any piece of software and can shape how well it will sell. Much more attention has been given to the \ac{UX} in the last few years. Systems easier to use systems get the job done faster, are more enjoyable to use and allow less experienced users to be able to use it. We paid attention to this and did an effort to build an easy to use but powerful system.
 % subsubsection ease_of_use (end)
+
+
+
+\subsubsection{Extensibility} % (fold)
+\label{ssub:Extensibility}
+
+The extensibility factor of a system is also important for the added value that can be obtained by quickly adding new features. We made some parts of our work with this in mind, by allowing either external plugins or by generalization of code, allowing for future improvements with less work.
+
+% subsubsection Extensibility (end)
+
+
+
+\subsubsection{Performance} % (fold)
+\label{ssub:Performance}
+
+Our work has to be performent enough so it doesn't frustrate its users.
+
+% subsubsection Performance (end)
+
+\red{What else?}
 
 % subsection design_goal (end)
 

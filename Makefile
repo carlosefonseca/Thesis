@@ -34,4 +34,4 @@ veryclean:
 	rm -f $(FILE).pdf $(FILE).ps
 
 q:
-	${PATH}/pdflatex ${FILE}
+	${PATH}/pdflatex -interaction=nonstopmode ${FILE}

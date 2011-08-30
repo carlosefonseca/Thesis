@@ -5,9 +5,7 @@
 
 Eagle Eye is a visualization tool that enables the display and manipulation of a large image set at once. It is focused at the regular computer user that has a few thousand digital photographs stored on the computer. It allows navigation, through panning and zooming the canvas of the image collection, sorting through different methods and multiple ways of filtering, either textual or visual.
 
-In this chapter, we will detail the various components that make up this work. 
-
-We are now going through the pieces that make all of this work.
+In this chapter, we will detail the various components that make up this work and how they interact.
 
 
 \section{Design Decisions} % (fold)
@@ -16,15 +14,15 @@ We are now going through the pieces that make all of this work.
 \subsubsection{DeepZoom} % (fold)
 \label{ssub:deepzoom}
 
-After analyzing some visualization technologies that allowed easy display and manipulation of images\todo{Insert a bunch of useless tech}, Microsoft’s Silverlight, with its DeepZoom technology, proved to be the best choice.
+After analyzing some visualization technologies that allowed easy display and manipulation of images \todo{Insert a bunch of ``useless'' tech}, Microsoft’s Silverlight, with its DeepZoom technology, proved to be the best choice.
 
-DeepZoom enables the use of multiple resolution images for efficient display at various zoom levels and, for instance, is used for the display of gigapixel photos\todo{links}, where the user can view the whole image or zoom in the small details, or for collections of photos where the user can zoom between a view of multiple images and the details of a single image. So far, usages of DeepZoom have been restricted to promotion websites, art galleries and other closed usages.
+DeepZoom enables the use of multiple resolution images for efficient display at various zoom levels and, for instance, is used for the display of gigapixel photos \footnote{Gigapixel photo of San Francisco: \url{http://theeyegame.com/DZSL/TwinPeaks5DMk2}}, where the user can view the whole image or zoom in the small details, or for collections of photos where the user can zoom between a view of multiple images and the details of a single image\footnote{Hard Rock Memorabilia: \url{http://memorabilia.hardrock.com}}. So far, usages of DeepZoom have been restricted to promotion websites, art galleries and other closed usages.
 
 \red{This should be about the multi-scale images and not about DeepZoom $\rightarrow$ }Our work aims at bringing this technology to the regular user, in a much simpler and dynamic way.
 
 Although DeepZoom seemed a great technology, it relies on Silverlight, which by itself isn't as good as using a full-fledged desktop application framework like \ac{WPF} or other frameworks native to their platforms. This created some undesired limitations like the need to have two separated parts of the system, the visualization and the backend, and other smaller problems like limited access to the disk from the visualization part.
 
-To create a DeepZoom application, some pre-processing is required before hand to create multiple versions of each image in various resolutions and also to create imagery of a global view of the collection, also in multiple resolutions. This enables DeepZoom to only load the appropriate set of images for a certain zoom state, keeping the bandwidth (if used on the Internet) and memory \red{requirements} to a manageable level. This required pre-processing   is done once on the backend. The visualization then uses the generated data to display the collection, being, at this point, totally independent from the original image files belonging to the user.
+To create a DeepZoom application, some pre-processing is required before hand to create multiple versions of each image in various resolutions and also to create imagery of a global view of the collection, also in multiple resolutions. This enables DeepZoom to only load the appropriate set of images for a certain zoom state, keeping the bandwidth (if used on the Internet) and memory requirements to a manageable level. This required pre-processing   is done once on the backend. The visualization then uses the generated data to display the collection, being, at this point, totally independent from the original image files belonging to the user.
 
 % subsubsection deepzoom (end)
 % subsection design_decisions (end)
@@ -39,7 +37,3 @@ To create a DeepZoom application, some pre-processing is required before hand to
 
 
 
-
-
-
-\cleardoublepage
