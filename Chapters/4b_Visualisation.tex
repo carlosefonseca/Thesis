@@ -5,9 +5,16 @@
 The greatest challenge of this work was the creation of the visualization part for its requirements. We will now describe this part of Eagle Eye, its architecture, visualization techniques, sorting and filtering capabilities.
 
 \subsection{Overview}
-We wanted to make the visualization simple and easy to use, while keeping it flexible enough to allow for an enjoyable experience.
+We wanted to make the visualization simple and easy to use, while keeping it flexible and capable enough to allow for an enjoyable and relevant experience.
 
-After the backend has finished the all the processing that is needed, the visualization can be opened and all images that were added to the backend's processing list will appear. After loading the metadata, the user is presented with a set of options on the top toolbar, which is the only \ac{UI} needed to use the system. \todo{Add picture}
+After the backend has finished the all the processing that is needed, the visualization can be opened and all images that were added to the backend's processing list will appear in what we call the canvas. After loading the metadata, the user also presented with a set of options on the toolbar on the top, which is the only \ac{UI} needed to use the system (\fig{viz5141images}).
+
+\begin{figure}[ht]
+	\centering
+		\includegraphics[width=\columnwidth]{Figures/viz5141images1082.png}
+	\caption{Overview of the visualization. There are 5141 images are being displayed.}
+	\label{fig:viz5141images}
+\end{figure}
 
 According to \todo{insert the reference of the dude who claimed that a 32x32px image was the minimum for recognition}, an image with 32 pixels per side is the minimum size that allows a user to recognize an image.
 
