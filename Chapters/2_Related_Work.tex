@@ -48,41 +48,19 @@ For some people, having access to different arrangements of the same set of imag
 \section{Browsing large collections of images through unconventional visualization techniques} % (fold)
 \label{sub:Porta}
 
-% \begin{figure}[ht]
-% 	\centering
-% 	\subfloat[Spot display.]{
-% 		\includegraphics[width=0.5\columnwidth]{imgs-RelatedWork/Porta-spot}
-% 		\label{fig:porta:a}
-% 	}
-% 	\subfloat[Shot display.]{
-% 		\includegraphics[width=0.5\columnwidth]{imgs-RelatedWork/Porta-shot}
-% 		\label{fig:porta:b}
-% 	}
-% 	\label{fig:porta}
-% 	\caption{aaa}
-% \end{figure}
-
-\begin{figure}
-	\centering					%%—-start of first subfigure—-
-	\subfloat[Small Box with a Long Caption]{
-		\label{fig:subfig:a}	%% label for first subfigure
-		\includegraphics[width=0.4\columnwidth]{imgs-RelatedWork/Porta-spot}
-	}
-	\hspace{1in}
-
-	%%—-start of second subfigure—-
-	\subfloat[Big Box]{
-		\label{fig:subfig:b}	%% label for second subfigure
-		\includegraphics[width=0.4\columnwidth]{imgs-RelatedWork/Porta-shot}
-	}
-
-	\caption{Two Subfigures}
-	\label{fig:subfig}			%% label for entire figure
+\begin{figure}[!htb]
+  \begin{subfigmatrix}{2}
+    \subfigure[Spot display]{\includegraphics[width=0.49\linewidth]{imgs-RelatedWork/Porta-spot}\label{fig:porta-spot}}
+    \subfigure[Shot display]{\includegraphics[width=0.49\linewidth]{imgs-RelatedWork/Porta-shot}\label{fig:porta-shot}}
+  \end{subfigmatrix}
+  \caption{The two better visualizations from Porta's work.}
+  \label{fig:porta}
 \end{figure}
+
 
 Porta \cite{Porta:2006p416} describes a few visualization methods for large collections of images and tests them with users. The purpose it to find ways or metaphors that provide a good visualization experience in terms of time spent and quality of the visualization.
 
-Some of the various techniques were the simple image grid view, a grid view with variable and independent height and width (EIB), a view that animates images like they were shot from a distance and get closer to the user called Shot (\fig{porta:b}), a view where images quickly appear on random positions on screen named Spot (\fig{porta:a}), and some other less commons like one that simulates an cylinder created with images (Cylinder), and others less relevant (Rotor, Tornado and Tornado of Planes).
+Some of the various techniques were the simple image grid view, a grid view with variable and independent height and width (EIB), a view that animates images like they were shot from a distance and get closer to the user called Shot (\fig{porta-shot}), a view where images quickly appear on random positions on screen named Spot (\fig{porta-spot}), and some other less commons like one that simulates an cylinder created with images (Cylinder), and others less relevant (Rotor, Tornado and Tornado of Planes).
 
 The testing was based on the efficiency of users searching for specific images on a collection of a thousand photos. The Spot view was the best, followed the Shot, Cylinder finally the common grid view. The other views got scores near or below the grid view.
 
