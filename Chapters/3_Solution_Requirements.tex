@@ -11,21 +11,28 @@ For this to happen, the system must meet some requirements that we will specify 
 \section{Goals} % (fold)
 \label{sec:goals}
 
-We will now expose the main goals for this thesis as well as some design goals that the work must feature.
+We will now expose our vision for this work, by presenting the main goals we wanted to achieve with this thesis, as well as some of the guiding implementation requirements that we followed for a better end result.
 
 \subsection{Main Goal} % (fold)
 \label{sub:main_goal}
 
-The main goal of this thesis is to provide a different approach to the photo collection browsing reality.
+The main goal of this thesis is to provide a different approach to the photo collection browsing methods.
 
 More specifically, the work should:
 
-\begin{myitemize}
-	\item{provide the user with a full view of his photo collection, by displaying a large number of images in a single screen;}
-	\item{allow the manipulation of the display of images so that the user can create different views that allow new perceptions of his collection.}
-\end{myitemize}
+\begin{itemize}
+	\item{extract interesting information about the images — images, in particular photographs, contain a lot of easily retrieval metadata in them that can then be used to identify patterns and characteristics of the collection. Other interesting information can be extracted from the contents of the images themselves by analyzing their contents;}
 
-With this capabilities, the work should be able to provide the user not only with a better understanding of the collection but also with an easy and interesting way to visually combine and view photographs.
+
+	\item{provide an interaction with the full collection — we want to enable the users to easily view and interact with the entire collection at the same time, if they want to;}
+
+	\item{efficiently display a large number of images in a single screen — this goal goes inline with the previous one: to be able to interact with the full collection, we should be able to display it all, at the same time, using techniques to make better use of available screen space;}
+
+	\item{allow the manipulation of the display — we want the users to create different views that enable new perceptions of their collection, based on the extracted information.}
+
+\end{itemize}
+
+With this capabilities, our work should be able to provide the user not only with a better understanding of the collection but also with an easy and interesting way to visually combine and view photographs.
 
 
 %be able to handle thousands of images and display them all on the screen while maintaining responsiveness and giving useful information. The system's \ac{UI} should be clear and easy to use, allowing the user to navigate through the display of photos, through zooming and panning, and to reorganize the display the photos in a number of ways.
@@ -37,15 +44,20 @@ With this capabilities, the work should be able to provide the user not only wit
 
 % subsection main_goal (end)
 
-\subsection{Design Goals} % (fold)
-\label{sub:design_goal}
+\subsection{Implementation Requirements} % (fold)
+\label{sub:Implementation_Requirements}
 
-\red{We also defined some additional requirements related to the design of the solution.}
+In addition to the referred main goals, we set our selves some design goals, or requirements, for our implementation. With them, we want our work to get closer to a real application, that real users can use and have some flexibility for it to evolve with time.
+
+Therefore, we set the following requirements:
 
 \subsubsection{Ease of Use} % (fold)
 \label{ssub:ease_of_use}
 
-Ease of use is one of the most important characteristics of any piece of software and can shape how well it will sell. Much more attention has been given to the \ac{UX} in the last few years. Systems easier to use systems get the job done faster, are more enjoyable to use and allow less experienced users to be able to use it. We paid attention to this and did an effort to build an easy to use but powerful system.
+Ease of use is one of the most important characteristics of any piece of software and can shape how well it will sell. Much more attention has been given to the \ac{UX} in the last few years. Systems that are easier to use systems, get the job done faster, are more enjoyable to use and allow less experienced users to use it.
+
+Since this is such an important characteristic, we aimed at providing a simple interaction from the beginning to the end, while also providing a powerful system, even though it could be even more refined in a few areas.
+
 % subsubsection ease_of_use (end)
 
 
@@ -53,7 +65,7 @@ Ease of use is one of the most important characteristics of any piece of softwar
 \subsubsection{Extensibility} % (fold)
 \label{ssub:Extensibility}
 
-The extensibility factor of a system is also important for the added value that can be obtained by quickly adding new features. We made some parts of our work with this in mind, by allowing either external plugins or by generalization of code, allowing for future improvements with less work.
+The extensibility factor of a system is also important for the added value that can be obtained by quickly adding new features, either by the developers or by third parties. We made some parts of our work with this in mind, by allowing either external plugins or by generalization of code, allowing for future improvements with less trouble.
 
 % subsubsection Extensibility (end)
 
@@ -62,7 +74,10 @@ The extensibility factor of a system is also important for the added value that 
 \subsubsection{Performance} % (fold)
 \label{ssub:Performance}
 
-Our work has to be performent enough so it doesn't frustrate its users.
+One of our main goals is to display a large set of images on the screen, but this brings problems since each image, in full-size, can take a good set of resources of the system. If we multiply this resources for a thousand images, we will not have a performent work.
+
+Therefore, we set this requirement for having a performent work, that can be used with at least a few thousand images without taking down the system while using it.
+
 
 % subsubsection Performance (end)
 
