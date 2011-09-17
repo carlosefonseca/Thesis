@@ -3,9 +3,22 @@
 
 % 30/40 pages
 
-Eagle Eye is a visualization tool that enables the display and manipulation of a large image set at once. It is focused at the regular computer user that has a few thousand digital photographs stored on the computer. It allows navigation, through panning and zooming the canvas of the image collection, sorting through different methods and multiple ways of filtering, either textual or visual.
+Eagle Eye is the product of this thesis and is our implementation of the requirements previously detailed. It is a visualization tool that enables the display and manipulation of a large image set at once. It is focused at the regular computer user that has a few thousand digital photographs stored on the computer. It allows navigation, through panning and zooming of the canvas where the image collection is disposed, sorting in different ways while also allowing filtering, either textual or visual.
 
-In this chapter, we will detail the various components that make up this work and how they interact.
+In this chapter, we will go through how does Eagle Eye work, what are its components and how they interact.
+
+
+\section{Overview}
+
+Our requirements stated the need for features to be extracted from images, so we  started by creating a system to enable that. We then changed our focus to the visualization part of the work and redefined the general architecture of the work. The system is now composed of two main elements: the Backend, which is the system that extracts features from the images and prepares everything to be displayed; and the Visualization which performs the display from the images and their extracted features to the user.
+
+
+This is the overview of the system that we will now detail in the following sections.
+
+
+
+
+\hide{
 
 
 \section{Design Decisions} % (fold)
@@ -22,10 +35,17 @@ DeepZoom enables the use of multiple resolution images for efficient display at 
 
 Although DeepZoom seemed a great technology, it relies on Silverlight, which by itself isn't as good as using a full-fledged desktop application framework like \ac{WPF} or other frameworks native to their platforms. This created some undesired limitations like the need to have two separated parts of the system, the visualization and the backend, and other smaller problems like limited access to the disk from the visualization part.
 
-To create a DeepZoom application, some pre-processing is required before hand to create multiple versions of each image in various resolutions and also to create imagery of a global view of the collection, also in multiple resolutions. This enables DeepZoom to only load the appropriate set of images for a certain zoom state, keeping the bandwidth (if used on the Internet) and memory requirements to a manageable level. This required pre-processing   is done once on the backend. The visualization then uses the generated data to display the collection, being, at this point, totally independent from the original image files belonging to the user.
+To create a DeepZoom application, some pre-processing is required before hand to create multiple versions of each image in various resolutions and also to create imagery of a global view of the collection, also in multiple resolutions. This enables DeepZoom to only load the appropriate set of images for a certain zoom state, keeping the bandwidth (if used on the Internet) and memory requirements to a manageable level. This required pre-processing is done once on the backend. The visualization then uses the generated data to display the collection, being, at this point, totally independent from the original image files belonging to the user.
+
+\subsubsection{Separation of Frontend and Backend}
+
+As we just said, there's a need for previous processing to occur
 
 % subsubsection deepzoom (end)
 % subsection design_decisions (end)
+
+}
+
 
 \input{Chapters/4a_Backend}
 
