@@ -1,18 +1,23 @@
 \section{Backend} % (fold)
 \label{sub:backend}
 
-The backend is one of the two parts that make Eagle Eye. It is a command line utility that creates a library upon opening that the user must fill by adding the paths of folders containing images. The system will then read those images, gather their metadata, process them to extract visual features and, finally, generate and output the multi-scale imagery alongside with control metadata for the visualization.
+The backend is one of the two parts that make Eagle Eye. Its purpose is to extract information from images and set everything up for the Visualization.
 
-We will now detail the various parts of the backend.
+Currently it is a command line utility that allows the user to enter paths for folders containing image files. The system will then read those images, gather their metadata, process them with the existing plugins to extract visual features and, finally, generate and output the multi-scale imagery \red{(ainda não se falou disto)} alongside with control metadata for the visualization.
+
+We will now detail its architecture, and implemented feature extractors.
 
 \subsection{Architecture}
+
+The Backend comprises a library manager to hold the images, feature extractors to process those images and persistence to save all generated data.
+
 
 \subsubsection{Library Manager} % (fold)
 \label{ssub:library_manager}
 
-The system displays images and, therefore, it needs to know what to show. This is where the Library Manager comes in. It creates a database which indexes existing JPG image files stored on the user's computer and makes this information available for other modules to use. It is designed to be used with digital photographs which contain \ac{EXIF}\footnote{\ac{EXIF} is a standard that specifies the formats for tags used by digital systems handling image and sound files recorded by digital devices. \url{http://en.wikipedia.org/wiki/Exchangeable_image_file_format}} metadata, information stored by the camera at the moment of the capture, like time, date, and camera information. This information is gathered upon import and is also available to  other modules to use.
+The system displays images and, therefore, it needs to know what to show. This is where the library manager comes in. It creates a database which indexes existing JPEG image files stored on the user's computer and makes this information available for other modules to use. It is designed to be used with digital photographs which contain the aforementioned EXIF metadata like time, date, camera information, or location. This information is gathered upon import and is available throughout the Backend.
 
-We explored a few ways to develop the image import process and we rested at the fastest we found. The user refers a folder to be imported and we use a third-party program, ExifTool\footnote{ExifTool is an utility that allows easy read and write of file metadata. \url{http://www.sno.phy.queensu.ca/~phil/exiftool}}, to crawl through the folder structure while identifying all the JPG images and returning their \ac{EXIF} metadata which is then saved by our system (\fig{arch:import})
+We explored a few ways to develop the image import process and we rested at the fastest we found. The user refers a folder to be imported and we use a third-party program, ExifTool\footnote{ExifTool is a utility that allows easy read and write of file metadata. \url{http://www.sno.phy.queensu.ca/~phil/exiftool}}, to crawl through the user-specified folders while identifying all the JPEG images and returning their \ac{EXIF} metadata which is then stored by our system (\fig{arch:import}).
 
 \begin{figure}[ht]
 	\centering
@@ -21,7 +26,8 @@ We explored a few ways to develop the image import process and we rested at the 
 	\label{fig:arch:import}
 \end{figure}
 
-Another option for importing metadata was to invoke EXIFTool as part of a \ac{FEP}. Although that could fix a couple of problems with the current  implementation, it doesn’t make the metadata as ubiquitous as needed. Most \acp{FEP} rely on some \ac{EXIF} plugins to work correctly and the current implementation doesn’t easily allow inter-\ac{FEP} data-sharing.
+
+Another option for importing metadata was to invoke ExifTool as part of a \ac{FEP}. Although that could fix a couple of problems with the current  implementation, it doesn’t make the metadata as ubiquitous as needed. Most \acp{FEP} rely on some \ac{EXIF} plugins to work correctly and the current implementation doesn’t easily allow inter-\ac{FEP} data-sharing.
 
 % subsubsection library_manager (end)
 
@@ -31,7 +37,7 @@ Another option for importing metadata was to invoke EXIFTool as part of a \ac{FE
 \subsubsection{Feature Extraction} % (fold)
 \label{ssub:FeatureExtraction}
 
-To arrange the images in the screen in different ways, they need to be classified. Some information is easy to obtain and compare, like when the photograph was taken. Other information needs to be extracted, like the number of people in the photo or what are the most relevant colors in the image. \Fig{fe} is a short example of what feature extraction is all about.
+To enable the Visualization to arrange the images on the screen in different ways, they need to be classified. Some information is easy to obtain and compare, like when the photograph was taken. Other information needs to be extracted, like the number of people in the photo or what are the most relevant colors in the image. \Fig{fe} is a short example of what feature extraction is all about.
 
 \begin{figure}[ht]
 	\centering
@@ -40,9 +46,9 @@ To arrange the images in the screen in different ways, they need to be classifie
 	\label{fig:fe}
 \end{figure}
 
-We had a few ideas for extracting features from images and, to be possible to add more along the way, we developed a plugin system to ease the creation of other plugins in the future.
+We had a few ideas for extracting features from images and, to be possible to add more along the way, we developed a plugin system to ease the creation of other feature extractors in the future.
 
-Feature Extraction Plugins need to implement a common interface and are given the ability to process images and save the gathered data. They have freedom to access the image file or its \ac{EXIF} information and to structure the gathered data the way best suited for its purpose. They should, in the end, store the processed data in a specified way so it gets exported to the visualization. Existing plugins will be explained in section \ref{sub:plugins}.
+Each Feature Extraction Plugin is separated from the main system. They need to implement a common interface and are given the ability to access the image data from the library, and save the computed data back. They have freedom to access the image file or its \ac{EXIF} information. They should, in the end, store the processed data in a specified way so it gets exported to the visualization. Implemented plugins will be explained in section \ref{sub:plugins}.
 
 % subsubsection Feature Extraction (end)
 
@@ -52,9 +58,9 @@ Feature Extraction Plugins need to implement a common interface and are given th
 \subsubsection{Persistence} % (fold)
 \label{ssub:Persistence}
 
-Persistence of both library and plugin data are required so the system doesn't lose already gathered information. To ease the interaction with a database system, we created a database abstraction layer that hides the complexities of interacting with said system. It also allows us to change to another database system if we see the need for it. We chose Oracle's Berkeley DB\footnote{Berkeley DB is a high-performace, embeddable, key-value, file-based database available at \url{http://www.oracle.com/technetwork/database/berkeleydb}} for its speed in retrieving data.
+Persistence of both library and plugin data are required so the system doesn't lose information that took time to generate. To ease the interaction with a database system, we created a database abstraction layer that hides the complexities of interacting with said system. It also allows us to change to another database system if we see the need for it. We chose Oracle's Berkeley DB\footnote{Berkeley DB is a high-performace, embeddable, key-value, file-based database available at \url{http://www.oracle.com/technetwork/database/berkeleydb}} for its speed in retrieving data.
 
-With this layer we can hide some optimization complexities like lazy-saving and lazy-loading. We use lazy-saving to save data to disk by chunks instead of doing it on each small update, speeding up the update process. Lazy-loading is not yet implemented but it's essential with libraries with tens of thousands of images, where keeping a complete library in memory is not feasible.
+With this layer we can hide some optimization complexities like lazy-saving and lazy-loading. We use lazy-saving to save data to disk by chunks instead of doing it on each small update, speeding up the update process. Lazy-loading is not yet implemented but it is essential with libraries with tens of thousands of images, where keeping a complete library in memory is not feasible.
 
 % subsubsection database_abstraction_layer (end)
 
@@ -74,6 +80,8 @@ With this layer we can hide some optimization complexities like lazy-saving and 
 \subsection{Feature Extraction Plugins} % (fold)
 \label{sub:plugins}
 
+Back in the Solution Requirements chapter (\ref{s:features}), we detailed some possible features that were interesting to be used in this work. In this section we will detail what extractors have been implemented.
+
 Currently, we have four feature extraction plugins:
 \begin{myitemize}
 	\item Selection of useful image metadata
@@ -86,20 +94,74 @@ We now proceed to the explanation of each one of this plugins.
 
 \subsubsection{Selection of useful image metadata}
 
-This plugin acts as a filter for all the available \ac{EXIF} tags. It picks the most relevant, codes them in a defined way and appends them to the rest of the information to be exported for the visualization.
+This plugin acts as a filter for all the available \ac{EXIF} tags. It picks the most relevant ones, codes them in a pre-defined way and appends them to the rest of the information to be exported for the visualization.
 
-Information when the photo was captured, what device was used, the path where it resides or information about the location where the photo was taken are a good example of the most commonly relevant tags \todo{Ask users what other tags are relevant for them}. This set of extracted tags could be optionally set by the user.
-
+Information when the photo was captured, what device was used, the path where it resides or information about the location where the photo was taken are a good example of the most commonly relevant tags \todo{Ask users what other tags are relevant for them}. In the future, this set of extracted tags could be optionally set by the user.
 
 
 \subsubsection{Detection of image’s main color}
 
-Sometimes people don’t recall where or when a photo was taken, or where is it, but they vaguely remember, for instance, that the photo had some dominant color, for instance, the light blue of sky, the green of the grass or from a park, the dark blue of the sea, maybe some big red ball that someone was playing with. This information can be helpful when searching for a photo in a collection.
+Sometimes people don’t recall where or when a photo was taken, or where is it, but they vaguely remember that the photo had some dominant colors, like the red of a parrot in a green background (\fig{parrot}). This kind of information can be helpful when searching for a photo in a collection.
 
-Color extraction from images has been a long standing problem \todo{insert a bunch of references for color detection}. One relevant work that we based this plugin is from Qiu et al\cite{Qiu:2007p1207} for exploring a method of image indexing that is fast and simple. On his work, images are sorted into ``bins'' according the their average color. This bins are divisions of color planes, indexed using binary trees allowing for very fast searches (\fig{qiu-color-regions}). For our plugin we used the open source library AForge.Imaging\footnote{AForge is a framework designed for developers and researchers in the fields of Computer Vision and Artificial Intelligence \url{http://www.aforgenet.com/framework/}} to obtain histograms for the images and compute their average color in RGB\footnote{Red, green and blue \url{http://en.wikipedia.org/wiki/RGB}} and HSL\footnote{Hue, saturation and luminance \url{http://en.wikipedia.org/wiki/HSL_and_HSV}} values. Both those values are then stored on the plugin-extracted data for each image.
+\begin{wrapfigure}{r}{0.3\textwidth}
+	\vspace{-20pt}
+	\begin{center}
+		\includegraphics[width=0.29\textwidth]{Figures/parrot}
+	\end{center}
+	\vspace{-20pt}
+	\caption{A colorful photo.}
+	\vspace{-5pt}
+	\label{fig:parrot}
+\end{wrapfigure}
 
-\red{this probably shouldn’t be here}
-This plugin demonstrates that color extraction is feasible and, with more time, a better method that does not average the colors but instead detects the most relevant ones could be implemented. \todo{references needed}
+Color extraction from images has been a long standing problem \todo{insert a bunch of references for color detection}. We wanted to extract the most perceptible colors from images so, in the parrot example above (\fig{parrot}), the system should associate the image with the colors red, green, white and black and avoid colors that have little relevance, like the small blue of  the feathers and also ignore small tonal variances in the reds and greens.
+
+For that we explored two methods that reduce the number of colors in an image to the most essential ones, the first being an adaptive method, selecting a few averaged colors from the image and the second using a palette as reference to select the colors.
+
+A common JPEG photo can contain 16.8 million different colors. Our adaptive method reduces the possible colors to less than ten\footnote{We tried with multiple options from one color to ten colors and the results vary from image to image}. The obtained colors are chosen by averaging the colors in the image, so if there's a lot of blue tones, a single, averaged blue will be replacing those tones (see the middle image of \fig{sky}). In areas that have little tonal variation of the color, the resulting color will be very similar to the original (like in the right image of \fig{sky}). But sometimes this method fails to save important colors when they occupy a relatively small area of the image or if the image doesn't have a strong contrasts (shown by the left image in \fig{sky}).
+
+\begin{figure}[ht]
+	\centering
+		\includegraphics[width=\columnwidth]{Figures/colorreduction.png}
+	\caption{Three images where the left half is the original version and the right half is a version with very limited number of colors provided by the adaptive method.}
+	\label{fig:sky}
+\end{figure}
+
+
+
+
+The second method uses a predefined color palette (\fig{colors}) which is an adapted mix between the eleven most recognizable colors (red, yellow, green, blue, purple, brown, orange, pink, black, white and grey)\footnote{Qiu \cite{Qiu:2007p1207} explains this are the most universal recognizable colors in any language.} and the 21 ColorAdd colors\footnote{ColorAdd is a 21 color catalog with symbols for each color designed specifically for color blind people. We used the colors as a reference, specially the light and dark variations.}. This mix has a great range of colors and each one can be easily named with recognizable words\footnote{We want to avoid names like ``Amaranth'' or ``Munsell'' that most people don't know about. A large list of this names can be found on \url{http://en.wikipedia.org/wiki/List_of_colors}.} which then could be assigned to the images. The images processed with this method get their colors changed to the most similar ones present in our palette. This assures that colors in a relatively small area or images with low contrast still get the deserved attention (\fig{pinkP}), unlike the adaptive method (\fig{pinkA}). This method doesn't reproduce the colors so well as the adaptive but, since we want to obtain generic colors, this one is more reliable.
+
+
+\begin{figure}[!ht]
+	\centering
+		\includegraphics[width=\columnwidth, height=45pt]{Figures/colours.pdf}
+	\caption{Color palette in use for restricting the possible colors in an image.}
+	\label{fig:colors}
+\end{figure}
+
+
+\begin{figure}[!htb]
+  \begin{subfigmatrix}{3}
+    \subfigure[Original image] {\includegraphics[width=0.328\linewidth]{Figures/pink1.png}\label{fig:pinkO}}
+    \subfigure[Adaptive method]{\includegraphics[width=0.328\linewidth]{Figures/pink2.png}\label{fig:pinkA}}
+    \subfigure[Mapping method] {\includegraphics[width=0.328\linewidth]{Figures/pink3.png}\label{fig:pinkP}}
+  \end{subfigmatrix}
+  \caption{Comparison between the original image, the adaptive color reduction method failing to keep the pink and the blue colors and the color mapping method.}
+  \label{fig:pink}
+\end{figure}
+
+
+This was the research we made to extract perceptible colors from images. We generated the above demonstration images using ImageMagick\footnote{ImageMagick is a software suite to create, edit, compose, or convert bitmap images. \url{http://www.imagemagick.org}} and its ``colors'' feature for the adaptive method and the ``remap'' for the palette method. Unfortunately, time was not on our side and we had to move to a simpler system. 
+
+The current color extractor plugin does a simpler job of calculating the median color of the image and use the hue to index images.
+
+We took some ideas from the work of Qiu et al\cite{Qiu:2007p1207} of exploring a method of image indexing that is fast and simple. On this work, images are sorted into ``bins'' according the their average color. This bins are divisions of color planes, indexed using binary trees allowing for very fast searches.
+
+We used the open source library AForge.Imaging\footnote{AForge is a framework designed for developers and researchers in the fields of Computer Vision and Artificial Intelligence \url{http://www.aforgenet.com/framework/}} to obtain histograms for the images and compute their average color in RGB\footnote{Color model composed by red, green and blue \url{http://en.wikipedia.org/wiki/RGB}} and HSL\footnote{Color model composed of hue, saturation and luminance \url{http://en.wikipedia.org/wiki/HSL_and_HSV}} values. Both those values are then stored on the plugin-extracted data for each image. The images will be distributed into bins on the Visualization. We could assign bins at this point but, by not doing so, we are giving freedom to the users to change the number of bins used for display. We will discuss this on the Visualization sections ahead.
+
+
+Although we didn't implement this plugin the way we desired, it demonstrates that color extraction is feasible and, with more time, a better method that does more than just averaging the colors, including detecting the most relevant ones, could be implemented. \todo{references needed}
 
 \todo{show of differences between having the image reduced or not. something I never tested :P}
 
