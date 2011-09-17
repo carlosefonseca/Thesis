@@ -3,25 +3,25 @@
 
 Our survey was based on various types of previous work from the last ten years. Image browsers and technology have evolved a lot since then but there still isn't a definitive way for a user to look at his larger photo collection and understand its content and evolution.
 
+
+
 We have the vision of a system that displays a large set of user’s photos at the same time, in various arrangements, revealing patterns, differences and similarities between them.
 
-For this to happen, the system must meet some requirements that we will specify on this chapter.
+We will now expose this vision by presenting the main goals we want to achieve with this thesis, as well as some of the guiding implementation requirements that we followed for a better end result.
 
 
-\section{Goals} % (fold)
-\label{sec:goals}
 
-We will now expose our vision for this work, by presenting the main goals we wanted to achieve with this thesis, as well as some of the guiding implementation requirements that we followed for a better end result.
 
-\subsection{Main Goal} % (fold)
-\label{sub:main_goal}
+
+\section{Main Goals} % (fold)
+\label{s:main_goal}
 
 The main goal of this thesis is to provide a different approach to the photo collection browsing methods.
 
 More specifically, the work should:
 
 \begin{itemize}
-	\item{extract interesting information about the images — images, in particular photographs, contain a lot of easily retrieval metadata in them that can then be used to identify patterns and characteristics of the collection. Other interesting information can be extracted from the contents of the images themselves by analyzing their contents;}
+	\item{extract interesting information about the images — explained in detail in section\ref{s:features};}
 
 
 	\item{provide an interaction with the full collection — we want to enable the users to easily view and interact with the entire collection at the same time, if they want to;}
@@ -44,14 +44,22 @@ With this capabilities, our work should be able to provide the user not only wit
 
 % subsection main_goal (end)
 
-\subsection{Implementation Requirements} % (fold)
-\label{sub:Implementation_Requirements}
+
+
+
+
+
+
+
+
+\section{Implementation Requirements} % (fold)
+\label{s:Implementation_Requirements}
 
 In addition to the referred main goals, we set our selves some design goals, or requirements, for our implementation. With them, we want our work to get closer to a real application, that real users can use and have some flexibility for it to evolve with time.
 
 Therefore, we set the following requirements:
 
-\subsubsection{Ease of Use} % (fold)
+\subsection{Ease of Use} % (fold)
 \label{ssub:ease_of_use}
 
 Ease of use is one of the most important characteristics of any piece of software and can shape how well it will sell. Much more attention has been given to the \ac{UX} in the last few years. Systems that are easier to use systems, get the job done faster, are more enjoyable to use and allow less experienced users to use it.
@@ -62,7 +70,7 @@ Since this is such an important characteristic, we aimed at providing a simple i
 
 
 
-\subsubsection{Extensibility} % (fold)
+\subsection{Extensibility} % (fold)
 \label{ssub:Extensibility}
 
 The extensibility factor of a system is also important for the added value that can be obtained by quickly adding new features, either by the developers or by third parties. We made some parts of our work with this in mind, by allowing either external plugins or by generalization of code, allowing for future improvements with less trouble.
@@ -71,7 +79,7 @@ The extensibility factor of a system is also important for the added value that 
 
 
 
-\subsubsection{Performance} % (fold)
+\subsection{Performance} % (fold)
 \label{ssub:Performance}
 
 One of our main goals is to display a large set of images on the screen, but this brings problems since each image, in full-size, can take a good set of resources of the system. If we multiply this resources for a thousand images, we will not have a performent work.
@@ -85,6 +93,38 @@ Therefore, we set this requirement for having a performent work, that can be use
 
 % subsection design_goal (end)
 
-% section goals (end)
+
+
+
+\section{Features of Images and Photographs}
+\label{s:features}
+
+%extract interesting information about the images
+
+As referred before, we want our system to extract interesting information about the images and we will now explain this in detail.
+
+
+Unlike textual data, images are a type of data where is not trivial to extract information from, in a computational environment. It's easy for us, common people, to understand what certain picture is showing. We can easily distinguish if there are, for instance, animals, people, flowers, buildings but it's hard for a computer to do the same, and it's even harder to understand if that certain photo of a building and a person was taken because of the building or the person or both.
+\refs
+
+There have been various developments in the feature extraction front \refs and is currently possible to perform various detections in images with various levels of satisfaction.
+
+Some examples of working solutions for feature detection:
+
+\begin{myitemize}
+	\item{Face recognition — detection of the presence of faces in the images and their position \refs}
+	\item{Object identification — identify objects in images \refs. The current approaches require large example databases of objects that take a lot of space, becoming hard to implement for users.}
+	\item{Identification of perceptive colors — what are the main colors that users perceive in certain image \refs}
+	\item{\todo{find more}}
+\end{myitemize}
+
+We want to use some of this methods to automatically extract information from the contents of images but, since this work is mostly focused on photography, there is another way to obtain really useful information that is EXIF Metadata.
+
+EXIF Metadata is a standard format for metadata included in digitally captured media, like photographs captured by digital cameras. This devices save a lot of information on the image file, like the date and time of the capture, camera settings, camera orientation, location data and even detected faces\footnote{the availability of some of this data requires capable camera hardware and software that are getting more common nowadays.}. This is textual data and, therefore, much easier to retrieve and analyze than the content based methods we discussed above and is a great addition to them.
+
+Mixing all this different data, users should be able to interact, filter, sort and organize their collection in various ways, obtaining new and different perspectives of their images.
+
+
+
 
 % chapter solution_requirements (end)
