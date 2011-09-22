@@ -56,16 +56,20 @@ The other button in this section of the toolbar is called ``Group Names'' and en
 
 The third and final section of the toolbar is the filter section. It contains controls to filter images by using simple text and to visually select images on the canvas. This options will also be explained bellow.
 
+
+
 \subsection{Disposition of Images on Canvas}
 \label{sub:dispositions}
 
-The different ways to dispose the images on the canvas was a matter that required some exploration of possibilities \refs. We chose a few options to allow some flexibility for the user, while trying to keep the interface simple.
+The different ways to dispose the images on the canvas was a matter that required some exploration of possibilities, like the ones seen on the Related Work (\cite{Bederson:2001:PZI:502348.502359,Bruls:2000p3517,Chen:1998p2344,Girgensohn:2010,Heesch:2004p2675,Hsu:2009p2696,Porta:2006p416,Rodden:2001p731,Schaefer:2010p1871,Strong:2009p413}).
 
-We are now going to explain how do we sort images into groups and the different ways the user can arrange those groups on the canvas.
+We have come up with a some options for photo grouping, sorting and filtering. We kept a sensible set of the choices so its easy and understandable for users. 
+To make sense of how all this pieces work together, we are going to explain how do we sort images into groups and the different ways the user can arrange those groups on the canvas, followed by how filtering is done.
+
 
 \subsubsection{Sorting images into groups}
 
-As we've seen, the backend outputs metadata for each image. This metadata is loaded into the visualization application of Eagle Eye and is indexed by their type.
+As we've seen previously, the backend outputs metadata for each image. This set of metadata is loaded into the visualization application of Eagle Eye and is then indexed by type.
 
 For instance, each image has an associated creation timestamp which will be aggregated by days, generating an image group for each day.
 
@@ -82,7 +86,7 @@ On the canvas, group boundaries are identifiable by discrete gray borders and, w
 
 After having the images grouped by any of the sorting options referred on the previous section, the system has to know how to display them on the canvas.
 
-We looked into various options \refs and picked the ones that we thought that made sense and also that would be easier for the user to understand. We chose a treemap view and a column-based linear view. Both of these are grid-based layouts, meaning that images are positioned inside a defined grid on the canvas. We also looked into free positioning systems like \refs but they make it harder for the user to understand the images within, since some images will be covered by others. When displaying thousands of images, it's important to make them easy to see, and mixing them up wasn't the appropriate thing to do. We focused on other ways for making it easier to the user see what matters and we will talk about them later on.
+We looked into various options (\cite{Bederson:2001:PZI:502348.502359,Bruls:2000p3517,Chen:1998p2344,Girgensohn:2010,Heesch:2004p2675,Hsu:2009p2696,Porta:2006p416,Rodden:2001p731,Schaefer:2010p1871,Strong:2009p413}) and picked the concepts that we thought that made sense and that would be easier for the user to understand. We chose a treemap view and a column-based linear view. Both of these are grid-based layouts, meaning that images are positioned inside a defined grid on the canvas. We also looked into free positioning systems (\cite{Girgensohn:2010,Rodden:2001p731,Schaefer:2010p1871,Strong:2009p413}) but they make it harder for the user to understand the images within, since some images will be covered by others. When displaying thousands of images, it's important to make them easy to see, and mixing them up wasn't the appropriate thing to do. We focused on other ways for making it easier to the user see what matters and we will talk about them later on.
 
 \begin{wrapfigure}{r}{0.3\textwidth}
 	\vspace{-23pt}
@@ -95,32 +99,33 @@ We looked into various options \refs and picked the ones that we thought that ma
 	\label{fig:commontreemap}
 \end{wrapfigure}
 
-The first layout technique we employed was the treemap. Introduced by Ben Shneiderman in 1991, treemaps recursively subdivide areas into rectangles. The problem is that areas can take many forms, from squares or large rectangles to almost thin lines, like can be seen on \fig{commontreemap}. Applying treemaps to images calls for the adaptation of the algorithms to make sure the areas can correctly hold the images and that all images in all groups have the same size and are positioned in the same grid, to make them easier to view. This ideas are supported by B. Bederson on his work with the Quantum Treemaps \cite{Bederson:2001:PZI:502348.502359}. We tried to apply Quantum treemaps as our treemap algorithm but, due to its complexity and other recurring problems, we had to move to a simpler method and adapted the Squarified treemaps \cite{Bruls:2000p3517} by Mark Bruls to the reality of the image grid. This new algorithm was much easier to understand and implement, although it might require a small fine running for a couple of edge cases.
+The first layout technique we employed was the treemap. Introduced by Brian Johnson and Ben Shneiderman \cite{Johnson:1991:TSA:949607.949654} in 1991, treemaps recursively subdivide areas into rectangles. The problem is that areas can take many forms, from squares or large rectangles to almost thin lines, like can be seen on \fig{commontreemap}. Applying treemaps to images calls for the adaptation of the algorithms to make sure the areas can correctly hold the images and that all images in all groups have the same size and are positioned in the same grid, to make them easier to view. This ideas are supported by B. Bederson on his work with the Quantum Treemaps \cite{Bederson:2001:PZI:502348.502359}. We tried to apply quantum treemap as our treemap algorithm but, due to its complexity and other recurring problems, we had to move to a simpler method and adapted the squarified treemaps \cite{Bruls:2000p3517} by Mark Bruls to support the grid of images that we required. This algorithm was much easier to understand, adapt and implement.
 
-Our treemap algorithm displays larger groups first, leaving the smaller ones to the end and makes an effort to layout groups as rectangles with an aspect ratio as close as possible to the screen's aspect ratio, for when the user zooms in, the groups fill the screen. There's also an effort to fill the space left between larger groups and the edges of the screen, making the display more compact and with less empty space across the screen edges.
+Our resulting treemap algorithm displays larger groups first, leaving the smaller ones to the end, making an effort to layout groups as rectangles with an aspect ratio as close as possible to the screen's aspect ratio, for filling the screen when the user zooms on one. There's also an effort to fill the space left between larger groups and the edges of the screen, making the display more compact and with less empty space across the screen edges.
 
-One problem of the squarified treemap display is that group sequence is irrelevant. Groups are positioned by their size, which is unacceptable for sorting options that require some sequence, like sorting by time. For this we created a linear display that uses columns and displays groups sequentially. Each group may fill part of a column or various columns, depending on their size. With the aim of reducing wasted space, groups that fit on the wasted space left by the previous group use that space to display themselves. This is useful  to collapse the couple pictures the user might take of his regular day between days that he went on a trip and took a much larger number of photographs.
+One problem of the squarified treemap display is that group sequence is irrelevant. Groups are positioned by their size, which is unacceptable for sorting options that require some sequence, like sorting by time. For this we created a linear display \todo{figure} that uses columns and displays groups sequentially. Each group may fill part of a column or various columns, depending on their size. With the aim of reducing wasted space, groups that fit on the wasted space left by the previous group use that space to display themselves. This is useful to group the few pictures the users may capture of their day-to-day, between days (like weekends) that he went on a trip and took a much larger number of photographs.
 
-Currently we are using this layout system only for the date display since the use of columns makes visualization harder, requiring either some panning around the canvas or selecting the group using the filter tools explained ahead. This is an area we must improve, and we will discuss some ideas later on.
+Currently we are using this layout system only for the date display since the use of columns makes visualization harder, requiring either some panning from top to bottom or selecting the group using the filter tools explained ahead. This is an area we must improve, and we will discuss some ideas later on.
 
 
 \subsubsection{Filtering} % (fold)
+\label{ss:filtering}
 
-In addition to the sorting options explained above, Eagle Eye also provides the user with the ability to filter images. This allows the user to focus on a specific group of pictures that are his focus of interest at the moment.
+In addition to the sorting options explained above, Eagle Eye also provides the user with the ability to filter images. This allows the users to focus on specific groups of pictures that are of interest at a particular moment.
 
 For instance, the user might want to only see photos of a day, or a person, or person in a specific day or even pictures that are mostly blue.
 
 For all this, Eagle Eye provides two ways to specify this kinds of constraints: using the filter bar or selecting pictures on the canvas, and we will now look into both them.
 
-The filter bar's purpose mimics a regular search box, similar to the ones that exist on applications like Internet browsers, file browsers or photo browsers \refs: it provides a way for the user to type what he is looking for and get some suggestions to help him with the search. Since we wanted a simple \ac{UI}, we figured that we had to provide smart suggestions to the user, so that he can feel comfortable using it for multiple types of searches. Searches are performed immediately upon selecting the desired filter. Currently, searches are intersections (commonly ``and'') of the entries in the filter bar but after adding adequate \ac{UI}, it will be possible to also use unions (commonly ``or'').
+The filter bar's purpose mimics a regular search box, similar to the ones that exist on applications like internet browsers, file browsers or photo browsers: it provides a way for the user to type what he is looking for and get some suggestions to help him with the search. Since we wanted a simple \ac{UI}, we figured that we had to provide smart suggestions to the user, so that he can feel comfortable using it for multiple types of searches. Searches are performed immediately upon selecting the desired filter. Currently, searches are only intersections (commonly ``and'') of the entries in the filter bar but after adding adequate \ac{UI}, it will be possible to also use unions (commonly ``or'').
 
 Every piece of the metadata can be used as a filter and the suggestions list shows what are the available options and what type of metadata they relate to, for instance, when looking for a person's name, the ``keyword'' metadata type is shown, when searching for a place, both ``keyword'' and ``path'' types might be presented, if the path to the pictures included the place where they were taken.
 
-This examples are quite simple but we wanted to go further and allow searches like ``Summer'', for all photos taken around the summer time in all years, ``May 2010'', for all pictures taken during that month, ``Has 2 people'' for photos that have been detected to have people in them. \red{Although some of these have not been implemented yet, they are in the plans.}
+This examples are quite simple but we wanted to go further and allow searches like ``Summer'', for all photos taken around the summer time in all years, ``May 2010'', for all pictures taken during that month, ``Has 2 people'' for photos that have been detected to have people in them. Although some of these examples have not been fully implemented yet, they are in the plans. \todo{figure}
 
-The second filter method allows the manual selection of images from the canvas, either by a common mouse drag-and-drop on the canvas or by selecting entire groups with a mouse click. This two interaction options can be activated on the respective button on the end of the toolbar \todo{image}. 
+The second filter method allows the manual selection of images from the canvas, either by a common mouse drag-and-drop on the canvas or by selecting entire groups with a mouse click. This two interaction options can be activated on the respective button on the end of the toolbar. 
 
-As explained above, the filter bar intersects its elements immediately after being added but that behavior in the function would make it impossible for the user to make multiple selections. So we made this feature allow various selections and only when the user forces the filtering that all the selections are unified and added to the rest of the intercession filters.
+As explained above, the filter bar intersects its elements immediately after being added but that behavior in the function would make it impossible for the user to make multiple selections, therefore they are only unified and the filtering will only be performed when the user presses the Apply Filter.
 
 \red{Since the selections are displayed in the same way text filters are, the removal of a selection is made in the same way.}
 
@@ -130,13 +135,14 @@ As explained above, the filter bar intersects its elements immediately after bei
 
 We will now take a look into the architecture of the visualization part of Eagle Eye.
 
+
 \subsubsection{Metadata indexing}
 
-At the center of the visualization is the DeepZoom canvas. By default, it displays images in the order they are specified on the ``collection.xml'' file, the file generated by the backend that identifies the multi-resolution imagery and images' metadata.
+At the center of the visualization is the DeepZoom canvas. By default, it displays images in the order they are specified on the ``collection.xml'' file, the file generated by the backend that identifies the multi-resolution imagery.
 
 The ``collection.xml'' also contains some metadata for each image, added by the backend. The visualization parses the file and extracts this metadata which is then processed and indexed.
 
-Since the transport is a text file, we used a simple, text based, key/value capable encoding \red{system}: JSON \refs. The backend encodes key/value pairs of metadata for each image \todo{meter um exemplo em código} and the visualization decodes and aggregates them in indexers, one indexer for each type of metadata. Eagle Eye has a few indexers that know how to read and process different types of data:
+The backend encodes textual key/value pairs of metadata in JSON for each image and the visualization decodes and aggregates them on various indexers, one indexer for each type of metadata. Eagle Eye has a few indexers that know how to read and process different types of data:
 \begin{myitemize}
 	\item{a generic indexer, for basic text or number values}
 	\item{a date indexer, that gathers images by day}
@@ -145,20 +151,22 @@ Since the transport is a text file, we used a simple, text based, key/value capa
 	\item{a path indexer that indexes images by the folder where they resided when added}
 \end{myitemize}
 
-The indexers are managed by a metadata collection manager that handles, for instance, the XML parsing and creation and retrieval of indexers.
+The indexers are managed by a metadata collection manager that handles, for instance, the XML parsing and creation, management and retrieval of indexers.
 
-This indexers are the base for the sorting and disposition techniques we've covered on \ref{sub:dispositions}. Each indexer has attached the preferred way to be displayed, for instance, the path indexer works better when displayed using a treemap and thats what the ``Path'' button on the toolbar will use to dispose the images, but the date has two buttons, ``Date'' and ``Date (linear)'' because it makes sense for it to be displayed using both disposition techniques. \red{could be better}
+The indexers are the base for the sorting and disposition techniques we've covered on \ref{sub:dispositions}. The indexers can have disposition types associated with them, like the date indexer, which has the treemap and the column dispositions associated with it. Other indexers only have the treemap disposition (e.g. Color, Path) and others don't have dispositions at all, like the Keyword indexer that is only accessible from the Filter bar. This indexer to disposition association is our decision and aims at providing the user a simpler interface while displaying images in the best available way.
 
-
+The indexers also provide data for the filter bar's suggestions to provide the suggestions we have already seen on section \ref{ss:filtering}. \todo{get me a pretty diagram or image}
 
 
 \subsubsection{Canvas}
 
-The canvas is the most important part of this work. Its core is from the DeepZoom framework and we use it to display lots of images in certain positions, according to the state of many variables. To hold all those options together and to help developing some more, we have created a state manager for the canvas.
+The canvas is the most important part of this work. Its core is from the DeepZoom framework and we use it to display lots of images in certain positions, according to the state of many options and variables. To hold all those options together and to help developing some more, we have created a state manager for the canvas.
 
-A new canvas state object is created for each different set of options for the canvas. The object stores the options and computes the positioning of all images by picking those that have passed the filter, get the respective groups from the selected indexer, dispose them using the selected disposition algorithm and finally computing and saving the position for each image.
+A new canvas state object is created for each different set of options for the canvas. The object stores the options and computes the positioning of all images by picking those that have been selected by the filter, get the groups for that image set from the selected indexer, dispose them using the selected disposition algorithm and finally computing and saving the position for each image.
 
-We use memoization to avoid repeated calculations for common display types. If a certain display has already been calculated, it will reuse the information on the saved state object to rearrange the canvas without going through the position calculations, allowing a faster interaction.
+We use memoization to avoid repeated calculations when changing display types. If a certain display has already been calculated, it will reuse the information on the saved state object to rearrange the canvas without going through the position calculations again, allowing a faster interaction.
+
+The navigation buttons on the toolbar interact directly with the state, for instance displaying a previous state or one that was saved.
 
 
 \subsubsection{Reducing Clutter}
@@ -184,7 +192,7 @@ Obviously that this can have both false positives or false negatives but in our 
 %%%% Conclusion %%%%
 \red{should make a section just for the chapter conclusion?}
 
-To conclude this chapter, where we've seen what this work does and how it does it, we would like to add that many features and improvements could be added for an even better experience, but time and the focus of this work didn't allow us to do it. Even so, the Future Work (\ref{sec:futurework}) contains many ideas we have had which could bring this work to be a real world application.
+To conclude this chapter, where we've seen what this work does and how it does it, we would like to add that many features and improvements could be added for an even better experience, but time and the focus of this work didn't allow us to do it. Even so, the section on Future Work (\ref{future_work}) contains many ideas we have had which could bring this work to be a real world application.
 
 % subsection visualization (end)
 
