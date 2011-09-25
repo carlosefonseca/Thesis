@@ -114,7 +114,7 @@ Sometimes people don’t recall where or when a photo was taken, or where is it,
 	\label{fig:parrot}
 \end{wrapfigure}
 
-Color extraction from images has been a long standing problem \todo{insert a bunch of references for color detection}. We wanted to extract the most perceptible colors from images so, in the parrot example above (\fig{parrot}), the system should associate the image with the colors red, green, white and black and avoid colors that have little relevance, like the small blue of  the feathers and also ignore small tonal variances in the reds and greens.
+Color extraction from images has been a long standing problem \cite{Wan:2011bg,Strong:2009p413,Gabbouj:2009en,Girgensohn:2009:MOP:1502650.1502711,Zaheer:2010p3735,Datta:2008p1604,Chang:2007bt}. We wanted to extract the most perceptible colors from images so, in the parrot example (\fig{parrot}), the system should associate the image with the colors red, green, white and black and avoid colors that have little relevance, like the small blue of  the feathers and also ignore small tonal variances in the reds and greens.
 
 For that we explored two methods that reduce the number of colors in an image to the most essential ones, the first being an adaptive method, selecting a few averaged colors from the image and the second using a palette as reference to select the colors.
 
@@ -161,7 +161,7 @@ We took some ideas from the work of Qiu et al\cite{Qiu:2007p1207} of exploring a
 We used the open source library AForge.Imaging\footnote{AForge is a framework designed for developers and researchers in the fields of Computer Vision and Artificial Intelligence \url{http://www.aforgenet.com/framework/}} to obtain histograms for the images and compute their average color in RGB\footnote{Color model composed by red, green and blue \url{http://en.wikipedia.org/wiki/RGB}} and HSL\footnote{Color model composed of hue, saturation and luminance \url{http://en.wikipedia.org/wiki/HSL_and_HSV}} values. Both those values are then stored on the plugin-extracted data for each image. The images will be distributed into bins on the Visualization. We could assign bins at this point but, by not doing so, we are giving freedom to the users to change the number of bins used for display. We will discuss this on the Visualization sections ahead.
 
 
-Although we didn't implement this plugin the way we desired, it demonstrates that color extraction is feasible and, with more time, a better method that does more than just averaging the colors, including detecting the most relevant ones, could be implemented. \todo{references needed}
+Although we didn't implement this plugin the way we desired, it demonstrates that color extraction is feasible and, with more time, a better method that does more than just averaging the colors, including detecting the most relevant ones, could be implemented.
 
 \todo{show of differences between having the image reduced or not. something I never tested :P}
 

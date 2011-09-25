@@ -24,7 +24,7 @@ More specifically, the work should:
 	\item{extract interesting information about the images — we want to be able to organize and classify images. This is explained in detail below, in section \ref{reqs:features};}
 
 
-	\item{provide an interaction with the full collection — we want to enable the users to easily view and interact with the entire collection at the same time, if they want to;}
+	\item{provide an interaction with the full collection — we want to enable the users to easily view and interact with the entire collection at the same time, if they want to, instead of just limiting to a small window of images;}
 
 	\item{efficiently display a large number of images in a single screen — this goal goes inline with the previous one: to be able to interact with the full collection, we should be able to display it all, at the same time, using techniques to make better use of available screen space;}
 
@@ -107,18 +107,17 @@ As referred before, we want our system to extract interesting information about 
 
 
 Unlike textual data, images are a type of data where is not trivial to extract information from, in a computational environment. It's easy for us, common people, to understand what certain picture is showing. We can easily distinguish if there are, for instance, animals, people, flowers, buildings but it's hard for a computer to do the same, and it's even harder to understand if that certain photo of a building and a person was taken because of the building, the person or both.
-\refs
 
-There have been various developments in the feature extraction front \refs and is currently possible to perform various detections in images with various levels of satisfaction.
+There have been various developments in the feature extraction front \cite{Liu:2007p3740,Datta:2005p3749,Rui:1999p949} and is currently possible to perform various detections in images with various levels of satisfaction.
 
 Some examples of working solutions for feature detection:
 
 \begin{itemize}
-	\item{Face recognition\newline detection of the presence of faces in the images and their position \cite{Vasconcelos:2005in,Chen:2003p3699,Tamura:2002p859,Hsu:2002p3675};}
-	\item{Object identification\newline identify objects in images \cite{Torralba:2008p527};}
-	\item{Identification of perceptive colors\newline  what are the main colors that users perceive in certain image \cite{Sural:2002bt};}
-	\item{Image sequence \newline  identification of images of the same scene that were taken in sequence, for grouping purposes \cite{Cooper:2003p3679};}
-	\item{Image similarity \newline  identification of similar images across the whole collection \cite{Vasconcelos:2005in,Zaheer:2010p3735}.}
+	\item{Face recognition — detection of the presence of faces in the images, their position and relations between them \cite{Vasconcelos:2005in,Chen:2003p3699,Tamura:2002p859,Hsu:2002p3675};}
+	\item{Object identification — identify objects in images \cite{Torralba:2008p527};}
+	\item{Identification of perceptive colors —  what are the main colors that users perceive in certain image \cite{Sural:2002bt,Tan:2001p850};}
+	\item{Image sequence  —  identification of images of the same scene that were taken in sequence, for grouping purposes \cite{Cooper:2003p3679};}
+	\item{Image similarity  —  identification of similar images across the whole collection \cite{Vasconcelos:2005in,Zaheer:2010p3735}.}
 \end{itemize}
 
 We want to use some of this methods to automatically extract information from the contents of images but, since this work is mostly focused on photography, there is another way to obtain really useful information that is EXIF Metadata.
@@ -127,17 +126,6 @@ EXIF Metadata is a standard format for metadata included in digitally captured m
 
 Mixing all this different data, users should be able to interact, filter, sort and organize their collection in various ways, obtaining new and different perspectives of their images.
 
-
-
-
-
-\red{insert this kind of stuff}
-
-Free Browsing The user navigates freely through the collection. Useful when the user is not looking for something specific, but wants to have a general view of the entire collection. Clustering based on visual features can help automatically organizing the images somehow.
-Category Browsing The user navigates through a hierarchy and can possibly perform new queries inside the selected subset of images. Categories can overlap if desired. Requires a time-consuming manual categorization of the images.
-Query by Text Also requires a time-consuming manual annotation, but CBIR and ma- chine learning techniques can be used to implement a semi-automatic annotation system like proposed in (WENYIN et al., 2001).
-
-\red{—}
 
 
 % chapter solution_requirements (end)
