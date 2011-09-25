@@ -12,7 +12,7 @@ After the backend has finished the all the processing that is needed, the visual
 \begin{figure}[ht]
 	\centering
 		\includegraphics[width=\columnwidth]{Figures/viz5679images1280.pdf}
-	\caption{Example of the visualization of 5679 images, organized by capture date.}
+	\caption{Example of the visualization of 5679 images, organized by capture date, in Eagle Eye.}
 	\label{fig:viz5679images}
 \end{figure}
 
@@ -103,7 +103,16 @@ The first layout technique we employed was the treemap. Introduced by Brian John
 
 Our resulting treemap algorithm displays larger groups first, leaving the smaller ones to the end, making an effort to layout groups as rectangles with an aspect ratio as close as possible to the screen's aspect ratio, for filling the screen when the user zooms on one. There's also an effort to fill the space left between larger groups and the edges of the screen, making the display more compact and with less empty space across the screen edges.
 
-One problem of the squarified treemap display is that group sequence is irrelevant. Groups are positioned by their size, which is unacceptable for sorting options that require some sequence, like sorting by time. For this we created a linear display \todo{figure} that uses columns and displays groups sequentially. Each group may fill part of a column or various columns, depending on their size. With the aim of reducing wasted space, groups that fit on the wasted space left by the previous group use that space to display themselves. This is useful to group the few pictures the users may capture of their day-to-day, between days (like weekends) that he went on a trip and took a much larger number of photographs.
+\begin{figure}[!htb]
+  \begin{subfigmatrix}{2}
+    \subfigure[Images only.] {\includegraphics[width=0.49\linewidth]{Figures/linear-2010-thin-1.png}\label{fig:linear1}}
+    \subfigure[With group divisions overlayed.]{\includegraphics[width=0.49\linewidth]{Figures/linear-2010-thin-2.png}\label{fig:linear2}}
+  \end{subfigmatrix}
+  \caption{Example of the linear display.}
+  \label{fig:linear}
+\end{figure}
+
+One problem of the squarified treemap display is that group sequence is irrelevant. Groups are positioned by their size, which is unacceptable for sorting options that require some sequence, like sorting by time. For this we created a linear display (\fig{linear}) that uses columns and displays groups sequentially. Each group may fill part of a column or various columns, depending on their size. With the aim of reducing wasted space, groups that fit on the wasted space left by the previous group use that space to display themselves. This is useful to group the few pictures the users may capture of their day-to-day, between days (like weekends) that he went on a trip and took a much larger number of photographs.
 
 Currently we are using this layout system only for the date display since the use of columns makes visualization harder, requiring either some panning from top to bottom or selecting the group using the filter tools explained ahead. This is an area we must improve, and we will discuss some ideas later on.
 
@@ -121,7 +130,27 @@ The filter bar's purpose mimics a regular search box, similar to the ones that e
 
 Every piece of the metadata can be used as a filter and the suggestions list shows what are the available options and what type of metadata they relate to, for instance, when looking for a person's name, the ``keyword'' metadata type is shown, when searching for a place, both ``keyword'' and ``path'' types might be presented, if the path to the pictures included the place where they were taken.
 
-This examples are quite simple but we wanted to go further and allow searches like ``Summer'', for all photos taken around the summer time in all years, ``May 2010'', for all pictures taken during that month, ``Has 2 people'' for photos that have been detected to have people in them. Although some of these examples have not been fully implemented yet, they are in the plans. \todo{figure}
+This examples are quite simple but we wanted to go further and allow searches like ``Summer'', for all photos taken around the summer time in all years, ``May 2010'', for all pictures taken during that month, ``Has 2 people'' for photos that have been detected to have people in them. Although some of these examples have not been fully implemented yet, they are in the plans. See figure \ref{fig:filter} for some examples.
+
+\begin{wrapfigure}{r}{0.3\textwidth}
+	\vspace{-40pt}
+	\begin{center}
+		\includegraphics[width=0.29\textwidth]{Figures/filter_0000_geoc.png}
+
+		\vspace{7pt}
+
+		\includegraphics[width=0.29\textwidth]{Figures/filter_0001_sony.png}
+
+		\vspace{7pt}
+
+		\includegraphics[width=0.29\textwidth]{Figures/filter_0004_2007.png}
+	\end{center}
+	\vspace{-25pt}
+	\caption{Examples of filter suggestions.}
+	\vspace{-5pt}
+	\label{fig:filter}
+\end{wrapfigure}
+
 
 The second filter method allows the manual selection of images from the canvas, either by a common mouse drag-and-drop on the canvas or by selecting entire groups with a mouse click. This two interaction options can be activated on the respective button on the end of the toolbar. 
 
