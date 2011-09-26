@@ -239,9 +239,21 @@ Each view was found to have different levels of usage, the geographic being the 
 
 
 
+\section{PhotoMesa: a zoomable image browser using quantum treemaps and bubblemaps}
+\label{sub:PhotoMesa}
 
+This work presents PhotoMesa by B. B. Bederson \cite{Bederson:2001:PZI:502348.502359}, an application that supports browsing sets of images in a zoomable environment. It also supports clustering by metadata, not requiring previous work from the user. Users can choose directories of images and they are all displayed in a space-filling manner \fig{photomesa}. Images are displayed in groups, from the directories they origin from and users can smoothly zoom in to a group and then to a single image. It generates multiple-resolution thumbnails for maintaing a good performance. Keyboard keys are also used to navigate the canvas. The groups display their name and have different background colors for a better distinction. It also supports drag and drop of images to other applications. Text search is possible as well as selecting a group on a list.
 
+\begin{figure}[ht!]
+	\centering
+		\includegraphics[width=0.8\textwidth]{imgs-RelatedWork/PhotoMesa.pdf}
+	\caption{PhotoMesa with over 500 images in 17 groups.}
+	\label{fig:photomesa}
+\end{figure}
 
+PhotoMesa implements two algorithms for space filling, one is Quantum Treemaps by the author, a variation of the Ordered Treemap  that is aware of the constraints imposed by the use of images, like grid alignment and common size, and Bubble Maps which is designed to have the least wasted space possible.
+
+This work brings very interesting ideas to the table but it has a somewhat limited reach, with only referring to ``over 500 images'' on the application and by only taking simple metadata, like the path and modification date of images.
 
 
 
@@ -256,9 +268,9 @@ Currently there are a lot of approaches to image organization and each has its o
 
 \begin{table}[ht]
 \caption{Different browsing methods}
- \begin{tabular}{|l|>{\centering}p{2.6cm}|c|c|c|>{\centering}p{2.1cm}|>{\centering}p{2.8cm}|r|}
+ \begin{tabular}{| m{2.5cm} |>{\centering}m{2.3cm}|c|c|c|>{\centering}m{2.1cm}|>{\centering}m{2.4cm}|r|}
   \hline
-\multirow{2}{*}{\textbf{Work}} & \multicolumn{4}{c|}{\textbf{Organization}} & \multirow{2}{*}{\textbf{visualization}} & \multirow{2}{*}{\textbf{Focus}} & \multirow{2}{*}{\textbf{Size}} \\
+\multirow{2}{*}{\textbf{Work}} & \multicolumn{4}{c|}{\textbf{Organization}} & \multirow{2}{*}{\textbf{Visualization}} & \multirow{2}{*}{\textbf{Focus}} & \multirow{2}{*}{\textbf{Size}} \\
 \cline{2-5}
 	& \textbf{visual} & \textbf{date} & \textbf{gps} & \textbf{tags} & & & \\
 
@@ -274,6 +286,7 @@ Currently there are a lot of approaches to image organization and each has its o
 \hline \ref{sub:Hsu}	Hsu	\cite{Hsu:2009p2696}	& --- 								& --- & --- & --- & Grid with groups   & Interaction on grupped photos 		&  1,333 	\\
 \hline \ref{sub:Schaefer} Schaefer \cite{Schaefer:2010p1871} & color histograms of subdivisions & --- & --- & --- & 3D Sphere		   & 3D mapping and interaction 		&  4,500 	\\
 \hline \ref{sub:Girgensohn} Girgensohn \cite{Girgensohn:2010}	& --- 								& \cm & \cm & \cm & Overlapped graph   & Having the best way to find photos &    450	\\
+\hline \ref{sub:PhotoMesa} Bederson \cite{Bederson:2001:PZI:502348.502359} & --- & \cm & --- & \cm & Q. Treemap / Bubblemap & Zoomable browser & 500	\\
 \hline
  \end{tabular}
 \label{tab:brows-meth}
