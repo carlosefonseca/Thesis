@@ -6,7 +6,9 @@
 Interactive image visualization techniques have been explored for some time now, many of them related to image organization or retrieval in large collections. There have been some interesting ideas across the board and we will now take a look at some of them.
 
 
-\section{Visual guided navigation for image retrieval} % (fold)
+\section{Related work}
+
+\subsection{Visual guided navigation for image retrieval} % (fold)
 \label{sub:Qiu}
 
 Qiu et al. \cite{Qiu:2007p1207} explore the requirements of a system intended for visualizing large photo collections. They identify as the two most important requirements, the first being an easy to use \ac{UI}, that gives clean information to the user and helps to create a mental image of the whole collection helping him to navigate on the collection. The second requirement is responsiveness because while image processing can be an heavy task, the user needs to be able to interact with the interface and he won't use the application if it's slow. 
@@ -24,7 +26,7 @@ Their tests show they achieved good responsiveness and better results than using
 
 % section Qiu (end)
 
-\section{Does organization by similarity assist image browsing?} % (fold)
+\subsection{Does organization by similarity assist image browsing?} % (fold)
 \label{sub:Rodden}
 \begin{figure}[ht]
 	\centering
@@ -44,7 +46,7 @@ For some people, having access to different arrangements of the same set of imag
 % section Rodden (end)
 
 
-\section{Browsing large collections of images through unconventional visualization techniques} % (fold)
+\subsection{Browsing large collections of images through unconventional visualization techniques} % (fold)
 \label{sub:Porta}
 
 \begin{figure}[!htb]
@@ -65,7 +67,7 @@ The testing was based on the efficiency of users searching for specific images o
 
 % section Porta (end)
 
-\section{A comparison of static and moving presentation modes for image collections} % (fold)
+\subsection{A comparison of static and moving presentation modes for image collections} % (fold)
 \label{sub:Cooper}
 
 This paper by Cooper et al. \cite{Cooper:2006p543} is not about large libraries but about what kind of interfaces for image showing has greater success of user recognition and preference (\fig{Cooper1}).
@@ -80,7 +82,7 @@ With the help of eye-tracking techniques and user preference, the authors determ
 \end{figure}
 % section cooper (end)
 
-\section{Organizing and browsing photos using different feature vectors and their evaluations} % (fold)
+\subsection{Organizing and browsing photos using different feature vectors and their evaluations} % (fold)
 \label{sub:Strong}
 
 Although it doesn't mention why, Strong \cite{Strong:2009p413} focuses on the better experience provided by color organization of a large image collection (\fig{Strong1}).
@@ -102,8 +104,8 @@ No user testing is made in this project, neither is the speed of image categoriz
 
 % section strong (end)
 
-
-\section{An evaluation of color-spatial retrieval techniques for large image databases} % (fold)
+\newpage
+\subsection{An evaluation of color-spatial retrieval techniques for large image databases} % (fold)
 \label{sub:Tan}
 % não tem imagens
 
@@ -119,7 +121,7 @@ This techniques were tested with a collection of 12,000 images and, besides the 
 
 % section tan (end)
 
-\section{Automatic organization for digital photographs with geographic coordinates} % (fold)
+\subsection{Automatic organization for digital photographs with geographic coordinates} % (fold)
 \label{sub:Naaman}
 
 In this paper, by Naaman et al. \cite{Naaman:2004p1802}, is described a system that organizes digital photographs accordingly to location and date embedded on the metadata.
@@ -129,7 +131,7 @@ The objective was trying to mimmic the the way people think about their collecti
 The authors showed good results and, nowadays, some common applications use similar features although including maps.
 % section naaman (end)
 
-\section{Similarity pyramids for browsing and organization of large image databases} % (fold)
+\subsection{Similarity pyramids for browsing and organization of large image databases} % (fold)
 \label{sub:Chen}
 
 Chen et al. \cite{Chen:1998p2344} present a method for designing a hierarchical browsing environment called a similarity pyramid. The similarity pyramid groups similar images together while allowing users to view the database at varying levels of resolution. Each level is organized such that similar images are in close proximity on a two-dimensional grid (\fig{Chen1}). Images are first organized into a binary tree through agglomerative clustering based on color, edge and texture similarities. The binary tree is transformed into a quadtree, a tree in which each node has four children instead of only two.
@@ -148,7 +150,7 @@ The authors found that the method for mapping the clustering to a pyramid can ma
 % section Chen (end)
 
 
-\section{NN\super{k} networks for content-based image retrieval} % (fold)
+\subsection{NN\super{k} networks for content-based image retrieval} % (fold)
 \label{sub:Heesch}
 
 Heesch \cite{Heesch:2004p2675} describes a different interaction technique for content based search in large image collections. Each image is a vertex in a graph and arcs are established between images if there exists at least one combination of features for which one image is retrieved as the nearest neighbor of the other. Each arc is weighted by the proportion of feature combinations for which the nearest neighbor relationship holds. By integrating the retrieval results over several feature combinations, the resulting network helps expose the semantic richness of images.
@@ -167,11 +169,11 @@ Seven low-level features are used for the classification of the images. HSV Glob
 Tests showed great results using a mix of search, relevance feedback and browsing, and even only browsing was considerably better than other, more restrictive, approaches.
 
 The technique helps avoid the problem of image polysemy by showing all gathered meanings of the images to the user.
-The feature network is pre-computed, allowing for quick realtime browsing. The authors claim it took 50 hours to process 32000 images but make no reference to the possibility adding images to the collection, after the computation.
+The feature network is pre-computed, allowing for quick realtime browsing. The authors claim it took 50 hours to process 32000 images but made no reference to the possibility adding images to the collection, after the computation.
 
 % section heesch:2004p2675 (end)
 
-\section{Phorigami: A Photo browser based on meta-categorization and origami visualization} % (fold)
+\subsection{Phorigami: A Photo browser based on meta-categorization and origami visualization} % (fold)
 \label{sub:Hsu}
 
 Hsu et al. \cite{Hsu:2009p2696} try to ease the browsing problem by analyzing the collections and identifying groups of related pictures. Each type of group is visualized in a specific way, inspired by the Origami art.
@@ -192,7 +194,7 @@ The interface implements the different presentation types as different metaphors
 
 % section hsu:2009p2696 (end)
 
-\section{A next generation browsing environment for large image repositories} % (fold)
+\subsection{A next generation browsing environment for large image repositories} % (fold)
 \label{sub:Schaefer}
 
 \begin{figure}[ht]
@@ -213,7 +215,7 @@ The work was tested on a 4500 image collection with no evaluation as to its perf
 
 % section schaefer:2010p1871 (end)
 
-\section{Flexible access to photo libraries via time place, tags, and visual features} % (fold)
+\subsection{Flexible access to photo libraries via time place, tags, and visual features} % (fold)
 \label{sub:Girgensohn}
 \begin{figure}[ht]
 	\centering
@@ -230,7 +232,7 @@ The time is selected using a timeline on the top of the screen while tags and pl
 
 The photo display is graph based, allowing for overlapped images. Various metaphors were developed to ease the navigation of the collection. Zooming is allowed and changes both thumbnail positions and size for better experience, allowing the photos to spread away from each other but also increasing the size so the user can have a better look at them. The authors think that bigger thumbnails and a correct grouping of related photos is more important than spreading them to avoid the overlapping problem.
 
-color coding is used throughout the interface to help the user understand better what is being selected. For instance, on the timeline blue and grey are used to distinguish photos that match or not the selected location/tag. On the photo display, besides the photos that are actually shown are colored blocks: blue for photos that match location only, green for time only and grey for those that didn't match anything.
+Color coding is used throughout the interface to help the user understand better what is being selected. For instance, on the timeline blue and grey are used to distinguish photos that match or not the selected location/tag. On the photo display, besides the photos that are actually shown are colored blocks: blue for photos that match location only, green for time only and grey for those that didn't match anything.
 
 Detailed user testing was performed and the importance of the multiple ways to organize and search the collections was emphasized since many systems are designed to have a single form of access. Some users also pointed the importance of being able to have a non overlapping view of the photos for part of the task.
 
@@ -239,14 +241,14 @@ Each view was found to have different levels of usage, the geographic being the 
 
 
 
-\section{PhotoMesa: a zoomable image browser using quantum treemaps and bubblemaps}
+\subsection{PhotoMesa: a zoomable image browser using quantum treemaps and bubblemaps}
 \label{sub:PhotoMesa}
 
 This work presents PhotoMesa by B. B. Bederson \cite{Bederson:2001:PZI:502348.502359}, an application that supports browsing sets of images in a zoomable environment. It also supports clustering by metadata, not requiring previous work from the user. Users can choose directories of images and they are all displayed in a space-filling manner \fig{photomesa}. Images are displayed in groups, from the directories they origin from and users can smoothly zoom in to a group and then to a single image. It generates multiple-resolution thumbnails for maintaing a good performance. Keyboard keys are also used to navigate the canvas. The groups display their name and have different background colors for a better distinction. It also supports drag and drop of images to other applications. Text search is possible as well as selecting a group on a list.
 
 \begin{figure}[ht!]
 	\centering
-		\includegraphics[width=0.8\textwidth]{imgs-RelatedWork/PhotoMesa.pdf}
+		\includegraphics[width=0.90\textwidth]{imgs-RelatedWork/PhotoMesa.pdf}
 	\caption{PhotoMesa with over 500 images in 17 groups.}
 	\label{fig:photomesa}
 \end{figure}
@@ -264,44 +266,46 @@ This work brings very interesting ideas to the table but it has a somewhat limit
 \label{sub:discussion}
 
 
-Currently there are a lot of approaches to image organization and each has its own differences as demonstrated on Table \ref{tab:brows-meth}.
+Currently there are a lot of approaches to image organization and each has its own differences as demonstrated on Table \ref{tab:brows-meth}. Our survey went by multiple works and revealed various methods for extracting the features from each image, multiple visualization methods from grids to flying images.
+
 
 \begin{table}[ht]
 \caption{Different browsing methods}
- \begin{tabular}{| m{2.5cm} |>{\centering}m{2.3cm}|c|c|c|>{\centering}m{2.1cm}|>{\centering}m{2.4cm}|r|}
+ \begin{tabular}{| m{2.7cm} |>{\centering}m{2.3cm}|c|c|c|>{\centering}m{2.1cm}|>{\centering}m{2.3cm}|r|}
   \hline
 \multirow{2}{*}{\textbf{Work}} & \multicolumn{4}{c|}{\textbf{Organization}} & \multirow{2}{*}{\textbf{Visualization}} & \multirow{2}{*}{\textbf{Focus}} & \multirow{2}{*}{\textbf{Size}} \\
 \cline{2-5}
-	& \textbf{visual} & \textbf{date} & \textbf{gps} & \textbf{tags} & & & \\
+	& \textbf{features} & \textbf{date} & \textbf{gps} & \textbf{tags} & & & \\
 
-\hline \ref{sub:Qiu}	Qiu \cite{Qiu:2007p1207}	& simple color measures 			& --- & --- & --- & Grid 			   & Simplicity and Efficiency 			& 60,000	\\
-\hline \ref{sub:Rodden} Rodden \cite{Rodden:2001p731}	& --- 								& --- & --- & \cm & Grid 			   & Similarity usefulness	 			& 	 100	\\
-\hline \ref{sub:Porta} 	Porta \cite{Porta:2006p416}	& --- 								& --- & --- & --- & Spot (and others)  & Unconventional visualizations		& 	 400	\\
-\hline \ref{sub:Cooper} Cooper \cite{Cooper:2006p543}	& --- 								& --- & --- & --- & Static and animated& Usefulness of animations 			& 	 ---	\\
-\hline \ref{sub:Strong} Strong \cite{Strong:2009p413}	& color histograms and gradients 	& --- & --- & --- & \ac{SOM} 		   & Evaluation of different features	&  2,200 	\\
-\hline \ref{sub:Tan} 	Tan	\cite{Tan:2001p850}		& color histograms of subdivisions & --- & --- & --- & --- 			   & Evaluation of different features 	& 12,000 	\\
-\hline \ref{sub:Naaman} Naaman	\cite{Naaman:2004p1802}	& --- 								& \cm & \cm & --- & --- 			   & Organization based on events 		& 	   ?	\\
-\hline \ref{sub:Chen} 	Chen	\cite{Chen:1998p2344}	& colors, edges and textures 		& --- & --- & --- & --- 			   & Efficient fast-sparce clustering 	& 10,000 	\\
-\hline \ref{sub:Heesch} Heesch	\cite{Heesch:2004p2675} & six different features 			& --- & --- & \cm & Radial 			   & Complex similarity network 		& 32,000 	\\
-\hline \ref{sub:Hsu}	Hsu	\cite{Hsu:2009p2696}	& --- 								& --- & --- & --- & Grid with groups   & Interaction on grupped photos 		&  1,333 	\\
-\hline \ref{sub:Schaefer} Schaefer \cite{Schaefer:2010p1871} & color histograms of subdivisions & --- & --- & --- & 3D Sphere		   & 3D mapping and interaction 		&  4,500 	\\
-\hline \ref{sub:Girgensohn} Girgensohn \cite{Girgensohn:2010}	& --- 								& \cm & \cm & \cm & Overlapped graph   & Having the best way to find photos &    450	\\
-\hline \ref{sub:PhotoMesa} Bederson \cite{Bederson:2001:PZI:502348.502359} & --- & \cm & --- & \cm & Q. Treemap / Bubblemap & Zoomable browser & 500	\\
+\hline 1.	Qiu \cite{Qiu:2007p1207}	& simple color measures 			& --- & --- & --- & Grid 			   & Simplicity and Efficiency 			& 60,000	\\
+\hline 2.	Rodden \cite{Rodden:2001p731}	& --- 								& --- & --- & \cm & Grid 			   & Similarity usefulness	 			& 	 100	\\
+\hline 3.	Porta \cite{Porta:2006p416}	& --- 								& --- & --- & --- & Spot (and others)  & Unconventional visualizations		& 	 400	\\
+\hline 4.	Cooper \cite{Cooper:2006p543}	& --- 								& --- & --- & --- & Static and animated& Usefulness of animations 			& 	 ---	\\
+\hline 5.	Strong \cite{Strong:2009p413}	& color histograms and gradients 	& --- & --- & --- & \ac{SOM} 		   & Evaluation of different features	&  2,200 	\\
+\hline 6.	Tan	\cite{Tan:2001p850}		& color histograms of subdivisions & --- & --- & --- & --- 			   & Evaluation of different features 	& 12,000 	\\
+\hline 7.	Naaman	\cite{Naaman:2004p1802}	& --- 								& \cm & \cm & --- & --- 			   & Organization based on events 		& 	   N/A	\\
+\hline 8.	Chen	\cite{Chen:1998p2344}	& colors, edges and textures 		& --- & --- & --- & --- 			   & Efficient fast-sparce clustering 	& 10,000 	\\
+\hline 9.	Heesch	\cite{Heesch:2004p2675} & six different features 			& --- & --- & \cm & Radial 			   & Complex similarity network 		& 32,000 	\\
+\hline 10.	Phorigami, Hsu	\cite{Hsu:2009p2696}	& --- 								& --- & --- & --- & Grid with groups   & Interaction on grupped photos 		&  1,333 	\\
+\hline 11.	Schaefer \cite{Schaefer:2010p1871} & color histograms of subdivisions & --- & --- & --- & 3D Sphere		   & 3D mapping and interaction 		&  4,500 	\\
+\hline 12.	MediaGLOW, Girgensohn \cite{Girgensohn:2010}	& --- 								& \cm & \cm & \cm & Overlapped graph   & Having the best way to find photos &    450	\\
+\hline 13. PhotoMesa, Bederson \cite{Bederson:2001:PZI:502348.502359} & --- & \cm & --- & \cm & Q. Treemap / Bubblemap & Zoomable browser & 500	\\
 \hline
  \end{tabular}
 \label{tab:brows-meth}
 \end{table}
-Our survey revealed various methods for extracting the features of each image, from simple to complex.
 
-One of the main problems is obtaining useful information from low level feature extraction of the image contents. Some try to get the most out of each image, with a variety of complex and time consuming procedures. Others try to focus on avoiding the complex computations by only getting simple but somewhat useful information. To contrast with this methods, Girgensohn's work \cite{Girgensohn:2010} has found that users prefer other ways to filter the collection, like tags, dates and locations. It's still used, but probably isn't worth to spend much time on it with heavy processing.
+One of the main problems is obtaining useful information from low level feature extraction of the image contents. Some try to get the most out of each image, with a variety of complex and time consuming procedures, e.g., a variety of methods based on color histograms \cite{Strong:2009p413,Tan:2001p850,Chen:1998p2344,Schaefer:2010p1871} or even more detailed ones with textures and convolution filters \cite{Heesch:2004p2675}. Others try to focus on avoiding the complex computations by only getting simple but somewhat useful information \cite{Qiu:2007p1207}. To contrast with these methods, Girgensohn's work \cite{Girgensohn:2010} has found that users prefer other ways to filter the collection, like tags, dates and locations. Low level features are still used but they have to be kept to understandable and useful options.
 
-Date and location are simple similarity measures and can be used to group the collections by events and locations like Naaman did on this work  \cite{Naaman:2004p1802}. Current mainstream software like Apple's iPhoto\footnote{http://www.apple.com/iphoto} and Google's Picasa\footnote{http://picasa.google.com} are already doing it in a semi-automatic way.
+Date and location are simple similarity measures and can be used to group the collections by events and locations like Naaman did on this work \cite{Naaman:2004p1802}. Current mainstream software like Apple's iPhoto\footnote{http://www.apple.com/iphoto} or Google's Picasa\footnote{http://picasa.google.com} are already doing it in a semi-automatic way.
 
-Textual metadata like tags and descriptions are also widely used both on our survey and possibly on all major mainstream software. The problem with tags and descriptions is that people usually don't assign them to the their photos but that's not a problem we're interested here.
+Textual metadata like tags and descriptions are also widely used both on our survey \cite{Rodden:2001p731,Girgensohn:2010,Heesch:2004p2675,Bederson:2001:PZI:502348.502359} and on all mainstream software. The problem with tags and descriptions is that people usually don't assign them to their photos but that's not a problem we're interested here.
 
-The 3D Sphere \cite{Schaefer:2010p1871} is also interesting but doesn't provide a better interface to the collection than expanding the sphere surface grid view to a full screen grid view, keeping the zoom function. The Phorigami work \cite{Hsu:2009p2696} introduces some interesting metaphors for manipulating groups of photos, although some clutter the view and could, therefore, be improved.
+The visualization is the field with most variations and experimentations, like Porta's work \cite{Porta:2006p416} where multiple options were tested but only a couple of the most simple were considered useful. The 3D Sphere \cite{Schaefer:2010p1871} is also visually interesting but doesn't provide a better interface to the collection since it's based on a grid view but hiding many images on the far side of the sphere. The Phorigami work \cite{Hsu:2009p2696} introduces some interesting metaphors for reducing the space occupied by some groups of photos, but some make the visualization harder and could, therefore, be improved.
 
-An interesting work is the Girgensohn's \cite{Girgensohn:2010} visualization approach, where images can be organized by various features and can be filtered down, displaying matched photos alongside placeholders for photos that are only match partially. It has some problems like image overlap and capacity for showing large collections.
+Girgensohn and Bederson's works are among the most interesting and relevant to our vision. MediaGLOW's \cite{Girgensohn:2010} visualization approach allows images to be organized by various features and to be filtered down, displaying matched photos alongside placeholders for photos that are only match partially. The timeline on the top is also very useful. It has some problems like image overlap and capacity for showing large collections, but the ideas are still interesting. PhotoMesa \cite{Bederson:2001:PZI:502348.502359} has a visualization style close to what we want from our work but its reach is short, i.e., has a small set of features and dispositions, doesn't handle many images and the \ac{UI} seems a little cluttered with all the strong colors and borders.
+
+The seemingly more useful exploration tools are the ones that handle less images, which seems like a contradiction. The more images a system can hold and efficiently display, the more useful it gets. We want to suppport, at least, a few thousand images.
 
 % section discussion (end)
 % chapter related-work (end)
