@@ -7,9 +7,20 @@ Currently it is a command line utility that allows the user to enter paths for f
 
 We will now detail its architecture, and implemented feature extractors.
 
-\subsection{Architecture}
+\subsection{Architecture of the Backend}
 
 The Backend comprises a library manager to hold the images, feature extractors to process those images and persistence to save all generated data.
+
+Figure \ref{fig:arch} is a simple explanation of the components. The Eagle Eye part is the main application, containing the library and feature extractor managers. Both deal with files on the disk, JPEG image files and DLL extractor plugins, respectively. The user interacts with the core of Eagle Eye which currently provides a command line interface for its actions, like the image import and plugin execution. The import gathers the files and their metadata, to be later accessed by the plugins for processing. Plugins store the resulting data inside the library manager and can be accessed afterwards for outputting by a special plugin.
+
+We will now go through this components in more detail. 
+
+\begin{figure}[ht]
+	\centering
+		\includegraphics[scale=0.7]{Figures/Architecture_v2.pdf}
+	\caption{Basic architecture of Eagle Eye's backend}
+	\label{fig:arch}
+\end{figure}
 
 
 \subsubsection{Library Manager} % (fold)
