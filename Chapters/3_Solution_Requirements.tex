@@ -116,24 +116,70 @@ There have been various developments in the feature extraction front \cite{Liu:2
 
 Some examples of working solutions for feature detection:
 
-\begin{itemize}
-	\item Face recognition — detection of the presence of faces in the images, their position and relations between them as some other works refer \cite{Vasconcelos:2005in,Chen:2003p3699,Tamura:2002p859,Hsu:2002p3675}. Face recognition has been gaining public recognition in the past few years since many photo applications and services have been including it. The problem with face recognition is that it requires users to identify who are the persons on each photo which, generally, is a long and boring process. For concept, we will only detect the presence of faces and not spend time identifying them.
+\subsubsection{Face recognition}
+Detection of the presence of faces in the images, their position and relations between them as some other works refer \cite{Vasconcelos:2005in,Chen:2003p3699,Tamura:2002p859,Hsu:2002p3675}. Face recognition has been gaining public recognition in the past few years since many photo applications and services have been including it. The problem with face recognition is that it requires users to identify who are the persons on each photo which, generally, is a long and boring process. For concept, we will only detect the presence of faces and not spend time identifying them.
 
-	\item Object recognition — identification objects in images \cite{Torralba:2008p527}. This is a useful extractor but is requires a huge library of sample imagery for comparison and it's not feasible to adopt in our work.
+\subsubsection{Object recognition}
+Identification objects in images. This is a useful extractor but is requires a huge library of sample imagery for comparison \cite{Torralba:2008p527} and it's not feasible to adopt in our work.
 	
 	
-	\item Identification of perceptive colors — what are the main colors that users perceive in certain image \cite{Sural:2002bt,Tan:2001p850}. An image is composed of different colors or tones and people can identify images by their main colors and dispositions. There are simple ways, like calculating the mean color for an image, but that's not faithful. Detecting perceptive colors identifies the different colors of an image, providing more realistic data.
+\subsubsection{Identification of perceptive colors}
+What are the main colors that users perceive in certain image \cite{Sural:2002bt,Tan:2001p850}. An image is composed of different colors or tones and people can identify images by their main colors and dispositions. There are simple ways, like calculating the mean color for an image, but that's not faithful. Detecting perceptive colors identifies the different colors of an image, providing more realistic data.
 
-	\item Image sequences  —  identification of images of the same scene that were taken in sequence, for grouping purposes \cite{Cooper:2003p3679}. Images taken in sequence of the same subject should be gathered into a group of images, with the purpose of reducing the needed space to display them. This can be either by looking at the capture date or by analyzing the 
+\subsubsection{Image sequences }
+Identification of images of the same scene that were taken in sequence, for grouping purposes \cite{Cooper:2003p3679}. Images taken in sequence of the same subject should be gathered into a group of images, with the purpose of reducing the needed space to display them. This can be either by looking at the capture date or by analyzing the 
 
-	\item Image similarity  —  identification of similar images across the whole collection enabling a search of similar images from a selected one or just grouping similar images according to defined parameters. There are many ways of doing similarity, some simple, like measuring the average color of the image \cite{Strong:2009p413,Qiu:2007p1207,Schaefer:2010p1871}, some complex like measuring various color attributes, edges, textures, applying filters or using convulsion like Heesch \cite{Heesch:2004p2675} and Chen \cite{Chen:1998p2344} did. For our work, we will explore options for color similarity, paving the way for other more accurate methods.
-\end{itemize}
+\subsubsection{Image similarity }
+Identification of similar images across the whole collection enabling a search of similar images from a selected one or just grouping similar images according to defined parameters. There are many ways of doing similarity, some simple, like measuring the average color of the image \cite{Strong:2009p413,Qiu:2007p1207,Schaefer:2010p1871}, some complex like measuring various color attributes, edges, textures, applying filters or using convulsion like Heesch \cite{Heesch:2004p2675} and Chen \cite{Chen:1998p2344} did. For our work, we will explore options for color similarity, paving the way for other more accurate methods.
+
+\vspace{\baselineskip}
 
 We want to use some of this methods to automatically extract information from the contents of images but, since this work is mostly focused on photography, there is another way to obtain really useful information that is EXIF Metadata. None of the related works seemed to use it.
 
-EXIF Metadata is a standard format for metadata included in digitally captured media, like photographs captured by digital cameras. This devices save a lot of information on the image file, like the date and time of the capture, camera settings, camera orientation, location data and even detected faces\footnote{the availability of some of this data requires capable camera hardware and software that are getting more common nowadays.}. This is textual data and, therefore, much easier to retrieve and analyze than the content based methods we discussed above and is a great addition to them.
+EXIF Metadata is a standard format for metadata included in digitally captured media, like photographs captured by digital cameras. This devices save a lot of information on the image file, like the date and time of the capture, camera settings, camera orientation, location data and even detected faces\footnote{the availability of some of this data requires capable camera hardware and software that are getting more common nowadays.}. An example of the metadata fields can be seen on Table \ref{tab:exif}. This is textual data and, therefore, much faster and easier to retrieve and analyze than the content based methods we discussed above, being a great addition to them.
 
 Mixing all this different data, users should be able to interact, filter, sort and organize their collection in various ways, obtaining new and different perspectives of their images.
+
+\begin{table}[h]
+\vspace{\baselineskip}
+\renewcommand{\arraystretch}{1.4}
+\definecolor{light-gray}{gray}{0.92}
+\rowcolors{2}{light-gray}{white}
+\centering
+\caption{Example of some relevant EXIF fields imprinted by the camara and by the computer software used for post processing.}
+\label{tab:exif}
+\vspace{0.2cm}
+	\begin{tabular}{ll}
+	\textbf{Field Name}			&	\textbf{Example Value}\\
+	\hline
+	Camera:				&	Canon PowerShot S5 IS\\
+	Exposure:			&	0.017 sec (1/60)\\
+	Aperture:			&	f/3.2\\
+	Focal Length:		&	6 mm\\
+	ISO Speed:			&	80\\
+	Exposure Bias:		&	-2/3 EV\\
+	Flash:				&	Off, Did not fire\\
+	Software:			&	Adobe Photoshop Lightroom 3.4\\
+	Max Aperture Value:	&	2.7\\
+	Subject Distance:	&	0.3 m\\
+	Metering Mode:		&	Multi-segment\\
+	Sensing Method:		&	One-chip color area\\
+	Custom Rendered:	&	Normal\\
+	Exposure Mode:		&	Manual\\
+	White Balance:		&	Auto\\
+	Keywords:			&	``Beach", ``Sand", ``Castles"\\
+	Date and Time:		&	2010:09:18 11:52:59\\
+	Lens:				&	6.0-72.0 mm\\
+	Approximated Focus Distance:	&	0.3\\
+	Flash Mode:			&	Off\\
+	Metadata Date:		&	2011:06:14 20:03:04+01:00\\
+	GPS Latitude: 		&	38 deg 52' 47.67" N\\
+	GPS Longitude: 		&	9 deg 9' 47.13" W\\
+	GPS Altitude Ref: 	&	Above Sea Level\\
+	GPS Altitude: 		&	214.9 m\\
+	GPS Date Time:		&	2010:09:18 10:52:59\\
+\end{tabular}
+\end{table}
 
 
 
