@@ -88,9 +88,15 @@ The extensibility factor of a system is also important for the added value that 
 One of our main goals is to display a large set of images on the screen, but this brings problems since each image, in full-size, can take a good set of resources of the system. If we multiply this resources for a thousand images, we will not have a performent work.
 
 Therefore, we set this requirement for having a performent work, that can be used with at least a few thousand images without taking down the system while using it.
-
-
 % subsubsection Performance (end)
+
+
+
+
+\subsubsection{Persistency}
+
+Our system will spend sometime generating and gathering data for each of the available feature extractors, for each image. To avoid having to re-do work in case of a failure, addition of more images to the collection or stopping to resume later, the system must store the data after its generation. This should be accomplished using a system wide framework to provide easy storing of all the data. Since this work is intended to be an exploration of visualization concepts, so we will not support interoperability from our system to others by using MPEG-7 or other metadata descriptor standards but instead use something that is simpler to implement.
+
 
 % subsection design_goal (end)
 
@@ -101,7 +107,6 @@ Therefore, we set this requirement for having a performent work, that can be use
 \label{reqs:features}
 
 %extract interesting information about the images
-\todo{ligar mais ao related work}
 As referred before, we want our system to extract interesting information about the images and we will now explain this in detail.
 
 
@@ -112,15 +117,16 @@ There have been various developments in the feature extraction front \cite{Liu:2
 Some examples of working solutions for feature detection:
 
 \begin{itemize}
-	\item{Face recognition — detection of the presence of faces in the images, their position and relations between them as some other works refer \cite{Vasconcelos:2005in,Chen:2003p3699,Tamura:2002p859,Hsu:2002p3675};}
+	\item Face recognition — detection of the presence of faces in the images, their position and relations between them as some other works refer \cite{Vasconcelos:2005in,Chen:2003p3699,Tamura:2002p859,Hsu:2002p3675}. Face recognition has been gaining public recognition in the past few years since many photo applications and services have been including it. The problem with face recognition is that it requires users to identify who are the persons on each photo which, generally, is a long and boring process. For concept, we will only detect the presence of faces and not spend time identifying them.
 
-	\item{Object identification — identify objects in images \cite{Torralba:2008p527};}
+	\item Object recognition — identification objects in images \cite{Torralba:2008p527}. This is a useful extractor but is requires a huge library of sample imagery for comparison and it's not feasible to adopt in our work.
+	
+	
+	\item Identification of perceptive colors — what are the main colors that users perceive in certain image \cite{Sural:2002bt,Tan:2001p850}. An image is composed of different colors or tones and people can identify images by their main colors and dispositions. There are simple ways, like calculating the mean color for an image, but that's not faithful. Detecting perceptive colors identifies the different colors of an image, providing more realistic data.
 
-	\item{Identification of perceptive colors — what are the main colors that users perceive in certain image \cite{Sural:2002bt,Tan:2001p850};}
+	\item Image sequences  —  identification of images of the same scene that were taken in sequence, for grouping purposes \cite{Cooper:2003p3679}. Images taken in sequence of the same subject should be gathered into a group of images, with the purpose of reducing the needed space to display them. This can be either by looking at the capture date or by analyzing the 
 
-	\item{Image sequence  —  identification of images of the same scene that were taken in sequence, for grouping purposes \cite{Cooper:2003p3679};}
-
-	\item{Image similarity  —  identification of similar images across the whole collection enabling a search of similar images from a selected one or just grouping similar images according to defined parameters. There are many ways of doing similarity, some simple, like measuring the average color of the image \cite{Strong:2009p413,Qiu:2007p1207,Schaefer:2010p1871}, some complex like measuring various color attributes, edges, textures, applying filters or using convulsion like Heesch \cite{Heesch:2004p2675} and Chen \cite{Chen:1998p2344} did. For our work, we will explore options for color similarity, paving the way for other more accurate methods.}
+	\item Image similarity  —  identification of similar images across the whole collection enabling a search of similar images from a selected one or just grouping similar images according to defined parameters. There are many ways of doing similarity, some simple, like measuring the average color of the image \cite{Strong:2009p413,Qiu:2007p1207,Schaefer:2010p1871}, some complex like measuring various color attributes, edges, textures, applying filters or using convulsion like Heesch \cite{Heesch:2004p2675} and Chen \cite{Chen:1998p2344} did. For our work, we will explore options for color similarity, paving the way for other more accurate methods.
 \end{itemize}
 
 We want to use some of this methods to automatically extract information from the contents of images but, since this work is mostly focused on photography, there is another way to obtain really useful information that is EXIF Metadata. None of the related works seemed to use it.
