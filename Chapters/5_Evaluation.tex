@@ -30,25 +30,68 @@ Therefore we chose to perform two different tests:
 \item \textbf{user specific tests} using their own photo collections. The users gave us their own photo collections for us to process and then perform the testing.
 \end{myitemize}
 
-The generic test allowed us to broadly analyze how users responded to the \ac{UI} and to have a sense of how they felt experienced it, without waiting for a collection. This allowed us to focus the user specific test on a smaller set of people and assess how they felt by using their 
+The generic test allowed us to broadly analyze how users responded to the \ac{UI} and to have a sense of how they felt experienced it, without waiting for a collection. This allowed us to focus the user specific test on a smaller and more manageable set of people, and assess how they felt while interacting with the photos they know.
+
+Testing was done by presenting the user with the Eagle Eye's visualization interface ready to use. They never saw the backend or any of its processing steps, since that part is currently less then polished, takes time to process, and is not what we are interested on testing.
+
+The interface and controls are explained in detail to the users, from how to navigate the collection to the buttons on the \ac{UI}. They are then allowed to play around and explore Eagle Eye. I was always next to them, not only giving little hints and some occasional help, but also to provide some guidance and motif for their continued navigation and exploration of the system by asking to see some pieces of the collection. In the end, the users where asked to fill in a form describing their opinion of the system for statistical analysis.
+
+Most tests where performed on my personal laptop computer, connected to a 22" external monitor. The big screen is very important and helps provide a better experience while using Eagle Eye, for its capacity to display the images in a larger and more comfortable size then my computer's 13" screen. Other tests had to be performed directly on the laptop, since I had to meet some users at their work locations on the university campus.
 
 
- only a small set of people with  The user specific tests allowed us to  better assess how users reacted to the interaction with their own photos.
-
-Testing was done by presenting the user with Eagle Eye's visualization interface only and ready to use. They never saw the backend or any of its processing steps, since it is currently less then polished and is not the most important part of this work. 
-
-The interface and controls are then explained to the users and they are then allowed to play around and explore Eagle Eye. I was next to them, not only giving little hints and some occasional help, but also to provide some guidance and motif for their continued navigation and exploration on the system by asking to see some pieces of the collection. In the end, the users where asked to fill in a form describing their opinion of the system for statistical analysis.
-
-Tests where performed on my personal laptop computer, connected to a 22" external monitor. The big screen is very important and helps provide a better experience while using Eagle Eye, for its capacity to display the images in a larger and more comfortable size.
 
 
 \section{Characterization of users}
 
-Most of the users tested were students in this institution, between the ages of 23 and 25 some  
+Most of the users tested were students in this institution, between the ages of 22 and 25, from the various degrees of computer engineering. Some where avid photographers, some not so much.
 
 \section{Results}
 
-bloh
+The general feedback obtained is that users generally like the concept and the interaction of the system. They like to explore the library in different ways and play around with the dispositions. The majority have concluded that it needs some improvements in certain areas.
+
+\subsection{System Usability Scale}
+
+On the inquiry filled by our test users after the testing the system, we had a section with the \acf{SUS} questions. \ac{SUS}\cite{Brooke:1996ua} is a simple and generic ten question scale, giving a global view of the usability of a system. The \ac{SUS} result of inquiring \todo{20} people was \todo{75} points on a scale of 0-100 points, which is a fairly good mark for our system.
+
+\begin{table}
+	\rowcolors{0}{light-gray}{white}
+	\renewcommand{\arraystretch}{1.5}
+	\centering
+\begin{tabular}{l|c}
+I think that I would like to \textbf{use this system frequently} & 3.4\\
+I found the system \textbf{unnecessarily complex} & 2.0\\
+I thought the system was \textbf{easy to use} & 3.9\\
+I think that I would \textbf{need the support of a technical person} to be able to use this system & 1.3\\
+I found the various functions in this system were \textbf{well integrated} & 3.5\\
+I thought there was \textbf{too much inconsistency} in this system & 1.9\\
+I would imagine that most people would \textbf{learn to use this system very quickly} & 3.8\\
+I found the system very \textbf{cumbersome} to use & 2.3\\
+I felt very \textbf{confident} using the system & 4.0\\
+I needed to \textbf{learn a lot of things} before I could get going with this system & 1.5\\
+\end{tabular}
+\caption{Average of the results for each of the ten questions of \ac{SUS}. Values range between 1.0 (strongly disagree with the question) and 5.0 (strongly agree).}
+\label{tab:sus}
+\vspace{\baselineskip}
+\end{table}
+
+The averaged results to each of the answers of \ac{SUS} can be seen on table \ref{tab:sus}. The questions' focus alternates between positive and negative characteristics for the system.
+
+\subsection{What users liked}
+
+Questioned of what they liked on the system, and from what was seen from the interaction, we can confidently say users liked the general concepts of the system. I now present a summary of the users opinions of the good points of Eagle Eye:
+\begin{itemize}
+\item the photo display of a much greater amount of photos than what they've ever seen,  making visualization easier;
+\item the easy zoom in and out to quickly see groups or photos in full size or in smaller size;
+\item the possibility of still being able to identify groups of images which are small sized;
+\item the various ways to quickly organize and access the images, specially the ability to view groups by events or colors;
+\item the ability to selected images;
+\item the smart use of space by grouping related images;
+\end{itemize}
+
+Essentially, people seem to like the new interface to browse photos, specially if they know the photos themselves, which makes the overall usage of the system much more interesting.
+
+\subsection{User suggested improvements}
+
 
 \section{Case Studies}
 
