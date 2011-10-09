@@ -38,22 +38,26 @@ The interface and controls are explained in detail to the users, from how to nav
 
 Most tests where performed on my personal laptop computer, connected to a 22" external monitor. The big screen is very important and helps provide a better experience while using Eagle Eye, for its capacity to display the images in a larger and more comfortable size then my computer's 13" screen. Other tests had to be performed directly on the laptop, since I had to meet some users at their work locations on the university campus.
 
-
-
-
 \section{Characterization of users}
 
-Most of the users tested were students in this institution, between the ages of 22 and 25, from the various degrees of computer engineering. Some where avid photographers, some not so much.
+Most of the users tested were students in this institution, between the ages of 22 and 25, from the various degrees of computer engineering. Some were avid photographers, others not so much.
+\todo{…}
+
 
 \section{Results}
 
 The general feedback obtained is that users generally like the concept and the interaction of the system. They like to explore the library in different ways and play around with the dispositions. The majority have concluded that it needs some improvements in certain areas.
 
+\subsection{\red{User behavior}}
+
+Upon viewing how the system worked, users generally went ahead and played a while with the zooming, and viewed some images and groups at will while noticing how the groups can be differentiated when zoomed out. Later, users tried the different disposition options, generally in the order they are presented in the \ac{UI}. The motif for two date displays is usually questioned and explained and they move on to the color display which users generally like for the nice and clear color separation, although sometimes finding some images in odd locations. After viewing the differences in dispositions and view some images more zoomed in, the users tried the filtering or the image/group selection for reducing the amount of images displayed and focus only on part of the collection. The filter showed useful even though its bugs appeared once in a while. The manual selections were easier to use and for that captivated more usage from the users.
+
+
 \subsection{System Usability Scale}
 
 On the inquiry filled by our test users after the testing the system, we had a section with the \acf{SUS} questions. \ac{SUS}\cite{Brooke:1996ua} is a simple and generic ten question scale, giving a global view of the usability of a system. The \ac{SUS} result of inquiring \todo{20} people was \todo{75} points on a scale of 0-100 points, which is a fairly good mark for our system.
 
-\begin{table}
+\begin{table}[h]
 	\rowcolors{0}{light-gray}{white}
 	\renewcommand{\arraystretch}{1.5}
 	\centering
@@ -69,12 +73,12 @@ I found the system very \textbf{cumbersome} to use & 2.3\\
 I felt very \textbf{confident} using the system & 4.0\\
 I needed to \textbf{learn a lot of things} before I could get going with this system & 1.5\\
 \end{tabular}
-\caption{Average of the results for each of the ten questions of \ac{SUS}. Values range between 1.0 (strongly disagree with the question) and 5.0 (strongly agree).}
+\caption[Average of the results for each of the ten questions of \ac{SUS}.]{Average of the results for each of the ten questions of \ac{SUS}. Values range between 1.0 (strongly disagree with the question) and 5.0 (strongly agree). Gray rows are positive questions, where higher values are better, and white rows are negative questions, where lower values are better.}
 \label{tab:sus}
 \vspace{\baselineskip}
 \end{table}
 
-The averaged results to each of the answers of \ac{SUS} can be seen on table \ref{tab:sus}. The questions' focus alternates between positive and negative characteristics for the system.
+The averaged results to each of the answers of \ac{SUS} can be seen on Table \ref{tab:sus}. The questions' focus alternates between positive and negative characteristics for the system. Some important questions got good rates, like the ``easy to use'' and ``quick to learn'' with a rating of 4 of a maximum 5 and the ``unnecessarily complex'' question also getting the second best rate for a negative question, 2, which means users generally found the system to be easy to use and learn, although it still has some margin for improvement on the user experience area. Another important question is the ``I would like to use this system frequently'' which got a rating of 3.4, slightly lower from what we would like to see but still above the waterline. This reinforces the point above about improving the system but this time with features that make the user want to use the system more often.
 
 \subsection{What users liked}
 
@@ -88,9 +92,48 @@ Questioned of what they liked on the system, and from what was seen from the int
 \item the smart use of space by grouping related images;
 \end{itemize}
 
-Essentially, people seem to like the new interface to browse photos, specially if they know the photos themselves, which makes the overall usage of the system much more interesting.
+Essentially, people seem to like the new interaction methods to browse photos, specially if they know the photos themselves, which makes the overall usage of the system much more interesting.
 
 \subsection{User suggested improvements}
+
+During the course of the tests and on the questionnaire, some users suggested some improvements to our work. Some of these improvements were already in our mind but we didn't had enough time to implement them. We will now expose the suggestions we agree on:
+
+\begin{itemize}
+	\item Information to help the user use the system, e.g., help, guides or tutorial;
+	\item Easier way to quickly view a single image/group in full size, like a double click;
+	\item The filter should the improved, removing the bugs, giving some guidance to the user and allowing both \texttt{AND} and \texttt{OR} logics (currently only uses the former);
+	\item The display should be organized hierarchically where appropriate, e.g., date, path and color based visualizations;
+	\item The color measure should be improved;
+	\item Event-based visualization, better then just dates or paths;
+	\item Face detection should be improved to Person recognition;
+	\item Improved method to select single images;
+	\item Display the number of photos on screen;
+	\item Better group separation.
+\end{itemize}
+
+Although we tried to make the user interface as clean and simple as possible, a couple users found some difficulties and suggested some simple guides. We think a simple introduction to the system is nice and helps the users, but it wouldn't make sense to spend time doing it at this point.
+
+
+\subsection{Accomplished Objectives} 
+
+We can now answer what objectives for Eagle Eye were accomplished. 
+
+\subsubsection{How the users react to the large quantity of images displayed simultaneously?}
+Users generally liked the large view and were surprised by how much can still be recognized, specially when working with their own photos and if they're grouped by events. 
+
+\subsubsection{How easily do the users understand how to use the navigation controls and what could be improved?}
+Users like the navigation controls but many felt it should be easier to go directly to a full view of one image and some agreed that keyboard navigation or slideshow-like controls should make the navigation easier.
+
+\subsubsection{Do users think the available disposition and sorting options are adequate and useful?}
+Users liked the ability to switch between dispositions and preferred some more the others.
+Users generally liked the date display in groups but some would prefer that it would be more faithful to the time. Some suggested that it would be better if the tree map was organized with groups and subgroups so that all photos of a year/month got grouped together. Users understood the current need for the linear date display but found it hard to view anything and didn't spend much time with it.
+The other preferred disposition was the color, the overall result of the grouping was pleasing to the eye of most users. The problem was when they started zooming in and some images revealed to be a mix of different colors from the color of the group they were in. This was a known problem of the method used. Another problem that revealed was the large size of groups like ``Gray'' or ``Black'' usually took great part of the screen, leaving all the more interesting colors to half of the screen. Some users even filtered out this black and grey groups by selecting and viewing only the colorful ones.
+The path display wasn't very used since it ended up being much similar to the date display, except on some libraries where there folders weren't named by date but by event and made some sense to view the groups by these names. 
+
+\subsubsection{Can users understand what are the filters capable of, or there is a need for an improvement?}
+Some users understand what the filter is capable of when the autocomplete gives some suggestions, others could use some initial guidance to understand that a lot of things can be used on it. The biggest problem is that some of the information they would like to use can't be obtained automatically, like location (unless already on EXIF) or names of people, unless we hook into some third party app where the user have previously saved this data.
+
+\subsubsection{Can users extract interesting information from the collections by using Eagle Eye?}
 
 
 \section{Case Studies}
