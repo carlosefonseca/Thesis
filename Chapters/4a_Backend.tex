@@ -33,7 +33,7 @@ We explored a few ways to develop the image import process and we rested at the 
 \begin{figure}[ht]
 	\centering
 		\includegraphics[scale=0.6]{Figures/import.pdf}
-	\caption{Process in use by our system of importing a folder using ExifTool.}
+	\caption{Process in use by our system for importing a folder using ExifTool.}
 	\label{fig:arch:import}
 \end{figure}
 
@@ -112,8 +112,6 @@ Information when the photo was captured, what device was used, the path where it
 
 \subsubsection{Detection of image’s main color}
 
-Sometimes people don’t recall where or when a photo was taken, or where is it, but they vaguely remember that the photo had some dominant colors, like the red of a parrot in a green background (\fig{parrot}). This kind of information can be helpful when searching for a photo in a collection.
-
 \begin{wrapfigure}{r}{0.3\textwidth}
 	\vspace{-20pt}
 	\begin{center}
@@ -125,6 +123,8 @@ Sometimes people don’t recall where or when a photo was taken, or where is it,
 	\label{fig:parrot}
 \end{wrapfigure}
 
+Sometimes people don’t recall where or when a photo was taken, or where is it, but they vaguely remember that the photo had some dominant colors, like the red of a parrot in a green background (\fig{parrot}). This kind of information can be helpful when searching for a photo in a collection.
+
 Color extraction from images has been a long standing problem \cite{Wan:2011bg,Strong:2009p413,Gabbouj:2009en,Girgensohn:2009:MOP:1502650.1502711,Zaheer:2010p3735,Datta:2008p1604,Chang:2007bt}. We wanted to extract the most perceptible colors from images so, in the parrot example (\fig{parrot}), the system should associate the image with the colors red, green, white and black and avoid colors that have little relevance, like the small blue of  the feathers and also ignore small tonal variances in the reds and greens.
 
 For that we explored two methods that reduce the number of colors in an image to the most essential ones, the first being an adaptive method, selecting a few averaged colors from the image and the second using a palette as reference to select the colors.
@@ -134,7 +134,7 @@ A common JPEG photo can contain 16.8 million different colors. Our adaptive meth
 \begin{figure}[ht]
 	\centering
 		\includegraphics[width=\columnwidth]{Figures/colorreduction.png}
-	\caption{Three images where the left half is the original version and the right half is a version with very limited number of colors provided by the adaptive method.}
+	\caption[Comparison of full color and reduced color images.]{Three images where the left half is the original version and the right half is a version with very limited number of colors provided by the adaptive method.}
 	\label{fig:sky}
 \end{figure}
 
@@ -158,7 +158,7 @@ The second method uses a predefined color palette (\fig{colors}) which is an ada
     \subfigure[Adaptive method]{\includegraphics[width=0.328\linewidth]{Figures/pink2.png}\label{fig:pinkA}}
     \subfigure[Mapping method] {\includegraphics[width=0.328\linewidth]{Figures/pink3.png}\label{fig:pinkP}}
   \end{subfigmatrix}
-  \caption{Comparison between the original image, the adaptive color reduction method failing to keep the pink and the blue colors and the color mapping method.}
+  \caption[Comparison between the original image, the adaptive color reduction method and the color mapping method.]{Comparison between the original image, the adaptive color reduction method failing to keep the pink and the blue colors and the color mapping method.}
   \label{fig:pink}
 \end{figure}
 
@@ -201,7 +201,7 @@ We tested 29 images, from six different cameras, ranging from one to ten megapix
 \begin{figure}[ht]
 	\centering
 		\includegraphics[width=\columnwidth]{Figures/graph2.pdf}
-	\caption{Results of the face detection test. 100\% of faces is the actual faces present in the test images.}
+	\caption[Detection vs. speed results of the face detection test.]{Detection vs. speed results of the face detection test. 100\% of faces is the actual faces present in the test images.}
 	\label{fig:fdres}
 \end{figure}
 
