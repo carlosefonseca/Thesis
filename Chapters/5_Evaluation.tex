@@ -57,9 +57,23 @@ After playing around with Eagle Eye, we asked the users to perform some tasks fo
 
 We started with simple tasks, to see that they understood the basics of the system. Tasks like ``Switch to the color view'',``Select and display a group'', ``Select and display a few images'' weren't problematic and didn't took more than a couple seconds to perform generally without errors. Two people did complaint that the disposition of the Filter, Selection and Apply buttons mislead them.
 
-Next we asked users how to select images from the year 2010. This could be done by using the filter to only display images of that year or by viewing images by date and manually select the images that corresponded to that year. Most users tried typing 2010 in the filter bar and quickly got to the intended result in 5 seconds but three users still looked into the default, treemap-based date view until they remembered it wasn't sorted and then looked for the sequential date view and performed a manual selection of the images. These users took about a minute to perform the operation.
+Next we asked users how to select images from the year 2010. This could be done by using the filter to only display images of that year or by viewing images by date and manually select the images that corresponded to that year. Most users tried typing 2010 in the filter bar and quickly got to the intended result in 5 seconds but five users still looked into the default, treemap-based date view until they remembered/noticed it wasn't sorted and then looked for the sequential date view and performed a manual selection of the images. These users took about a minute to perform the operation.
 
 In another test we told the users the library had photos of a certain annual event and asked them to figure out what years were covered by those photos. The easier way was to filter by the event name, sort by date and view the group names, which would take less than 15 seconds. Slightly more than half the users did this method. Others went to the path view and looked for groups containing the event name, taking between one and two minutes to perform the task. A small percentage tried to discover the photos by navigation on the complete image set, taking an even longer time to complete.
+
+The users were then asked to find a photo of a jumping dolphin. This test could be accomplished in a number of ways. Some users had already noticed a group of photos of the Zoo and zoomed into those, quickly finding the photos in less than ten seconds. Others changed the view to be grouped by colors and selected only the blue groups. The filter returned the photos in no apparent order and, after complaining about that, the users changed the view to date or path, finding the Zoo photos on the corner. Some zoomed in, others selected that group and found the photos, not taking less than 30 seconds to do it. A few users tried at first to see if there were some ``dolphin''-related keywords, but those photos had no keywords associated.
+
+\subsection{Errors and misunderstandings} % (fold)
+
+During the above two tests, exploration and tasks, some errors occurred somewhat repeatedly, some caused by bugs, some by poor choices in the \ac{UI}.
+
+Users could not quickly understand the difference between the buttons ``Date'' and ``Date (Linear)'' buttons by themselves making some mistakes sometimes.
+
+A few users though the ``Select images'' button was for applying the filters and not for manually selecting images, generating some confusion.
+
+A few other users complained about the way to manually select a single image. Currently, the user is required to make a ``click-and-drag'' selection to select one or multiple images, conflicting with the common way of ``click to select item; click-and-drag to select many''.
+
+Another problem, detected by a few users, that is also related to selections is the action of de-selecting images and groups, which can only be performed by deleting the entry in the filter bar, and not by interacting with the images.  
 
 
 \subsection{System Usability Scale}
