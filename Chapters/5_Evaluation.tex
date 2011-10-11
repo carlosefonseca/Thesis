@@ -3,13 +3,13 @@
 
 % 10/15 pages
 
-To better understand how well Eagle Eye works, we have performed tests with users and, to do that, we defined a number of goals for Eagle Eye and a testing methodology, with specific tasks to be performed by the users. We also did separate tests with the users own libraries to evaluate the benefits of knowing the contents of the system.
+To better understand how well Eagle Eye works, we have performed tests with users and, to do that, we defined a number of goals for Eagle Eye and a testing methodology, with specific tasks to be performed by the users. We also did separate tests with the users' own libraries to evaluate the benefits of knowing the contents of the system.
 
 
 \section{Objectives}
 
 With our tests, we wanted to observe how various parts of Eagle Eye worked for a variety of people. 
-We will try to answer the following questions, with our evaluation of the system:
+We will answer the following questions, with our evaluation of the system:
 
 \begin{itemize}
 \item How the users react to the large quantity of images displayed simultaneously?
@@ -19,29 +19,26 @@ We will try to answer the following questions, with our evaluation of the system
 \item Can users extract interesting information from the collections by using Eagle Eye?
 \end{itemize}
 
-We will answer these questions with our evaluation.
+The answers will be provided later on, after explaining the testing and the results.
 
 \section{Testing Methodology}
 
-Ideally, every test we made would be using the tested user's photo collection, which is much more interesting for them, but it is impractical due to the time required to pre-process the photos.
+We performed two different tests with users, both with different purposes.
 
-Therefore we chose to perform two different tests:
-\begin{myitemize}
-\item a \textbf{generic test} with a fixed collection allowing for faster mass testing;
-\item \textbf{user specific tests} using their own photo collections. The users gave us their own photo collections for us to process and then perform the testing.
-\end{myitemize}
+One of the tests is the ideal use-case for our application: the scenario where the users are interacting with their own photos through our system. A few users had given us their photo libraries for us to process, so that we could test the usage of the user's own library in Eagle Eye.
 
-The generic test allowed us to broadly analyze how users responded to the \ac{UI} and to have a sense of how they felt experienced it, without waiting for a collection. This allowed us to focus the user specific test on a smaller and more manageable set of people, and assess how they felt while interacting with the photos they know.
+The other test we performed allowed us to broadly analyze how users responded to the \ac{UI}, how they interacted with the system, how long some tasks took to complete or how did they chose to perform a certain task. This test only makes sense if we can replicate the conditions for each user so we generated a fixed collection, equal for all users who performed this test. We had a larger number of users perform this test, for a more accurate quantitative results. 
 
 Testing was done by presenting the user with the Eagle Eye's visualization interface ready to use. They never saw the backend or any of its processing steps, since that part is currently less then polished, takes time to process, and is not what we are interested on testing.
 
-The interface and controls are explained in detail to the users, from how to navigate the collection to the buttons on the \ac{UI}. They are then allowed to play around and explore Eagle Eye. I was always next to them, not only giving little hints and some occasional help, but also to provide some guidance and motif for their continued navigation and exploration of the system by asking to see some pieces of the collection. In the end, the users where asked to fill in a form describing their opinion of the system for statistical analysis.
+The interface and controls were explained in detail to the users, from how to navigate the collection to the buttons on the \ac{UI}. They were then allowed to play around, explore and learn Eagle Eye. I was always next to them, giving little hints and some occasional help. After they felt comfortable with the system, I asked them to perform a few tasks, measured time and errors and them asked the users to answer a few questions describing what they thought of the system.
 
-Most tests where performed on my personal laptop computer, connected to a 22" external monitor. The big screen is very important and helps provide a better experience while using Eagle Eye, for its capacity to display the images in a larger and more comfortable size then my computer's 13" screen. Other tests had to be performed directly on the laptop, since I had to meet some users at their work locations on the university campus.
+Most tests where performed on my personal laptop computer, connected to a 22" external monitor. The big screen is very important and helps provide a better experience while using Eagle Eye, for its capacity to display the images in a larger and more comfortable size than my 13" screen computer . Other tests had to be performed directly on the laptop, since I had to meet some users at their work locations on the university campus.
 
 \section{Characterization of users}
 
 Most of the users tested were students in this institution, between the ages of 22 and 25, from the various degrees of computer engineering. Some were avid photographers, others not so much.
+
 \todo{…}
 
 
@@ -49,9 +46,21 @@ Most of the users tested were students in this institution, between the ages of 
 
 The general feedback obtained is that users generally like the concept and the interaction of the system. They like to explore the library in different ways and play around with the dispositions. The majority have concluded that it needs some improvements in certain areas.
 
-\subsection{\red{User behavior}}
+\subsection{User behavior during exploration}
 
 Upon viewing how the system worked, users generally went ahead and played a while with the zooming, and viewed some images and groups at will while noticing how the groups can be differentiated when zoomed out. Later, users tried the different disposition options, generally in the order they are presented in the \ac{UI}. The motif for two date displays is usually questioned and explained and they move on to the color display which users generally like for the nice and clear color separation, although sometimes finding some images in odd locations. After viewing the differences in dispositions and view some images more zoomed in, the users tried the filtering or the image/group selection for reducing the amount of images displayed and focus only on part of the collection. The filter showed useful even though its bugs appeared once in a while. The manual selections were easier to use and for that captivated more usage from the users.
+
+
+\subsection{Results for tasks}
+
+After playing around with Eagle Eye, we asked the users to perform some tasks for us. We measured how long did they take to do each task and what errors they've done.
+
+We started with simple tasks, to see that they understood the basics of the system. Tasks like ``Switch to the color view'',``Select and display a group'', ``Select and display a few images'' weren't problematic and didn't took more than a couple seconds to perform generally without errors. Two people did complaint that the disposition of the Filter, Selection and Apply buttons mislead them.
+
+Next we asked users how to select images from the year 2010. This could be done by using the filter to only display images of that year or by viewing images by date and manually select the images that corresponded to that year.
+
+
+
 
 
 \subsection{System Usability Scale}
@@ -63,33 +72,33 @@ On the inquiry filled by our test users after the testing the system, we had a s
 	\renewcommand{\arraystretch}{1.5}
 	\centering
 \begin{tabular}{l|c}
-I think that I would like to \textbf{use this system frequently} & 3.4\\
-I found the system \textbf{unnecessarily complex} & 2.0\\
-I thought the system was \textbf{easy to use} & 3.9\\
-I think that I would \textbf{need the support of a technical person} to be able to use this system & 1.3\\
-I found the various functions in this system were \textbf{well integrated} & 3.5\\
-I thought there was \textbf{too much inconsistency} in this system & 1.9\\
-I would imagine that most people would \textbf{learn to use this system very quickly} & 3.8\\
-I found the system very \textbf{cumbersome} to use & 2.3\\
-I felt very \textbf{confident} using the system & 4.0\\
-I needed to \textbf{learn a lot of things} before I could get going with this system & 1.5\\
+I think that I would like to \textbf{use this system frequently} & 3.3\\
+I found the system \textbf{unnecessarily complex} & 1.8\\
+I thought the system was \textbf{easy to use} & 4.2\\
+I think that I would \textbf{need the support of a technical person} to be able to use this system & 1.4\\
+I found the various functions in this system were \textbf{well integrated} & 3.6\\
+I thought there was \textbf{too much inconsistency} in this system & 2.0\\
+I would imagine that most people would \textbf{learn to use this system very quickly} & 4.0\\
+I found the system very \textbf{cumbersome} to use & 2.2\\
+I felt very \textbf{confident} using the system & 3.9\\
+I needed to \textbf{learn a lot of things} before I could get going with this system & 1.6\\
 \end{tabular}
-\caption[Average of the results for each of the ten questions of \ac{SUS}.]{Average of the results for each of the ten questions of \ac{SUS}. Values range between 1.0 (strongly disagree with the question) and 5.0 (strongly agree). Gray rows are positive questions, where higher values are better, and white rows are negative questions, where lower values are better.}
+\caption[Average of the results for each of the ten questions of \ac{SUS}.]{Average of the results for each of the ten questions of \ac{SUS}. Values range between 1.0 (strongly disagree with the question) and 5.0 (strongly agree). Gray rows are ``positive'' questions, where higher values are better, and white rows are ``negative'' questions, where lower values are better.}
 \label{tab:sus}
 \vspace{\baselineskip}
 \end{table}
 
-The averaged results to each of the answers of \ac{SUS} can be seen on Table \ref{tab:sus}. The questions' focus alternates between positive and negative characteristics for the system. Some important questions got good rates, like the ``easy to use'' and ``quick to learn'' with a rating of 4 of a maximum 5 and the ``unnecessarily complex'' question also getting the second best rate for a negative question, 2, which means users generally found the system to be easy to use and learn, although it still has some margin for improvement on the user experience area. Another important question is the ``I would like to use this system frequently'' which got a rating of 3.4, slightly lower from what we would like to see but still above the waterline. This reinforces the point above about improving the system but this time with features that make the user want to use the system more often.
+The averaged results to each of the answers of \ac{SUS} can be seen on Table \ref{tab:sus}. The questions' focus alternates between positive and negative characteristics for the system. Some important questions got good rates, like the ``easy to use'' and ``quick to learn'' with a rating of \red{4} of a maximum 5 and the ``unnecessarily complex'' question also getting the second best rate for a negative question, \red{2}, which means users generally found the system to be easy to use and learn, although it still has some margin for improvement on the user experience area. Another important question is the ``I would like to use this system frequently'' which got a rating of \red{3.4}, slightly lower from what we would like to see but still above the waterline. This reinforces the point above about improving the system but this time with features that make the user want to use the system more often.
 
 \subsection{What users liked}
 
 Questioned of what they liked on the system, and from what was seen from the interaction, we can confidently say users liked the general concepts of the system. I now present a summary of the users opinions of the good points of Eagle Eye:
 \begin{itemize}
-\item the photo display of a much greater amount of photos than what they've ever seen,  making visualization easier;
+\item the photo display of a much greater amount of photos than what they've ever seen, making visualization of many images easier;
 \item the easy zoom in and out to quickly see groups or photos in full size or in smaller size;
-\item the possibility of still being able to identify groups of images which are small sized;
+\item still being able to identify groups of images which are small sized;
 \item the various ways to quickly organize and access the images, specially the ability to view groups by events or colors;
-\item the ability to selected images;
+\item the ability to select images;
 \item the smart use of space by grouping related images;
 \end{itemize}
 
@@ -102,7 +111,8 @@ During the course of the tests and on the questionnaire, some users suggested so
 \begin{itemize}
 	\item Information to help the user use the system, e.g., help, guides or tutorial;
 	\item Easier way to quickly view a single image/group in full size, like a double click;
-	\item The filter should the improved, removing the bugs, giving some guidance to the user and allowing both \texttt{AND} and \texttt{OR} logics (currently only uses the former);
+	\item The filter should the improved, removing the bugs, giving some guidance to the user and allowing both \texttt{AND} and \texttt{OR} logics (currently only uses the former) and a button to clear it;
+	\item The selection buttons should be separated from the filter bar to avoid misleading people;
 	\item The display should be organized hierarchically where appropriate, e.g., date, path and color based visualizations;
 	\item The color measure should be improved;
 	\item Event-based visualization, better then just dates or paths;
