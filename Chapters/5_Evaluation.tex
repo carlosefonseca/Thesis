@@ -27,7 +27,7 @@ We performed two different tests with users, both with different purposes.
 
 One of the tests is the ideal use-case for our application: the scenario where the users are interacting with their own photos through our system. A few users had given us their photo libraries for us to process, so that we could test the usage of the user's own library in Eagle Eye.
 
-The other test we performed allowed us to broadly analyze how users responded to the \ac{UI}, how they interacted with the system, how long some tasks took to complete or how did they chose to perform a certain task. This test only makes sense if we can replicate the conditions for each user so we generated a fixed collection, equal for all users who performed this test. We had a larger number of users perform this test, for a more accurate quantitative results. 
+The other test we performed allowed us to broadly analyze how users responded to the \ac{UI}, how they interacted with the system, how long some tasks took to complete or how did they chose to perform a certain task. This test only makes sense if we can replicate the conditions for each user so we generated a fixed collection, equal for all users who performed this test. This collection had 5679 photos and was based on a subset of my own photo collection, with images spanning from 2005 up to 2011. We had a larger number of users perform this test, for more accurate quantitative results.
 
 Testing was done by presenting the user with the Eagle Eye's visualization interface ready to use. They never saw the backend or any of its processing steps, since that part is currently less then polished, takes time to process, and is not what we are interested on testing.
 
@@ -53,14 +53,13 @@ Upon viewing how the system worked, users generally went ahead and played a whil
 
 \subsection{Results for tasks}
 
-After playing around with Eagle Eye, we asked the users to perform some tasks for us. We measured how long did they take to do each task and what errors they've done.
+After playing around with Eagle Eye, we asked the users to perform some tasks for us. We measured how long did they take to do each task and what errors they've done.
 
 We started with simple tasks, to see that they understood the basics of the system. Tasks like ``Switch to the color view'',``Select and display a group'', ``Select and display a few images'' weren't problematic and didn't took more than a couple seconds to perform generally without errors. Two people did complaint that the disposition of the Filter, Selection and Apply buttons mislead them.
 
-Next we asked users how to select images from the year 2010. This could be done by using the filter to only display images of that year or by viewing images by date and manually select the images that corresponded to that year.
+Next we asked users how to select images from the year 2010. This could be done by using the filter to only display images of that year or by viewing images by date and manually select the images that corresponded to that year. Most users tried typing 2010 in the filter bar and quickly got to the intended result in 5 seconds but three users still looked into the default, treemap-based date view until they remembered it wasn't sorted and then looked for the sequential date view and performed a manual selection of the images. These users took about a minute to perform the operation.
 
-
-
+In another test we told the users the library had photos of a certain annual event and asked them to figure out what years were covered by those photos. The easier way was to filter by the event name, sort by date and view the group names, which would take less than 15 seconds. Slightly more than half the users did this method. Others went to the path view and looked for groups containing the event name, taking between one and two minutes to perform the task. A small percentage tried to discover the photos by navigation on the complete image set, taking an even longer time to complete.
 
 
 \subsection{System Usability Scale}
