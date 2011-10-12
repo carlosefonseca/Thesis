@@ -3,7 +3,7 @@
 
 % 10/15 pages
 
-To better understand how well Eagle Eye works, we have performed tests with users and, to do that, we defined a number of goals for Eagle Eye and a testing methodology, with specific tasks to be performed by the users. We also did separate tests with the users' own libraries to evaluate the benefits of knowing the contents of the system.
+To better understand how well Eagle Eye works, we performed user testing and, to do that, we defined a number of goals for Eagle Eye and a testing methodology, with specific tasks to be performed by the users. We also did separate tests with the users' own libraries to evaluate the benefits of knowing the contents of the system.
 
 
 \section{Objectives}
@@ -39,7 +39,6 @@ Most tests where performed on my personal laptop computer, connected to a 22" ex
 
 Most of the users tested were students in this institution, between the ages of 22 and 25, from the various degrees of computer engineering. Some were avid photographers, others not so much.
 
-\todo{…}
 
 
 \section{Results}
@@ -121,7 +120,7 @@ Essentially, people seem to like the new interaction methods to browse photos, s
 
 During the course of the tests and on the questionnaire, some users suggested some improvements to our work. Some of these improvements were already in our mind but we didn't had enough time to implement them. We will now expose the suggestions we agree on:
 
-\begin{itemize}
+\begin{myitemize}
 	\item Information to help the user use the system, e.g., help, guides or tutorial;
 	\item Easier way to quickly view a single image/group in full size, like a double click;
 	\item The filter should the improved, removing the bugs, giving some guidance to the user and allowing both \texttt{AND} and \texttt{OR} logics (currently only uses the former) and a button to clear it;
@@ -133,7 +132,7 @@ During the course of the tests and on the questionnaire, some users suggested so
 	\item Improved method to select single images;
 	\item Display the number of photos on screen;
 	\item Better group separation.
-\end{itemize}
+\end{myitemize}
 
 Although we tried to make the user interface as clean and simple as possible, a couple users found some difficulties and suggested some simple guides. We think a simple introduction to the system is nice and helps the users, but it wouldn't make sense to spend time doing it at this point.
 
@@ -166,14 +165,32 @@ Users can extract some information about their collections, like collection size
 
 As referred on the beginning of the chapter, we made some tests with some users' photo collections. We managed to get five users willing to to give us a copy of their collections for a more personalized testing.
 
-We got libraries containing from 833 up to 6064 images. None of the tested users considered that  Most users report being able to recognize most of the  groups in Date view. The user with the most photos said he needed to zoom in a little to understand better some of the groups, since many of them had a similar, grayish, tone that made them a bit hard to distinguish. We experimented filtering out all the images in the gray category using the color view and get back to the date view and groups were much easier to distinguish, because there were a lot of less images to view, making the visible ones bigger, and because groups had now a more relevant color. Although we were hiding images, the view itself ended up more interesting.
+We got libraries containing from 833 up to 6064 images. None of the tested users  Most users report being able to recognize most of the  groups in Date view. The user with the most photos said he needed to zoom in a little to understand better some of the groups, since many of them had a similar, grayish, tone that made them a bit hard to distinguish. We experimented filtering out all the images in the gray category using the color view and get back to the date view and groups were much easier to distinguish, because there were a lot of less images to view, making the visible ones bigger, and because groups had now a more relevant color. Although we were hiding images, the view itself ended up more interesting.
 
-These personal libraries were processed in the same way as the tasks library were.
+\begin{wrapfigure}{r}{0.45\textwidth}
+	\vspace{-20pt}
+	\begin{center}
+		\includegraphics[width=\linewidth]{Figures/filcab-time-lapse-563-imgs-to-6.png}
+	\end{center}
+	\vspace{-20pt}
+	\caption{Case study: six time lapses of 563 images, reduced to 6 spaces on the canvas}
+	\vspace{-5pt}
+	\label{fig:filcab:stacks}
+\end{wrapfigure}
+
+Most tested users only had a couple images stacked and did not use any of the techniques that produced sequential images (e.g. panoramas, bracketing, burst) but the person with the biggest library did made some bursts and some long time lapses and most were correctly stacked. This stacking allowed his collection of over 6000 photos to fit on the space occupied be a collection of only 4368 images, which is a 27\% reduction of clutter, without actually hiding the images. As an example, specific to this library, we selected the largest stacks on his library and compared how much space they took compacted and expanded. The six stacks we chose (\fig{filcab:stacks}) contained, in total, 563 images. By stacking, the 563 very identical images took only the space of 6, which is about 1\% of the space. We know that not many people make this type of photography but, for those who do, stacking is a very helpful feature which can only be improved.
+
+
 
 \section{Discussion}
 
-blaaaaah
+With the tests we performed, we verified people generally liked Eagle Eye and saw the potential of the system.
 
+We designed it to be simple while powerful, and people proved it was simple, by their positive answers and by their usage of the system, where we not only measured generally low times to complete the tasks but also a low number of errors. We acknowledged some aspects of the interface could be improved for a better and more user-friendly interaction.
+
+By the user interactions and suggestions, we also understood that Eagle Eye could be even more powerful, and with some improvements on the extraction of features and by enhancing the capabilities of the organization on canvas, it could be much more interesting and relevant to anyone who keeps photos on their computer.
+
+\hide{
 \newpage
 
 ————————————————————
@@ -335,5 +352,5 @@ D4rch
 \end{myitemize}
 
 
-
+}
 
