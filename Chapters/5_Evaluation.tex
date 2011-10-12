@@ -25,42 +25,53 @@ The answers will be provided later on, after explaining the testing and the resu
 
 We performed two different tests with users, both with different purposes.
 
-One of the tests is the ideal use-case for our application: the scenario where the users are interacting with their own photos through our system. A few users had given us their photo libraries for us to process, so that we could test the usage of the user's own library in Eagle Eye.
+One of the tests is the ideal use-case for our application: the scenario where the users are interacting with their own photos through our system. A few users gave us their photo libraries for us to process, so that we could test the usage of the user's own library in Eagle Eye.
 
 The other test we performed allowed us to broadly analyze how users responded to the \ac{UI}, how they interacted with the system, how long some tasks took to complete or how did they chose to perform a certain task. This test only makes sense if we can replicate the conditions for each user so we generated a fixed collection, equal for all users who performed this test. This collection had 5679 photos and was based on a subset of my own photo collection, with images spanning from 2005 up to 2011. We had a larger number of users perform this test, for more accurate quantitative results.
 
-Testing was done by presenting the user with the Eagle Eye's visualization interface ready to use. They never saw the backend or any of its processing steps, since that part is currently less then polished, takes time to process, and is not what we are interested on testing.
+Testing was done by presenting the user with the Eagle Eye's visualization interface ready to use. They never saw the backend or any of its processing steps, since that part is currently less then polished, takes a long time to process, and is not what we are interested on testing.
 
-The interface and controls were explained in detail to the users, from how to navigate the collection to the buttons on the \ac{UI}. They were then allowed to play around, explore and learn Eagle Eye. I was always next to them, giving little hints and some occasional help. After they felt comfortable with the system, I asked them to perform a few tasks, measured time and errors and them asked the users to answer a few questions describing what they thought of the system.
+The interface and controls were explained in detail to the users, from how to navigate the collection to the functions of the buttons on the \ac{UI}. They were then allowed to play around, explore and learn Eagle Eye by themselves. I was always next to them, giving little hints and some occasional help. After they felt comfortable with the system, I asked them to perform a few tasks, measured time and errors and in the end asked them to answer a few questions, describing what they thought of the system.
 
-Most tests where performed on my personal laptop computer, connected to a 22" external monitor. The big screen is very important and helps provide a better experience while using Eagle Eye, for its capacity to display the images in a larger and more comfortable size than my 13" screen computer . Other tests had to be performed directly on the laptop, since I had to meet some users at their work locations on the university campus.
+Most tests where performed on my personal laptop computer, connected to a 22" external monitor. The big screen is very important and helps provide a better experience while using Eagle Eye, for its capacity to display the images in a larger and more comfortable size than my 13" screen computer. Other tests had to be performed directly on the laptop, since I had to meet some users at their work locations on the university campus.
+
 
 \section{Characterization of users}
 
-Most of the users tested were students in this institution, between the ages of 22 and 25, from the various degrees of computer engineering. Some were avid photographers, others not so much.
+We tested 18 people, 16 of them students in this institution, between the ages of 21 and 25, from the various degrees of computer engineering. The rest were composed from people between 40 and 55 years.
+
+Nine of our users said they took photography seriously, although not professionally. Eight said they just like to take pictures for keeping memories or just used their camera phone and the other person doesn't take pictures.
+
+Ten people claim to have less than 5000 photos stored on their computer, while 
 
 
+\section{Test Results}
 
-\section{Results}
+We will now go through the results of the testing, starting with the behaviors of the users during the process of learning to use Eagle Eye. After that, users were asked to perform some tasks and we will see some of the more interesting parts of that process, followed by the most common errors and problems faced by the users. After the test, we asked the users to answer a inquiry and its results will be detailed towards the end of this section.
 
-The general feedback obtained is that users generally like the concept and the interaction of the system. They like to explore the library in different ways and play around with the dispositions. The majority have concluded that it needs some improvements in certain areas.
+
+\hide{The general feedback obtained is that users generally like the concept and the interaction of the system. They like to explore the library in different ways and play around with the dispositions. The majority have concluded that it needs some improvements in certain areas.}
 
 \subsection{User behavior during exploration}
 
-Upon viewing how the system worked, users generally went ahead and played a while with the zooming, and viewed some images and groups at will while noticing how the groups can be differentiated when zoomed out. Later, users tried the different disposition options, generally in the order they are presented in the \ac{UI}. The motif for two date displays is usually questioned and explained and they move on to the color display which users generally like for the nice and clear color separation, although sometimes finding some images in odd locations. After viewing the differences in dispositions and view some images more zoomed in, the users tried the filtering or the image/group selection for reducing the amount of images displayed and focus only on part of the collection. The filter showed useful even though its bugs appeared once in a while. The manual selections were easier to use and for that captivated more usage from the users.
+Upon being told how the system worked, users generally went ahead and played a while with the zooming, and viewed some images and groups at will, while noticing how the groups can be differentiated when zoomed out.
+
+Next, users tried the different disposition options, generally in the order they are presented in the \ac{UI}. The motif for two date displays was usually questioned and, after an explanation, they move on to the color display which they usually liked for the nice and clear color separation, although, when viewed more closely, some images appeared in odd locations.
+
+After understanding the differences in dispositions and viewing some groups/images more zoomed in, the users tried the filtering or the manual selections for reducing the amount of images displayed and focus only on part of the collection. The filter showed useful even though its bugs occasionally made an appearance. The manual selections were easier to use and for that captivated more usage from the users.
 
 
 \subsection{Results for tasks}
 
 After playing around with Eagle Eye, we asked the users to perform some tasks for us. We measured how long did they take to do each task and what errors they've done.
 
-We started with simple tasks, to see that they understood the basics of the system. Tasks like ``Switch to the color view'',``Select and display a group'', ``Select and display a few images'' weren't problematic and didn't took more than a couple seconds to perform generally without errors. Two people did complaint that the disposition of the Filter, Selection and Apply buttons mislead them.
+We started with simple tasks, to see if they understood the basics of the system. Tasks like ``Switch to the color view'',``Select and display a group'', ``Select and display a few images'' weren't problematic and generally took between a couple seconds up to about 15 seconds, depending on the user, and without without errors. We also asked for some tasks in the style of ``what is the most common color in the pictures taken with the most used camera?'', which is the process of sorting by camera, selecting a group and sorting by color. 17 people finished the test in less than half a minute without problems.
 
-Next we asked users how to select images from the year 2010. This could be done by using the filter to only display images of that year or by viewing images by date and manually select the images that corresponded to that year. Most users tried typing 2010 in the filter bar and quickly got to the intended result in 5 seconds but five users still looked into the default, treemap-based date view until they remembered/noticed it wasn't sorted and then looked for the sequential date view and performed a manual selection of the images. These users took about a minute to perform the operation.
+Next, we asked users to select images from the year 2010. This could be done by using the filter to only display images of that year or by viewing images by sequential date and manually select the images that corresponded to that year. Most users tried typing 2010 in the filter bar and quickly got to the intended result in about 5 seconds, but four users still looked into the default, treemap-based, date view until they remembered/noticed it wasn't sorted and then looked for the sequential date view and performed a manual selection of the images. These users took about a minute to perform the operation.
 
-In another test we told the users the library had photos of a certain annual event and asked them to figure out what years were covered by those photos. The easier way was to filter by the event name, sort by date and view the group names, which would take less than 15 seconds. Slightly more than half the users did this method. Others went to the path view and looked for groups containing the event name, taking between one and two minutes to perform the task. A small percentage tried to discover the photos by navigation on the complete image set, taking an even longer time to complete.
+In another test, we told the users that the library had photos of a certain annual event and asked them to figure out what years had photos of that event. The easier way was to filter by the event name, sort by date and view the group names, which would take less than 15 seconds. Slightly more than half the users did this method. Others went to the path view and looked for groups containing the event name, taking between one and two minutes to perform the task. A small percentage tried to discover the photos by navigating on the complete image set, taking an even longer time to complete.
 
-The users were then asked to find a photo of a jumping dolphin. This test could be accomplished in a number of ways. Some users had already noticed a group of photos of the Zoo and zoomed into those, quickly finding the photos in less than ten seconds. Others changed the view to be grouped by colors and selected only the blue groups. The filter returned the photos in no apparent order and, after complaining about that, the users changed the view to date or path, finding the Zoo photos on the corner. Some zoomed in, others selected that group and found the photos, not taking less than 30 seconds to do it. A few users tried at first to see if there were some ``dolphin''-related keywords, but those photos had no keywords associated.
+The users were then asked to find a photo of a jumping dolphin. This test could be accomplished in variety of ways. Some users had already noticed a group of photos of the Zoo and zoomed into those, quickly finding the photos in less than ten seconds. Others changed the view to be grouped by colors and selected only the blue groups. The filter returned the photos in no apparent order and, after complaining about that, the users changed the view to date or path, finding the group of Zoo photos on the corner. Some zoomed in, others selected that group and found the photos, not taking less than 30 seconds to do it. A few users tried at first to see if there were some ``dolphin''-related keywords but, unfortunately, those photos had no keywords associated.
 
 \subsection{Errors and misunderstandings} % (fold)
 
@@ -77,22 +88,22 @@ Another problem, detected by a few users, that is also related to selections is 
 
 \subsection{System Usability Scale}
 
-On the inquiry filled by our test users after the testing the system, we had a section with the \acf{SUS} questions. \ac{SUS}\cite{Brooke:1996ua} is a simple and generic ten question scale, giving a global view of the usability of a system. The \ac{SUS} result of inquiring \todo{20} people was \todo{75} points on a scale of 0-100 points, which is a fairly good mark for our system.
+On the inquiry filled by our test users after the testing the system, we had a section with the \acf{SUS} questions. \ac{SUS}\cite{Brooke:1996ua} is a simple and generic ten question scale, giving a global view of the usability of a system. The \ac{SUS} result of inquiring \red{19} people was \red{76} points on a scale of 0-100 points, which is a fairly good mark for our system. With the missing improvements it could score higher.
 
 \begin{table}[h]
 	\rowcolors{0}{light-gray}{white}
 	\renewcommand{\arraystretch}{1.5}
 	\centering
 \begin{tabular}{l|c}
-I think that I would like to \textbf{use this system frequently} & 3.3\\
-I found the system \textbf{unnecessarily complex} & 1.8\\
-I thought the system was \textbf{easy to use} & 4.2\\
-I think that I would \textbf{need the support of a technical person} to be able to use this system & 1.4\\
+I think that I would like to \textbf{use this system frequently} & 3.4\\
+I found the system \textbf{unnecessarily complex} & 1.7\\
+I thought the system was \textbf{easy to use} & 4.3\\
+I think that I would \textbf{need the support of a technical person} to be able to use this system & 1.6\\
 I found the various functions in this system were \textbf{well integrated} & 3.6\\
-I thought there was \textbf{too much inconsistency} in this system & 2.0\\
-I would imagine that most people would \textbf{learn to use this system very quickly} & 4.0\\
-I found the system very \textbf{cumbersome} to use & 2.2\\
-I felt very \textbf{confident} using the system & 3.9\\
+I thought there was \textbf{too much inconsistency} in this system & 1.9\\
+I would imagine that most people would \textbf{learn to use this system very quickly} & 3.9\\
+I found the system very \textbf{cumbersome} to use & 2.0\\
+I felt very \textbf{confident} using the system & 3.8\\
 I needed to \textbf{learn a lot of things} before I could get going with this system & 1.6\\
 \end{tabular}
 \caption[Average of the results for each of the ten questions of \ac{SUS}.]{Average of the results for each of the ten questions of \ac{SUS}. Values range between 1.0 (strongly disagree with the question) and 5.0 (strongly agree). Gray rows are ``positive'' questions, where higher values are better, and white rows are ``negative'' questions, where lower values are better.}
@@ -100,7 +111,7 @@ I needed to \textbf{learn a lot of things} before I could get going with this sy
 \vspace{\baselineskip}
 \end{table}
 
-The averaged results to each of the answers of \ac{SUS} can be seen on Table \ref{tab:sus}. The questions' focus alternates between positive and negative characteristics for the system. Some important questions got good rates, like the ``easy to use'' and ``quick to learn'' with a rating of \red{4} of a maximum 5 and the ``unnecessarily complex'' question also getting the second best rate for a negative question, \red{2}, which means users generally found the system to be easy to use and learn, although it still has some margin for improvement on the user experience area. Another important question is the ``I would like to use this system frequently'' which got a rating of \red{3.4}, slightly lower from what we would like to see but still above the waterline. This reinforces the point above about improving the system but this time with features that make the user want to use the system more often.
+The averaged results to each of the answers of \ac{SUS} can be seen on Table \ref{tab:sus}. The questions' focus alternates between positive and negative characteristics for the system. Some important questions got good rates, like the ``easy to use'' and ``quick to learn'' with a rating of \red{~4} of a maximum 5 and the ``unnecessarily complex'' question also getting the second best rate for a negative question, \red{<2}, which means users generally found the system to be easy to use and learn, although it still has some margin for improvement on the user experience area. Another important question is the ``I would like to use this system frequently'' which got a rating of \red{3.4}, slightly lower from what we would like to see but still above the waterline. This reinforces the point above about improving the system but this time with features that make the user want to use the system more often.
 
 \subsection{What users liked}
 
@@ -137,7 +148,7 @@ During the course of the tests and on the questionnaire, some users suggested so
 Although we tried to make the user interface as clean and simple as possible, a couple users found some difficulties and suggested some simple guides. We think a simple introduction to the system is nice and helps the users, but it wouldn't make sense to spend time doing it at this point.
 
 
-\subsection{Accomplished Objectives} 
+\section{Accomplished Objectives} 
 
 We can now answer what objectives for Eagle Eye were accomplished. 
 
