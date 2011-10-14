@@ -5,6 +5,29 @@
 We will now go through what we think could be improved and conclude this work.
 
 
+
+\section{Conclusion} % (fold)
+\label{sec:conclusion}
+
+In this work we have explored the current state of image browsers, their goods and bads. We have then defined multiple requirements for the work to be done and created an implementation of them.
+
+Eagle Eye is … something something something…
+
+We tested it and found the users generally liked the new way to view their images and found how interesting it is to identify such small images
+
+It still has space for some improvements but its close to a point where it could be put on the market. 
+
+
+
+conclusions
+
+\red{old: In our view, with this additions, Eagle Eye would be a useful photo viewer that could be used by anyone that has some computer knowledge and a photo collection spread on the computer.}
+
+% section concluding (end)
+
+
+
+
 \section{Future Work} % (fold)
 \label{future_work}
 
@@ -15,7 +38,7 @@ During the realization of this work, many ideas popped in our minds but we didn'
 
 The most important effort that must be done to this work is a rearrangement of the backend and its connection to the visualization.
 
-As we've seen on chapter \ref{sub:backend}, both parts of this work are currently separated, with the backend being a command line utility. Our idea was to create an graphical application where the user could enter the folder paths he wants to add to Eagle Eye and then the application would do the needed work on the background, using free resources, and when it was done, the user could enter in the visualization mode without the need to open the internet browser.
+As we've seen on chapter \ref{sub:backend}, both parts of this work are currently separated, with the backend being a command line utility. Our idea was to create an graphical application where the user could enter the folder paths he wants to add to Eagle Eye and then the application would do the needed work on the background, using free resources, and when it was done, the user could enter in the visualization mode without the need to open the internet browser. Better yet if the the system allowed things to be viewed while the processing was still running.
 
 This interface would also provide some configuration options, for the system and its plugins.
 
@@ -44,24 +67,7 @@ On the visualization part, the linear disposition, used mainly by the date view,
 We also think it needs to be more slideshow friendly. Slideshows are important part of any photo application, be it on the desktop or even on the web, since people always like to view their images. This work already displays images in fullscreen, it just needs a better interaction to repeatedly move to the next image, something that can be achieved easily with a button on the \ac{UI} and bindings to keyboard keys.
 
 
-% section visualization (end)
+\subsubsection{Connect} % (fold)
+\label{ssub:connect}
 
-\section{Conclusion} % (fold)
-\label{sec:conclusion}
-
-In this work we have explored the current state of image browsers, their goods and bads. We have then defined multiple requirements for the work to be done and created an implementation of them.
-
-Eagle Eye is … something something something…
-
-We tested it and found the users generally liked the new way to view their images and found how interesting it is to identify such small images
-
-It still has space for some improvements but its close to a point where it could be put on the market. 
-
-
-
-conclusions
-
-\red{old: In our view, with this additions, Eagle Eye would be a useful photo viewer that could be used by anyone that has some computer knowledge and a photo collection spread on the computer.}
-
-% section concluding (end)
-
+Another interesting point that would make the system stand out would be the connection between services like calendaring or location-tracking. Crossing their informations with our library could allow searching for photos of a certain event or location without the need for the library to contain that specific information. For instance, we could search for ``Mary's wedding'' on our application and, by looking into the calendar, find out what that day was and display the related photos.
