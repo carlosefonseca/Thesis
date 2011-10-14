@@ -2,26 +2,24 @@
 \label{chapter:conclusions}
 
 % 3/4 pages
-We will now go through what we think could be improved and conclude this work.
+We will now conclude this work and go through what we think could be improved.
 
 
 
 \section{Conclusion} % (fold)
 \label{sec:conclusion}
 
-In this work we have explored the current state of image browsers, their goods and bads. We have then defined multiple requirements for the work to be done and created an implementation of them.
+Photo visualization is an eternal problem with lots of compromises. Big software companies sell the simple ways with big lists of photos, but many other ways have been explored for years, some more eccentric than others. Some more useful than others. We explored their good and bad points and selected the features we though important. Made a user survey and fine tuned our vision and Eagle Eye was born.
 
-Eagle Eye is … something something something…
+Our work aimed at being useful to users who have a regular collection of photos on their computers and want a better way to view and learn more about them. We built a system that gives users a completely different view of their collection, by showing everything at the same time. While overwhelming at first, we have seen that users like it and, by already having knowledge about their own library, they can understand each group of photos, whether their photos were taken yesterday or ten years ago. From this, we allow users to change, reorder, filter, zoom and enjoy their pictures.
 
-We tested it and found the users generally liked the new way to view their images and found how interesting it is to identify such small images
-
-It still has space for some improvements but its close to a point where it could be put on the market. 
+For this to be possible, we developed a system that extracts information from images and that can be expanded with more processes to obtain interesting and uncommonly seen information. This allows  users to observe their collection in a variety of ways, by selecting different information and filtering down to specific sets of images.
 
 
+Although we didn't had time to implement many features we had in mind for an even better system, our user tests revealed that people liked the system, giving it a moderately good rating of 75 in a scale of 0 to 100. 
 
-conclusions
+We think we have a solid concept that, with some more development, could be made as an application that could actually be released to the public.
 
-\red{old: In our view, with this additions, Eagle Eye would be a useful photo viewer that could be used by anyone that has some computer knowledge and a photo collection spread on the computer.}
 
 % section concluding (end)
 
@@ -44,7 +42,6 @@ This interface would also provide some configuration options, for the system and
 
 % section consolidation (end)
 
-
 \subsection{Feature Extraction Plugins} % (fold)
 \label{sec:feature_extraction}
 
@@ -66,8 +63,10 @@ On the visualization part, the linear disposition, used mainly by the date view,
 
 We also think it needs to be more slideshow friendly. Slideshows are important part of any photo application, be it on the desktop or even on the web, since people always like to view their images. This work already displays images in fullscreen, it just needs a better interaction to repeatedly move to the next image, something that can be achieved easily with a button on the \ac{UI} and bindings to keyboard keys.
 
+On our evaluation, users suggested a number of things they would like to see (in \ref{improvs}) and, after consideration, some could very well be included. 
 
-\subsubsection{Connect} % (fold)
+
+\subsection{Connect} % (fold)
 \label{ssub:connect}
 
 Another interesting point that would make the system stand out would be the connection between services like calendaring or location-tracking. Crossing their informations with our library could allow searching for photos of a certain event or location without the need for the library to contain that specific information. For instance, we could search for ``Mary's wedding'' on our application and, by looking into the calendar, find out what that day was and display the related photos.
