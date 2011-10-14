@@ -154,7 +154,7 @@ This examples are quite simple but we wanted to go further and allow searches li
 	\end{center}
 	\vspace{-25pt}
 	\caption{Examples of filter suggestions.}
-	\vspace{-5pt}
+	\vspace{-25pt}
 	\label{fig:filter}
 \end{wrapfigure}
 
@@ -162,7 +162,7 @@ The second filter method allows the manual selection of images from the canvas, 
 
 As explained above, the filter bar intersects its elements immediately after being added but that behavior in the function would make it impossible for the user to make multiple selections, therefore they are only unified and the filtering will only be performed when the user presses the Apply Filter.
 
-\red{Since the selections are displayed in the same way text filters are, the removal of a selection is made in the same way.}
+Since the selections are displayed in the same way text filters are, the removal of a selection is made in the same way, through the filter bar.
 
 
 
@@ -192,7 +192,7 @@ The indexers are the base for the sorting and disposition techniques we've cover
 
 The indexers also provide data for the filter bar's suggestions to provide the suggestions we have already seen on section \ref{ss:filtering}.
 
-
+\vspace{-5px}
 \subsubsection{Canvas}
 
 The canvas is the most visible part of this work. Its core is from the DeepZoom framework and we use it to display lots of images in certain positions, according to the state of many options and variables. To hold all those options together and to help developing some more, we have created a state manager for the canvas.
@@ -204,6 +204,7 @@ We use memoization to avoid repeated calculations when changing display types. I
 The navigation buttons on the toolbar interact directly with the state, for instance displaying a previous state or one that was saved.
 
 
+\vspace{-5px}
 \subsubsection{Reducing Clutter}
 \label{ss:stacks}
 
@@ -226,15 +227,10 @@ Obviously that this can have both false positives or false negatives but our tes
 \begin{figure}[htbp]
 	\centering
 		\includegraphics[width=\linewidth]{Figures/stacks-motives.png}
+	\vspace{-10px}
 	\caption{Selected examples of photo stacking as presented by Eagle Eye.}
 	\label{fig:stacks1}
-\end{figure}
-
-\begin{figure}[htbp]
-	\centering
-		\includegraphics[width=\linewidth]{Figures/stacks-mix.png}
-	\caption[Real world example of stacking on a trip's photos with HDR and Panorama images.]{Example of a trip where \ac{HDR} and Panorama techniques where applied for some photos. Other shots were repeated, some quickly and others not so much.}
-	\label{fig:stacks2}
+	\vspace{-5px}
 \end{figure}
 
 Figure \ref{fig:stacks1} is a selection of success cases for this feature. It reduced a set of 80 images to just 10. It's possible to see cases where multiple pictures were taken in sequence and cases where the aim was to make a panorama. Portrait and landscape images are both equally well handled. The main image has the same size as it would be without the grouping, but is aligned to the top left corner, maximizing the free space to the left or to the bottom of the grid. This space is then filled with the other images which are adjusted in ways that can maximize their size.
@@ -242,3 +238,9 @@ Figure \ref{fig:stacks1} is a selection of success cases for this feature. It re
 Figure \ref{fig:stacks2} is a real example of a trip to the beach, where some photos were taken normally, some were taken using the \ac{HDR} or the Panorama techniques and some others where taken as a quick sequence. All this sets of photos are correctly grouped together. This figure contains a total of 71 photos, taking the space of only 36.  On the bottom left of the figure, can be see two sets of sequential photos of the same scenes that were not stacked together due to the longer period of time between their captures. To correctly group this photos in an automatic way, their visual similarity must be determined to avoid grouping unrelated photos. This is one of the features already referred on the Solution Requirements chapter (\ref{reqs:features}). 
 
 
+\begin{figure}[htbp]
+	\centering
+		\includegraphics[width=\linewidth]{Figures/stacks-mix.png}
+	\caption[Real world example of stacking on a trip's photos with HDR and Panorama images.]{Example of a trip where \ac{HDR} and Panorama techniques where applied for some photos. Other shots were repeated, some quickly and others not so much.}
+	\label{fig:stacks2}
+\end{figure}
