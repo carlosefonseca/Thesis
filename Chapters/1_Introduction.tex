@@ -14,22 +14,23 @@ the art or practice of taking and processing photographs.}{\footnotesize New Oxf
 
 Photography is a very personal activity. Each person has its own way of doing it, with its own devices, software and techniques. It ranges from common people who take photos of their cats using their low quality camera phones to put on the internet, up to professional photographers with big cameras and lenses to take award-winning photos and everything in between. Digital cameras have brought photography to the masses with its ease of use, no cost per photo and easy processing made photography skyrocket. Flickr\footnote{\url{http://flickr.com} is, probably, the most used photo-sharing website worldwide.} has reached the 6.000.000.000 upload in August 2011 and seeing a 20\% increase year-over-year since the website's debut in 2004\footnote{According to a blog post on the Flickr website \url{http://blog.flickr.net/en/2011/08/04/6000000000}}.
 
-Not only are people taking more and more photos, some photography techniques that use multiple photo captures also appeared or, at least, became more relevant with the digital cameras among some enthusiasts and professional photographers. Examples of this are burst photographs, where many photos are taken in a quick sequence to capture a motion sequence, or panoramas that are made from various overlapping photos of a subject that is bigger then what the camera can capture or even something called \acf{HDR} photography that merges multiple captures to correct the lack of capacity of the sensors to capture very dark and very bright areas on the same scene. Yet another technique, this one more related to video, is the production of time lapses, large sequences of photographs taken with a fixed interval between them, capturing life at a slower rate. Time lapse photos are usually put together in a video, making hours pass by in seconds.
+Not only are people taking more and more photos, some photography techniques that use multiple photo captures also appeared or, at least, became more relevant with the digital cameras among some enthusiasts and professional photographers. Examples of this are burst photographs, where many photos are taken in a quick sequence to capture a motion sequence, or panoramas that are made from various overlapping photos of a subject that is bigger then what the camera can capture or even something called \acf{HDR} photography that merges multiple captures to correct the lack of capacity of the sensors to capture very dark and very bright areas on the same scene. Yet another technique, this one more related to video, is the production of time lapses, large sequences of photographs taken with a fixed interval between them, capturing life at a slower rate. Time lapse photos are usually put together in a video, making hours pass by in seconds. We did a survey and found out 40\% does some of this kinds of photography.
 
 This growth of the digital brings the problem that photo collections have started to grow more than they used to, in the film era. But storing digital photographs isn't that different from the past. In fact, people have been storing their photographs on folders on their computers instead of photo albums on the shelf. One could say computers can help people view, explore and find more photos in a shorter period of time, they certainly have the power for that but, in the end, they usually don't do much more than make the user look for the photo album (probably a folder or an ``album'' on some applications) and then flick through its pages (scrolling) until the photos the user was looking for appear.
 
-This is true for the most common photo management software on the market, like Google's Picasa\footnote{\url{http://picasa.google.com}}, Apple's iPhoto\footnote{\url{http://www.apple.com/iphoto}} or Aperture \footnote{\url{http://www.apple.com/aperture}}, or Adobe's Lightroom \footnote{\url{http://www.adobe.com/lightroom}}. Although they bring some management improvements with them, the analogy above still applies. They all provide a way to select albums or folders and scroll through contents. They allow searching through some existing metadata, the only metadata that some of them generate is only face detection and end up having lots of buttons, toggles and options for their editing capabilities that clutter the interface. All of this, added to the fact that collections quickly reach the thousands of images, prohibit a global view of the collection. It's not easy to gather all the images that are spread across the system and view them all together, understanding its evolution and characteristics.
+This is true for the most common photo management software on the market, like Google's Picasa\footnote{\url{http://picasa.google.com}}, Apple's iPhoto\footnote{\url{http://www.apple.com/iphoto}} or Aperture\footnote{\url{http://www.apple.com/aperture}}, or Adobe's Lightroom\footnote{\url{http://www.adobe.com/lightroom}}. Although they bring some management improvements with them, the analogy above still applies. They all provide a way to select albums or folders and scroll through contents. They allow searching through some existing metadata, the only metadata that some of them generate is only face detection and end up having lots of buttons, toggles and options for their editing capabilities that clutter the interface. All of this, added to the fact that collections quickly reach the thousands of images, prohibit a global view of the collection. It's not easy to gather all the images that are spread across the system and view them all together, understanding its evolution and characteristics.
 
 \section{Our vision} % (fold)
 \label{ssub:our_vision}
 
 % subsubsection our_vision (end)
 
-We want to provide the users a totally different way to visualize their photos by focusing only on them. We want to give them a birds-eye view of their photos by showing everything and allowing them to drill down and view any image they want at a large size. We want users to see their collections in new ways, and try to understand, e.g., how their photography has evolved over time.
+We want to provide users a totally different way to visualize their photos by focusing only on them.
 
-With this work we will show that this dynamic visualization is a much better exploration tool than other, more common, software applications.
+We propose that visualizing photographs in a birds-eye view, with a number of different ways to organize, group, sort and filter them by using features like events or dates, dominant color or people in photos will provide users a much more satisfying experience of discovery of their libraries.
 
-\todo{expand}
+To demonstrate this, we implemented Eagle Eye, a system that allows users to do just that. After testing, we observed that our approach allows users to navigate and explore their photo libraries in a whole new way, revealing patterns or evolution over time, while enjoying their photos.
+
 
 
 % section prologue (end)
@@ -38,11 +39,11 @@ With this work we will show that this dynamic visualization is a much better exp
 \section{Contributions} % (fold)
 \label{sec:contributions}
 
-With our work, we understood that visualization of large collections at the same time is not only feasible, but also interesting to the users. 
+We created a way to bring image exploration to the regular users, with their own photos.
 
-We observed that images can be really small and still be identifiable by their owners, as long as they are integrated with others of the same event.
+We built a flexible and extensible backend system to extract interesting information from users' images. We have implemented a few plugins to extract some features, from metadata to median color and face detection, and to generate visualization data. It's possible to change the whole visualization and only change one plugin to adapt to the new system.
 
-\todo{moar stuff here}
+We also took an existing technology that allows image zooming and made it easy for regular people to use it with their own images and have a nice experience using it, with various complex features simplified. Users can use it to view, sort, group and filter images in their photo library.
 
 % section context (end)
 

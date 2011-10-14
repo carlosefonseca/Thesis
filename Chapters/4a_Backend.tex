@@ -3,7 +3,7 @@
 
 The backend is one of the two parts that make Eagle Eye. Its purpose is to extract information from images and set everything up for the Visualization.
 
-Currently it is a command line utility that allows the user to enter paths for folders containing image files. The system will then read those images, gather their metadata, process them with the existing plugins to extract visual features and, finally, generate and output the multi-scale imagery \red{(ainda não se falou disto)} alongside with control metadata for the visualization.
+Currently it is a command line utility that allows the user to enter paths for folders containing image files. The system will then read those images, gather their metadata, process them with the existing plugins to extract visual features and, finally, generate and output the multi-scale imagery and the control metadata required by the visualization.
 
 We will now detail its architecture, and implemented feature extractors.
 
@@ -59,7 +59,7 @@ To enable the Visualization to arrange the images on the screen in different way
 
 We had a few ideas for extracting features from images and, to be possible to add more along the way, we developed a plugin system to ease the creation of other feature extractors in the future.
 
-Each Feature Extraction Plugin is separated from the main system. They need to implement a common interface and are given the ability to access the image data from the library, and save the computed data back. They have freedom to access the image file or its \ac{EXIF} information. They should, in the end, store the processed data in a specified way so it gets exported to the visualization. Implemented plugins will be explained in section \ref{sub:plugins}.
+Each Feature Extraction Plugin is separated from the main system. They need to implement a \red{common interface} and are given the ability to access the image data from the library, and save the computed data back. They have freedom to access the image file or its \ac{EXIF} information. They should, in the end, store the processed data in a specified way so it gets exported to the visualization. Implemented plugins will be explained in section \ref{sub:plugins}.
 
 % subsubsection Feature Extraction (end)
 
@@ -71,7 +71,7 @@ Each Feature Extraction Plugin is separated from the main system. They need to i
 
 Persistence of both library and plugin data are required so the system doesn't lose information that took time to generate. To ease the interaction with a database system, we created a database abstraction layer that hides the complexities of interacting with said system. It also allows us to change to another database system if we see the need for it. We chose Oracle's Berkeley DB\footnote{Berkeley DB is a high-performace, embeddable, key-value, file-based database available at \url{http://www.oracle.com/technetwork/database/berkeleydb}} for its speed in retrieving data.
 
-With this layer we can hide some optimization complexities like lazy-saving and lazy-loading. We use lazy-saving to save data to disk by chunks instead of doing it on each small update, speeding up the update process. Lazy-loading is not yet implemented but it is essential with libraries with tens of thousands of images, where keeping a complete library in memory is not feasible.
+With this layer we can hide some optimization complexities like lazy-saving and lazy-loading. We use lazy-saving to save data to disk by chunks instead of doing it on each small update, speeding up the update process. Lazy-loading is not yet implemented, but it is essential with libraries with tens of thousands of images, where keeping a complete library in memory is not feasible.
 
 % subsubsection database_abstraction_layer (end)
 
@@ -107,7 +107,7 @@ We now proceed to the explanation of each one of this plugins.
 
 This plugin acts as a filter for all the available \ac{EXIF} tags. It picks the most relevant ones, codes them in a pre-defined way and appends them to the rest of the information to be exported for the visualization.
 
-Information when the photo was captured, what device was used, the path where it resides or information about the location where the photo was taken are a good example of the most commonly relevant tags \todo{Ask users what other tags are relevant for them}. In the future, this set of extracted tags could be optionally set by the user.
+Information when the photo was captured, what device was used, the path where it resides or information about the location where the photo was taken are a good examples of the most commonly relevant tags, as can be seen on the user survey (\ref{ssub:preferred_features}). In the future, this set of extracted tags could be optionally set by the user.
 
 
 \subsubsection{Detection of image’s main color}
@@ -127,9 +127,9 @@ Sometimes people don’t recall where or when a photo was taken, or where is it,
 
 Color extraction from images has been a long standing problem \cite{Wan:2011bg,Strong:2009p413,Gabbouj:2009en,Girgensohn:2009:MOP:1502650.1502711,Zaheer:2010p3735,Datta:2008p1604,Chang:2007bt}. We wanted to extract the most perceptible colors from images so, in the parrot example (\fig{parrot}), the system should associate the image with the colors red, green, white and black and avoid colors that have little relevance, like the small blue of  the feathers and also ignore small tonal variances in the reds and greens.
 
-For that we explored two methods that reduce the number of colors in an image to the most essential ones, the first being an adaptive method, selecting a few averaged colors from the image and the second using a palette as reference to select the colors.
+For that we explored two methods that reduce the number of colors in an image to the most essential ones, the first being an \textbf{adaptive method}, selecting a few averaged colors from the image and the second using a \textbf{predefined color palette} as reference to select the colors.
 
-A common JPEG photo can contain 16.8 million different colors. Our adaptive method reduces the possible colors to less than ten\footnote{We tried with multiple options from one color to ten colors and the results vary from image to image}. The obtained colors are chosen by averaging the colors in the image, so if there's a lot of blue tones, a single, averaged blue will be replacing those tones (see the middle image of \fig{sky}). In areas that have little tonal variation of the color, the resulting color will be very similar to the original (like in the right image of \fig{sky}). But sometimes this method fails to save important colors when they occupy a relatively small area of the image or if the image doesn't have a strong contrasts (shown by the left image in \fig{sky}).
+A common JPEG photo can contain 16.8 million different colors. Our adaptive method reduces the possible colors to less than ten\footnote{We tried with multiple options from one color to ten colors and the results vary from image to image. We think eight is a good value, keeping a nice set of colors on colorful images.}. The obtained colors are chosen by averaging the colors in the image, so if there's a lot of blue tones, a single, averaged blue will be replacing those tones (see the middle image of \fig{sky}). In areas that have little tonal variation of the color, the resulting color will be very similar to the original (like in the right image of \fig{sky}). But sometimes this method fails to save important colors when they occupy a relatively small area of the image or if the image doesn't have a strong contrasts (shown by the left image in \fig{sky}).
 
 \begin{figure}[ht]
 	\centering
@@ -141,7 +141,7 @@ A common JPEG photo can contain 16.8 million different colors. Our adaptive meth
 
 
 
-The second method uses a predefined color palette (\fig{colors}) which is an adapted mix between the eleven most recognizable colors (red, yellow, green, blue, purple, brown, orange, pink, black, white and grey)\footnote{Qiu \cite{Qiu:2007p1207} explains this are the most universal recognizable colors in any language.} and the 21 ColorAdd colors\footnote{ColorAdd is a 21 color catalog with symbols for each color designed specifically for color blind people. We used the colors as a reference, specially the light and dark variations.}. This mix has a great range of colors and each one can be easily named with recognizable words\footnote{We want to avoid names like ``Amaranth'' or ``Munsell'' that most people don't know about. A large list of this names can be found on \url{http://en.wikipedia.org/wiki/List_of_colors}.} which then could be assigned to the images. The images processed with this method get their colors changed to the most similar ones present in our palette. This assures that colors in a relatively small area or images with low contrast still get the deserved attention (\fig{pinkP}), unlike the adaptive method (\fig{pinkA}). This method doesn't reproduce the colors so well as the adaptive but, since we want to obtain generic colors, this one is more reliable.
+The second method uses a predefined color palette (\fig{colors}) which is an adapted mix between the eleven most recognizable colors (red, yellow, green, blue, purple, brown, orange, pink, black, white and grey)\footnote{Qiu \cite{Qiu:2007p1207} explains these are the most universal recognizable colors in any language.} and the 21 ColorAdd colors\footnote{ColorAdd is a 21 color catalog with symbols for each color designed specifically for color blind people. We used the colors as a reference, specially the light and dark variations.}. This mix has a great range of colors and each one can be easily named with recognizable words\footnote{We want to avoid names like ``Amaranth'' or ``Munsell'' that most people don't know about. A large list of this names can be found on \url{http://en.wikipedia.org/wiki/List_of_colors}.} which then could be assigned to the images. The images processed with this method get their colors changed to the most similar ones present in our palette. This assures that colors in a relatively small area or images with low contrast still get the deserved attention (\fig{pinkP}), unlike the adaptive method (\fig{pinkA}). This method doesn't reproduce the colors so well as the adaptive but, since we want to obtain generic colors, this one is more reliable.
 
 
 \begin{figure}[!ht]
@@ -188,7 +188,7 @@ The face detection plugin is based on the open-source OpenCV library\footnote{Op
 	\label{fig:faces1}
 \end{figure}
 
-No face recognition software is perfect. Usually if the software can detect every face, it will probably detect some other things in images that aren't faces (false positives). If it’s successful in only detecting faces, it will probably miss some other faces that aren't ideally positioned (false negatives). OpenCV is included in the latter, only detecting faces but also missing some that are tilted (like in \fig{faces1}) or turned on the side.
+No face recognition software is perfect. Usually if the software can detect every face, it will probably detect some other things in images that aren't faces (false positives). If it’s successful in only detecting faces, it will probably miss some other faces that aren't ideally positioned (false negatives). OpenCV is included in the latter, only detecting faces, but also missing some that are tilted (like in \fig{faces1}) or turned on the side.
 
 
 This process is quite computationally expensive and therefore we resize all the images down to a more acceptable size, making the process more than five times faster.
@@ -214,7 +214,7 @@ We can see that by only reducing the images to 2000 pixels on the longer side, t
 
 \subsubsection{Generation of multi-scale imagery}
 
-This plugin generates all the data files needed for the visualization to work. As referred previously, the visualization relies on the DeepZoom technology and it needs to process the images before they can be displayed. This plugin does exactly that.
+This plugin generates all the data files needed for the visualization to work. The visualization relies on the \red{DeepZoom technology} and it needs to process the images before they can be displayed. This plugin does exactly that.
 
 
 Using a library from Microsoft, the plugin generates, for each image, a metadata file and a set of image files representing the original one at multiple scales, from a single pixel to a large, detailed image.

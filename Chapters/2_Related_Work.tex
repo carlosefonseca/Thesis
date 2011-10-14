@@ -20,7 +20,7 @@ Qiu et al. \cite{Qiu:2007p1207} explore the requirements of a system intended fo
 	\label{fig:qiu1}
 \end{figure}
 
-The system shows all the photos arranged by color, just as many others like it. The difference is the process in use. Instead of calculating distance vectors based on the histogram of each image, this approach classifies each image with a simple description, like an average of its colors, and arranges them by that value, on a color map (\fig{qiu1}). The process is much faster but is also more error prone, specially on photos without a clear main color.
+The system shows all the photos arranged by color, just as many others like it. The difference is the process in use. Instead of calculating distance vectors based on the histogram of each image, this approach classifies each image with a simple description, like an average of its colors, and arranges them by that value, on a color map (\fig{qiu1}). The process is much faster, but is also more error prone, specially on photos without a clear main color.
 
 Their tests show they achieved good responsiveness and better results than using a file explorer.
 
@@ -35,7 +35,7 @@ Their tests show they achieved good responsiveness and better results than using
 	\label{fig:Rodden1}
 \end{figure}
 
-The aim of this work by Rodden and Sinclar \cite{Rodden:2001p731} was to evaluate how photo organization by similarity (\fig{Rodden1}) could benefit a user looking for images. Some users tested an application that could show the same images both in a random and in an organized by similarity way. This organization by similarity was based on a rough description of the images but it could be other descriptors.
+The aim of this work by Rodden and Sinclar \cite{Rodden:2001p731} was to evaluate how photo organization by similarity (\fig{Rodden1}) could benefit a user looking for images. Some users tested an application that could show the same images both in a random and in an organized by similarity way. This organization by similarity was based on a rough description of the images, but it could be other descriptors.
 
 The results differ if the user knows what he's looking for or not. In case he does, being able to filter only the relevant images makes it quick to find the ones that matter. This obviously depends on the quality of the labeling. Users reported that sometimes the similar images appear to merge.
 
@@ -59,9 +59,9 @@ For some people, having access to different arrangements of the same set of imag
 \end{figure}
 
 
-Porta \cite{Porta:2006p416} describes a few visualization methods for large collections of images and tests them with users. The purpose it to find ways or metaphors that provide a good visualization experience in terms of time spent and quality of the visualization.
+Porta \cite{Porta:2006p416} describes a few visualization methods for large collections of images and tests them with users. The purpose is to find ways or metaphors that provide a good visualization experience in terms of time spent and quality of the visualization.
 
-Some of the various techniques were the simple image grid view, a grid view with variable and independent height and width (EIB), a view that animates images like they were shot from a distance and get closer to the user called Shot (\fig{porta-shot}), a view where images quickly appear on random positions on screen named Spot (\fig{porta-spot}), and some other less commons like one that simulates an cylinder created with images (Cylinder), and others less relevant (Rotor, Tornado and Tornado of Planes).
+Some of the various techniques were the simple image grid view, a grid view with variable and independent height and width (EIB), a view that animates images like they were shot from a distance and get closer to the user called Shot (\fig{porta-shot}), a view where images quickly appear on random positions on screen named Spot (\fig{porta-spot}), and some other less commons like one that simulates a cylinder created with images (Cylinder), and others less relevant (Rotor, Tornado and Tornado of Planes).
 
 The testing was based on the efficiency of users searching for specific images on a collection of a thousand photos. The Spot view was the best, followed the Shot, Cylinder finally the common grid view. The other views got scores near or below the grid view.
 
@@ -70,7 +70,7 @@ The testing was based on the efficiency of users searching for specific images o
 \subsection{A comparison of static and moving presentation modes for image collections} % (fold)
 \label{sub:Cooper}
 
-This paper by Cooper et al. \cite{Cooper:2006p543} is not about large libraries but about what kind of interfaces for image showing has greater success of user recognition and preference (\fig{Cooper1}).
+This paper by Cooper et al. \cite{Cooper:2006p543} is not about large libraries, but about what kind of interfaces for image showing has greater success of user recognition and preference (\fig{Cooper1}).
 
 With the help of eye-tracking techniques and user preference, the authors determined that static images are better than moving ones because makes them easier to recognize and avoid some user confusion.
 
@@ -91,7 +91,7 @@ A \ac{SOM} is used to display the images on the screen featuring zooming, pannin
 
 Simpler methods are based on color histograms, which aren't affected by rotations or scales but, by not having spacial information on colors, allows very different images be closer together.
 
-Other methods rely on gradients which contain spatial information and, therefore, are sensitive to image contents but not color.
+Other methods rely on gradients which contain spatial information and, therefore, are sensitive to image contents, but not color.
 In general, the best methods were found to be the hybrid ones, where both color histograms and gradients are used to classify the images.
 No user testing is made in this project, neither is the speed of image categorization referred about the methods used.
 
@@ -126,7 +126,7 @@ This techniques were tested with a collection of 12,000 images and, besides the 
 
 In this paper, by Naaman et al. \cite{Naaman:2004p1802}, is described a system that organizes digital photographs accordingly to location and date embedded on the metadata.
 
-The objective was trying to mimmic the the way people think about their collections. Photos are usually bursts separated by some time. Based on this and on the different places, events can be created to agglomerate photos from the same bursts. Location naming is done by calculating the most relevant places, like parks or cities, and then mixing the more precise locations with the more important neighbor cities to create a relevant and identifiable name. This was specially important since this work didn't involve showing any maps but only the location names and events.
+The objective was trying to mimmic the way people think about their collections. Photos are usually bursts separated by some time. Based on this and on the different places, events can be created to agglomerate photos from the same bursts. Location naming is done by calculating the most relevant places, like parks or cities, and then mixing the more precise locations with the more important neighbor cities to create a relevant and identifiable name. This was specially important since this work didn't involve showing any maps, but only the location names and events.
 
 The authors showed good results and, nowadays, some common applications use similar features although including maps.
 % section naaman (end)
@@ -166,10 +166,10 @@ The interface reflects the vertexes and respective arcs, allowing to browse betw
 
 Seven low-level features are used for the classification of the images. HSV Global color Histograms maps the images by color, saturation and brightness; color Structure Descriptor maps the distribution of colors by dividing each image in 64 windows, the color space in 184 bins and associating color bins with image windows; Thumbnail feature compares identical images by saving the grey value of each pixel from a scaled down version of the image; Convolution filters discovers very selective features by reapplying 25 filters three times; Variance feature calculates standard deviations within a sliding window; Uniformity Feature is another statistical feature, calculating the grey level of an image split in 64 parts; Bag of words is the last feature and weights words associated to each image.
 
-Tests showed great results using a mix of search, relevance feedback and browsing, and even only browsing was considerably better than other, more restrictive, approaches.
+Tests showed great results when using a mix of search, relevance feedback and browsing, and even browsing by itself was considerably better than other, more restrictive, approaches.
 
 The technique helps avoid the problem of image polysemy by showing all gathered meanings of the images to the user.
-The feature network is pre-computed, allowing for quick realtime browsing. The authors claim it took 50 hours to process 32000 images but made no reference to the possibility adding images to the collection, after the computation.
+The feature network is pre-computed, allowing for quick realtime browsing. The authors claim it took 50 hours to process 32000 images, but made no reference to the possibility adding images to the collection, after the computation.
 
 % section heesch:2004p2675 (end)
 
@@ -178,7 +178,7 @@ The feature network is pre-computed, allowing for quick realtime browsing. The a
 
 Hsu et al. \cite{Hsu:2009p2696} try to ease the browsing problem by analyzing the collections and identifying groups of related pictures. Each type of group is visualized in a specific way, inspired by the Origami art.
 
-Groups of similar or related photos were manually classified based on camera movement and subject movement, creating different types of groups static view where both camera and subject are fixed and is presented as a panorama; multi-view where the subject is fixed but the camera is moving and is shown as a presentation; if the subject is moving, the photos are categorized as motion capture and can be shown as an animated photo (fixed camera) or a presentation (moving camera); finally group photos, where different groups of people are photographed, are shown as a folding presentation.
+Groups of similar or related photos were manually classified based on camera movement and subject movement, creating different types of groups static view where both camera and subject are fixed and is presented as a panorama; multi-view where the subject is fixed, but the camera is moving and is shown as a presentation; if the subject is moving, the photos are categorized as motion capture and can be shown as an animated photo (fixed camera) or a presentation (moving camera); finally group photos, where different groups of people are photographed, are shown as a folding presentation.
 
 This covers various cases where the photographer takes a few similar photos of the same subject because it's either a panorama, various angles or just to be sure the photo was well captured. 
 
@@ -230,7 +230,7 @@ The interface allows selecting a range of dates, places and tags at any time to 
 
 The time is selected using a timeline on the top of the screen while tags and places are shown on the right side sorted alphabetically, by frequency of, in case of places, as a tree. Multiple selections are allowed to show more photos.
 
-The photo display is graph based, allowing for overlapped images. Various metaphors were developed to ease the navigation of the collection. Zooming is allowed and changes both thumbnail positions and size for better experience, allowing the photos to spread away from each other but also increasing the size so the user can have a better look at them. The authors think that bigger thumbnails and a correct grouping of related photos is more important than spreading them to avoid the overlapping problem.
+The photo display is graph based, allowing for overlapped images. Various metaphors were developed to ease the navigation of the collection. Zooming is allowed and changes both thumbnail positions and size for better experience, allowing the photos to spread away from each other, but also increasing the size so the user can have a better look at them. The authors think that bigger thumbnails and a correct grouping of related photos is more important than spreading them to avoid the overlapping problem.
 
 Color coding is used throughout the interface to help the user understand better what is being selected. For instance, on the timeline blue and grey are used to distinguish photos that match or not the selected location/tag. On the photo display, besides the photos that are actually shown are colored blocks: blue for photos that match location only, green for time only and grey for those that didn't match anything.
 
@@ -255,7 +255,7 @@ This work presents PhotoMesa by B. B. Bederson \cite{Bederson:2001:PZI:502348.50
 
 PhotoMesa implements two algorithms for space filling, one is Quantum Treemaps by the author, a variation of the Ordered Treemap  that is aware of the constraints imposed by the use of images, like grid alignment and common size, and Bubble Maps which is designed to have the least wasted space possible.
 
-This work brings very interesting ideas to the table but it has a somewhat limited reach, with only referring to ``over 500 images'' on the application and by only taking simple metadata, like the path and modification date of images.
+This work brings very interesting ideas to the table, but it has a somewhat limited reach, with only referring to ``over 500 images'' on the application and by only taking simple metadata, like the path and modification date of images.
 
 
 
@@ -295,17 +295,17 @@ Currently there are a lot of approaches to image organization and each has its o
 \label{tab:brows-meth}
 \end{table}
 
-One of the main problems is obtaining useful information from low level feature extraction of the image contents. Some try to get the most out of each image, with a variety of complex and time consuming procedures, e.g., a variety of methods based on color histograms \cite{Strong:2009p413,Tan:2001p850,Chen:1998p2344,Schaefer:2010p1871} or even more detailed ones with textures and convolution filters \cite{Heesch:2004p2675}. Others try to focus on avoiding the complex computations by only getting simple but somewhat useful information \cite{Qiu:2007p1207}. To contrast with these methods, Girgensohn's work \cite{Girgensohn:2010} has found that users prefer other ways to filter the collection, like tags, dates and locations. Low level features are still used but they have to be kept to understandable and useful options.
+One of the main problems is obtaining useful information from low level feature extraction of the image contents. Some try to get the most out of each image, with a variety of complex and time consuming procedures, e.g., a variety of methods based on color histograms \cite{Strong:2009p413,Tan:2001p850,Chen:1998p2344,Schaefer:2010p1871} or even more detailed ones with textures and convolution filters \cite{Heesch:2004p2675}. Others try to focus on avoiding the complex computations by only getting simple, but somewhat useful information \cite{Qiu:2007p1207}. To contrast with these methods, Girgensohn's work \cite{Girgensohn:2010} has found that users prefer other ways to filter the collection, like tags, dates and locations. Low level features are still used, but they have to be kept to understandable and useful options.
 
 Date and location are simple similarity measures and can be used to group the collections by events and locations like Naaman did on this work \cite{Naaman:2004p1802}. Current mainstream software like Apple's iPhoto\footnote{http://www.apple.com/iphoto} or Google's Picasa\footnote{http://picasa.google.com} are already doing it in a semi-automatic way.
 
-Textual metadata like tags and descriptions are also widely used both on our survey \cite{Rodden:2001p731,Girgensohn:2010,Heesch:2004p2675,Bederson:2001:PZI:502348.502359} and on all mainstream software. The problem with tags and descriptions is that people usually don't assign them to their photos but that's not a problem we're interested here.
+Textual metadata like tags and descriptions are also widely used both on our survey \cite{Rodden:2001p731,Girgensohn:2010,Heesch:2004p2675,Bederson:2001:PZI:502348.502359} and on all mainstream software. The problem with tags and descriptions is that people usually don't assign them to their photos, but that's not a problem we're interested here.
 
-The visualization is the field with most variations and experimentations, like Porta's work \cite{Porta:2006p416} where multiple options were tested but only a couple of the most simple were considered useful. The 3D Sphere \cite{Schaefer:2010p1871} is also visually interesting but doesn't provide a better interface to the collection since it's based on a grid view but hiding many images on the far side of the sphere. The Phorigami work \cite{Hsu:2009p2696} introduces some interesting metaphors for reducing the space occupied by some groups of photos, but some make the visualization harder and could, therefore, be improved.
+The visualization is the field with most variations and experimentations, like Porta's work \cite{Porta:2006p416} where multiple options were tested, but only a couple of the most simple were considered useful. The 3D Sphere \cite{Schaefer:2010p1871} is also visually interesting, but doesn't provide a better interface to the collection since it's based on a grid view, but hiding many images on the far side of the sphere. The Phorigami work \cite{Hsu:2009p2696} introduces some interesting metaphors for reducing the space occupied by some groups of photos, but some make the visualization harder and could, therefore, be improved.
 
-Girgensohn and Bederson's works are among the most interesting and relevant to our vision. MediaGLOW's \cite{Girgensohn:2010} visualization approach allows images to be organized by various features and to be filtered down, displaying matched photos alongside placeholders for photos that are only match partially. The timeline on the top is also very useful. It has some problems like image overlap and capacity for showing large collections, but the ideas are still interesting. PhotoMesa \cite{Bederson:2001:PZI:502348.502359} has a visualization style close to what we want from our work but its reach is short, i.e., has a small set of features and dispositions, doesn't handle many images and the \ac{UI} seems a little cluttered with all the strong colors and borders.
+Girgensohn and Bederson's works are among the most interesting and relevant to our vision. MediaGLOW's \cite{Girgensohn:2010} visualization approach allows images to be organized by various features and to be filtered down, displaying matched photos alongside placeholders for photos that are only match partially. The timeline on the top is also very useful. It has some problems like image overlap and capacity for showing large collections, but the ideas are still interesting. PhotoMesa \cite{Bederson:2001:PZI:502348.502359} has a visualization style close to what we want from our work, but its reach is short, i.e., has a small set of features and dispositions, doesn't handle many images and the \ac{UI} seems a little cluttered with all the strong colors and borders.
 
-The seemingly more useful exploration tools are the ones that handle less images, which seems like a contradiction. The more images a system can hold and efficiently display, the more useful it gets. We want to suppport, at least, a few thousand images. \todo{why}
+The seemingly more useful exploration tools are the ones that handle less images, which seems like a contradiction. The more images a system can hold and efficiently display, the more useful it gets. From our user survey (appendix \ref{appendix:usersurvey}), we learnt two thirds of people have less than 10 000 photos (\ref{ssub:library_size}) and we will do our best to reach that level.
 
 % section discussion (end)
 % chapter related-work (end)

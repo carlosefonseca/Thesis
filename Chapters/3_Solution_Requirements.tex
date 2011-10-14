@@ -1,7 +1,7 @@
 \chapter{Solution Requirements} % (fold)
 \label{chapter:solution_requirements}
 
-Our survey was based on various types of previous work from the last ten years. Image browsers and technology have evolved a lot since then but there still isn't a definitive way for a user to look at his larger photo collection and understand its content and evolution.
+Our survey was based on various types of previous work from the last ten years. Image browsers and technology have evolved a lot since then, but there still isn't a definitive way for a user to look at his larger photo collection and understand its content and evolution.
 
 
 
@@ -24,18 +24,18 @@ We want to be able to organize and classify images. As we have seen on the Relat
 
 
 \subsubsection{Provide an interaction with the full set of images}
-We want to enable the users to easily view and interact with the all the images at the same time, if they want to, instead of just limiting to a small window of images. Many of the Related Work did this and displayed all images at the same time \cite{Qiu:2007p1207,Chen:1998p2344,Girgensohn:2009:MOP:1502650.1502711,Bederson:2001:PZI:502348.502359}. Others only displayed a subset of images but we think the users should have the power to create and view their own subsets from the full.
+We want to enable the users to easily view and interact with the all the images at the same time, if they want to, instead of just limiting to a small window of images. Many of the Related Work did this and displayed all images at the same time \cite{Qiu:2007p1207,Chen:1998p2344,Girgensohn:2009:MOP:1502650.1502711,Bederson:2001:PZI:502348.502359}. Others only displayed a subset of images, but we think the users should have the power to create and view their own subsets from the full one.
 
 
 \subsubsection{Efficiently display a large number of images in a single screen} % (fold)
-This goal goes inline with the previous one: to be able to interact with a large set of images, we should be able to display them all, at the same time, using techniques to make better use of available screen space. We saw different ways to display images on the Related Work, some focused on displaying images efficiently \cite{Qiu:2007p1207,Rodden:2001p731,Naaman:2004p1802,Hsu:2009p2696,Bederson:2001:PZI:502348.502359}, others more focused on the relations between the images \cite{Girgensohn:2009:MOP:1502650.1502711,Heesch:2004p2675}. Hsu's work \cite{Hsu:2009p2696} is specially interesting for its idea of merging images that where where related and we want to include this in our work but with an automatic way of grouping and a clearer \ac{UI}.
+This goal goes inline with the previous one: to be able to interact with a large set of images, we should be able to display them all, at the same time, using techniques to make better use of available screen space. We saw different ways to display images on the Related Work, some focused on displaying images efficiently \cite{Qiu:2007p1207,Rodden:2001p731,Naaman:2004p1802,Hsu:2009p2696,Bederson:2001:PZI:502348.502359}, others more focused on the relations between the images \cite{Girgensohn:2009:MOP:1502650.1502711,Heesch:2004p2675}. Hsu's work \cite{Hsu:2009p2696} is specially interesting for its idea of merging images that where where related and we want to include this in our work, but with an automatic way of grouping and a clearer \ac{UI}.
 
 \subsubsection{Allow the manipulation of the display}
-We want the users to create different views that enable new perceptions of their collection, based on the extracted information. Many works allowed some sort of highlight \cite{Girgensohn:2009:MOP:1502650.1502711}, zoom \cite{Bederson:2001:PZI:502348.502359} or similarity filter \cite{Qiu:2007p1207,Heesch:2004p2675}. Some are more useful then others and we think we should apply them sensibly. Since we are going to display a large amount of images at a small size, there will be the need to increase the size of the images, therefore we require the ability to zoom in on images and to provide some filters, for any available data but also for custom user selections. It is also interesting to have some similarity filtering.
+We want the users to create different views that enable new perceptions of their collection, based on the extracted information. Many works allowed some sort of highlight \cite{Girgensohn:2009:MOP:1502650.1502711}, zoom \cite{Bederson:2001:PZI:502348.502359} or similarity filter \cite{Qiu:2007p1207,Heesch:2004p2675}. Some are more useful then others and we think we should apply them sensibly. Since we are going to display a large amount of images at a small size, there will be the need to increase the size of the images, therefore we requiring the ability to zoom in on images and to provide some filters for any available data, but also for custom user selections. It is also interesting to have some similarity filtering.
 	
 \vspace{\baselineskip}
 	
-With this capabilities, our work should be able to provide the user not only with a better understanding of the collection but also with an easy and interesting way to visually combine and view photographs.
+With this capabilities, our work should be able to provide the user not only with a better understanding of the collection, but also with an easy and interesting way to visually combine and view photographs.
 
 
 %be able to handle thousands of images and display them all on the screen while maintaining responsiveness and giving useful information. The system's \ac{UI} should be clear and easy to use, allowing the user to navigate through the display of photos, through zooming and panning, and to reorganize the display the photos in a number of ways.
@@ -95,7 +95,7 @@ Therefore, we set this requirement for having a performent work, that can be use
 
 \subsubsection{Persistency}
 
-Our system will spend sometime generating and gathering data for each of the available feature extractors, for each image. To avoid having to re-do work in case of a failure, addition of more images to the collection or stopping to resume later, the system must store the data after its generation. This should be accomplished using a system wide framework to provide easy storing of all the data. Since this work is intended to be an exploration of visualization concepts, so we will not support interoperability from our system to others by using MPEG-7 or other metadata descriptor standards but instead use something that is simpler to implement.
+Our system will spend sometime generating and gathering data for each of the available feature extractors, for each image. To avoid having to re-do work in case of a failure, addition of more images to the collection or stopping to resume later, the system must store the data after its generation. This should be accomplished using a system wide framework to provide easy storing of all the data. Since this work is intended to be an exploration of visualization concepts, so we will not support interoperability from our system to others by using MPEG-7 or other metadata descriptor standards, but instead use something that is simpler to implement.
 
 
 % subsection design_goal (end)
@@ -110,31 +110,31 @@ Our system will spend sometime generating and gathering data for each of the ava
 As referred before, we want our system to extract interesting information about the images and we will now explain this in detail.
 
 
-Unlike textual data, images are a type of data where is not trivial to extract information from, in a computational environment. It's easy for us, common people, to understand what certain picture is showing. We can easily distinguish if there are, for instance, animals, people, flowers, buildings but it's hard for a computer to do the same, and it's even harder to understand if that certain photo of a building and a person was taken because of the building, the person or both.
+Unlike textual data, images are a type of data where is not trivial to extract information from, in a computational environment. It's easy for us, common people, to understand what certain picture is showing. We can easily distinguish if there are, for instance, animals, people, flowers or buildings, but it's hard for a computer to do the same, and it's even harder to understand if that certain photo of a building and a person was taken because of the building, the person or both.
 
 There have been various developments in the feature extraction front \cite{Liu:2007p3740,Datta:2005p3749,Rui:1999p949} and is currently possible to perform various detections in images with various levels of satisfaction.
 
 Some examples of working solutions for feature detection:
 
 \subsubsection{Face recognition}
-Detection of the presence of faces in the images, their position and relations between them as some other works refer \cite{Vasconcelos:2005in,Chen:2003p3699,Tamura:2002p859,Hsu:2002p3675}. Face recognition has been gaining public recognition in the past few years since many photo applications and services have been including it. The problem with face recognition is that it requires users to identify who are the persons on each photo which, generally, is a long and boring process. For concept, we will only detect the presence of faces and not spend time identifying them.
+Detection of the presence of faces in the images, their position and relations between them as some other works refer \cite{Vasconcelos:2005in,Chen:2003p3699,Tamura:2002p859,Hsu:2002p3675}. Face recognition has been gaining public appreciation in the past few years since many photo applications and services have been including it. Our user survey reflects that people like this feature and request it (\ref{:suggestions_of_features}). The problem with face recognition is that it requires users to identify who are the persons on each photo which, generally, is a long and repetitive process. For concept, we will only detect the presence of faces and not spend time identifying them.
 
 \subsubsection{Object recognition}
-Identification objects in images. This is a useful extractor but is requires a huge library of sample imagery for comparison \cite{Torralba:2008p527} and it's not feasible to adopt in our work.
+Identification objects in images. This is a useful extractor, but is requires a huge library of sample imagery for comparison \cite{Torralba:2008p527} and it's not feasible to adopt in our work.
 	
 	
 \subsubsection{Identification of perceptive colors}
 What are the main colors that users perceive in certain image \cite{Sural:2002bt,Tan:2001p850}. An image is composed of different colors or tones and people can identify images by their main colors and dispositions. There are simple ways, like calculating the mean color for an image, but that's not faithful. Detecting perceptive colors identifies the different colors of an image, providing more realistic data.
 
-\subsubsection{Image sequences }
-Identification of images of the same scene that were taken in sequence, for grouping purposes \cite{Cooper:2003p3679}. Images taken in sequence of the same subject should be gathered into a group of images, with the purpose of reducing the needed space to display them. This can be either by looking at the capture date or by analyzing the 
+\subsubsection{Image sequences}
+Identification of images of the same scene that were taken in sequence, for grouping purposes \cite{Cooper:2003p3679}. Images taken in sequence of the same subject should be gathered into a group of images, with the purpose of reducing the needed space to display them. This is important since almost half of the people we inquired on our survey claims to use techniques that capture a great number of photos sequentially (\ref{ssub:photos_in_close_sequence}). This can be either by looking at the capture date or by analyzing the visual similarities of sequential images.
 
-\subsubsection{Image similarity }
+\subsubsection{Image similarity}
 Identification of similar images across the whole collection enabling a search of similar images from a selected one or just grouping similar images according to defined parameters. There are many ways of doing similarity, some simple, like measuring the average color of the image \cite{Strong:2009p413,Qiu:2007p1207,Schaefer:2010p1871}, some complex like measuring various color attributes, edges, textures, applying filters or using convulsion like Heesch \cite{Heesch:2004p2675} and Chen \cite{Chen:1998p2344} did. For our work, we will explore options for color similarity, paving the way for other more accurate methods.
 
-\vspace{\baselineskip}
+\vspace{0.5\baselineskip}
 
-We want to use some of this methods to automatically extract information from the contents of images but, since this work is mostly focused on photography, there is another way to obtain really useful information that is EXIF Metadata. None of the related works seemed to use it.
+We want to use some of this methods to automatically extract information from the contents of images but, since this work is mostly focused on photography, there is another way to obtain really useful information that is EXIF Metadata. None of the related works seemed to use it, although users are interested in them, as can be seen on our user survey (\ref{ssub:preferred_features}\hide{ and \ref{ssub:suggestions_of_features}}).
 
 EXIF Metadata is a standard format for metadata included in digitally captured media, like photographs captured by digital cameras. This devices save a lot of information on the image file, like the date and time of the capture, camera settings, camera orientation, location data and even detected faces\footnote{the availability of some of this data requires capable camera hardware and software that are getting more common nowadays.}. An example of the metadata fields can be seen on Table \ref{tab:exif}. This is textual data and, therefore, much faster and easier to retrieve and analyze than the content based methods we discussed above, being a great addition to them.
 
