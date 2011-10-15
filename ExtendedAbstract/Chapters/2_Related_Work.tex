@@ -1,0 +1,82 @@
+\section{Related Work}
+\label{chapter:related-work}
+
+% Should be around 20 pages
+
+Interactive image visualization techniques have been explored for some time now, many of them related to image organization or retrieval in large collections. There have been some interesting ideas across the board and we will now take a look at some of them.
+
+
+\subsection{Related work}
+
+
+\subsubsection{Organizing and browsing photos using different feature vectors and their evaluations} % (fold)
+\label{sub:Strong}
+
+Strong \cite{Strong:2009p413} focuses on the better experience provided by color organization of a large image collection.
+A \ac{SOM} is used to display the images on the screen featuring zooming, panning and sorting capabilities. The work is then based around the various methods used to determine the images' similarity.
+In general, the best methods were found to be the ones where both color histograms and gradients are used to classify the images.
+
+
+% section strong (end)
+
+
+
+\subsubsection{Phorigami: A Photo browser based on meta-categorization and origami visualization} % (fold)
+\label{sub:Hsu}
+
+Hsu et al. \cite{Hsu:2009p2696} try to ease the browsing problem by analyzing the collections and identifying groups of related pictures. Each type of group is visualized in a specific way, inspired by the Origami art.
+
+The interface implements the different presentation types as different metaphors, easy for the user to understand, like a folded paper on a wide panorama that can be expanded. Although some of them appear to be a little hard to distinguish in its compressed form, it shouldn't be difficult to make it clearer. 
+
+
+% section hsu:2009p2696 (end)
+
+\subsubsection{Flexible access to photo libraries via time place, tags, and visual features} % (fold)
+\label{sub:Girgensohn}
+
+MediaGLOW by Girgensohn et al. \cite{Girgensohn:2010} is the application discussed in this paper. It's a content based image retrieval system with multiple ways to filter and sort the image collection.
+
+The interface allows selecting a range of dates, places and tags at any time to filter the collection and the display will show the photos that match the filters, alongside indications of the existence of photos that match some of the filters. This display can then be arranged by four similarity criteria: temporal (by photo creation time), geographic (distances between places), tags (photos with similar tags are shown closer together) and visual.
+
+The photo display is graph based, allowing for overlapped images. Zooming is allowed and changes both thumbnail positions and size for better experience, allowing the photos to spread away from each other, but also increasing the size so the user can have a better look at them.
+
+Color coding is used to help the user understand better what is being selected.
+
+The importance of the multiple ways to organize and search the collections was emphasized since many systems are designed to have a single form of access.
+
+
+
+\subsubsection{PhotoMesa: a zoomable image browser using quantum treemaps and bubblemaps}
+\label{sub:PhotoMesa}
+
+This work presents PhotoMesa by B. B. Bederson \cite{Bederson:2001:PZI:502348.502359}, an application that supports browsing sets of images in a zoomable environment. Users can choose directories of images and they are all displayed in a space-filling manner. Users can zoom in to a group and then to a single image. The groups display their name and have different background colors for a better distinction. Text search is possible as well as selecting a group on a list.
+
+For space filling uses Quantum Treemaps, a variation of the Ordered Treemap, aware of the constraints imposed by the use of images, and Bubble Maps, designed to have the least wasted space possible.
+
+This work brings interesting ideas, but it has a limited reach, only referring to handle ``over 500 images'' on the application and by only taking simple metadata, like the path and modification date of images.
+
+
+% section girgensohn:2010 (end)
+\hide{
+\subsection{Discussion} % (fold)
+\label{sub:discussion}
+
+
+
+
+
+One of the main problems is obtaining useful information from low level feature extraction of the image contents. Some try to get the most out of each image, with a variety of complex and time consuming procedures, e.g., a variety of methods based on color histograms \cite{Strong:2009p413,Tan:2001p850,Chen:1998p2344,Schaefer:2010p1871} or even more detailed ones with textures and convolution filters \cite{Heesch:2004p2675}. Others try to focus on avoiding the complex computations by only getting simple, but somewhat useful information \cite{Qiu:2007p1207}. To contrast with these methods, Girgensohn's work \cite{Girgensohn:2010} has found that users prefer other ways to filter the collection, like tags, dates and locations. Low level features are still used, but they have to be kept to understandable and useful options.
+
+Date and location are simple similarity measures and can be used to group the collections by events and locations like Naaman did on this work \cite{Naaman:2004p1802}. Current mainstream software like Apple's iPhoto\footnote{http://www.apple.com/iphoto} or Google's Picasa\footnote{http://picasa.google.com} are already doing it in a semi-automatic way.
+
+Textual metadata like tags and descriptions are also widely used both on our survey \cite{Rodden:2001p731,Girgensohn:2010,Heesch:2004p2675,Bederson:2001:PZI:502348.502359} and on all mainstream software. The problem with tags and descriptions is that people usually don't assign them to their photos, but that's not a problem we're interested here.
+
+The visualization is the field with most variations and experimentations, like Porta's work \cite{Porta:2006p416} where multiple options were tested, but only a couple of the most simple were considered useful. The 3D Sphere \cite{Schaefer:2010p1871} is also visually interesting, but doesn't provide a better interface to the collection since it's based on a grid view, but hiding many images on the far side of the sphere. The Phorigami work \cite{Hsu:2009p2696} introduces some interesting metaphors for reducing the space occupied by some groups of photos, but some make the visualization harder and could, therefore, be improved.
+
+Girgensohn and Bederson's works are among the most interesting and relevant to our vision. MediaGLOW's \cite{Girgensohn:2010} visualization approach allows images to be organized by various features and to be filtered down, displaying matched photos alongside placeholders for photos that are only match partially. The timeline on the top is also very useful. It has some problems like image overlap and capacity for showing large collections, but the ideas are still interesting. PhotoMesa \cite{Bederson:2001:PZI:502348.502359} has a visualization style close to what we want from our work, but its reach is short, i.e., has a small set of features and dispositions, doesn't handle many images and the \ac{UI} seems a little cluttered with all the strong colors and borders.
+
+The seemingly more useful exploration tools are the ones that handle less images, which seems like a contradiction. The more images a system can hold and efficiently display, the more useful it gets. From our user survey (appendix \ref{appendix:usersurvey}), we learnt two thirds of people have less than 10 000 photos (\ref{ssub:library_size}) and we will do our best to reach that level.
+
+% section discussion (end)
+% chapter related-work (end)
+}

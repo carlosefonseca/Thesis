@@ -59,7 +59,7 @@ To enable the Visualization to arrange the images on the screen in different way
 
 We had a few ideas for extracting features from images and, to be possible to add more along the way, we developed a plugin system to ease the creation of other feature extractors in the future.
 
-Each Feature Extraction Plugin is separated from the main system. They need to implement a \red{common interface} and are given the ability to access the image data from the library, and save the computed data back. They have freedom to access the image file or its \ac{EXIF} information. They should, in the end, store the processed data in a specified way so it gets exported to the visualization. Implemented plugins will be explained in section \ref{sub:plugins}.
+Each Feature Extraction Plugin is separated from the main system. They need to implement a common interface and are given the ability to access the image data from the library, and save the computed data back. They have freedom to access the image file or its \ac{EXIF} information. They should, in the end, store the processed data in a specified way so it gets exported to the visualization. Implemented plugins will be explained in section \ref{sub:plugins}.
 
 % subsubsection Feature Extraction (end)
 
@@ -214,7 +214,7 @@ We can see that by only reducing the images to 2000 pixels on the longer side, t
 
 \subsubsection{Generation of multi-scale imagery}
 
-This plugin generates all the data files needed for the visualization to work. The visualization relies on the \red{DeepZoom technology} and it needs to process the images before they can be displayed. This plugin does exactly that.
+This plugin generates all the data files needed for the visualization to work. The visualization relies on the DeepZoom technology and it needs to process the images before they can be displayed. This plugin does exactly that.
 
 
 Using a library from Microsoft, the plugin generates, for each image, a metadata file and a set of image files representing the original one at multiple scales, from a single pixel to a large, detailed image.

@@ -1,0 +1,131 @@
+% Settings  (fold)
+% State of The Art
+
+\documentclass{llncs}
+
+\usepackage[utf8]{inputenc}
+
+%Separar os parágrafos
+\parskip 2mm
+
+\usepackage{acronym} %Acronimos
+\usepackage{fnbreak} %Verifica se ha notas de rodape separadas
+\usepackage{multirow} %Colunas grandes em tabelas
+\usepackage{pdflscape} %Paginas em modo paisagem
+\usepackage{paralist} %Inline lists
+\usepackage{graphicx} %Imagens
+\usepackage{comment}
+\usepackage{color}
+\usepackage{array}	% Tables
+\usepackage{wrapfig}
+\usepackage{bbding} % checkmarks and other symbols
+\usepackage{hyperref}
+\hypersetup{
+	pdftex,%
+    colorlinks,%
+    citecolor=black,%
+    filecolor=black,%
+    linkcolor=black,%
+    urlcolor=black,%
+	bookmarks=true
+}
+\usepackage{bookmark}
+\usepackage{subfigure}
+\usepackage{subfigmat}
+
+
+\newenvironment{myitemize}{
+	\begin{itemize}
+	  \setlength{\itemsep}{1pt}
+	  \setlength{\parskip}{0pt}
+	  \setlength{\parsep}{0pt}}{
+	\end{itemize}
+}
+
+%\input{../commands.tex} %Inclui os comandos definidos no ficheiro
+                        %externo
+
+%Comando para inserir keywords no template da springer
+%\newcommand{\keywords}[1]{\par\addvspace\baselineskip
+%\noindent\keywordname\enspace\ignorespaces#1}
+\renewcommand{\rmdefault}{phv}
+\renewcommand{\sfdefault}{phv}
+
+% (end)
+
+\begin{document}
+\pagenumbering{arabic}
+\pagestyle{plain}
+
+
+% ------ Nomes das propriedades ------ %
+\newcommand{\alog}{Action Logging}
+
+% ----- Acronimos --------%
+\acrodef{UI}[UI]{user interface}
+%\acronym{UI}{user interface}
+\acrodef{SOM}[SOM]{self organizing map}
+\acrodef{CBIR}[CBIR]{content based image retrieval}
+\acrodef{MP}[MP]{megapixel}
+\acrodef{FEP}[FEP]{Feature Extraction Plugin}
+
+\acrodef{UX}[UX]{user experience}
+\acrodef{WPF}[WPF]{Windows Presentation Foundation}
+\acrodef{EXIF}[EXIF]{Exchangeable image file format}
+\acrodef{HDR}[HDR]{High Dynamic Range}
+\acrodef{SUS}[SUS]{System Usability Scale}
+
+
+\newcommand{\todo}[1]{\textcolor{red}{TODO: #1}}
+\newcommand{\red}[1]{\textcolor{red}{#1}}
+\newcommand{\super}[1]{\ensuremath{^{\textrm{#1}}}}
+\newcommand{\side}[1]{\marginpar{\textcolor{red}{#1}}}
+\newcommand{\cm}{\Checkmark}
+\newcommand{\fig}[1]{fig. \ref{fig:#1}}
+\newcommand{\Fig}[1]{Fig. \ref{fig:#1}}
+\newcommand{\hide}[1]{}
+
+
+% \newcommand{\todoo[1]{\marginpar{\bf{\textcolor{red}{$\Rightarrow$ TODO:\\}}\scriptsize{#1}}}}
+
+
+\title{Eagle Eye}
+\subtitle{Visualizing large photo collections}
+
+\author{Carlos Eduardo H. J. Fonseca}
+\institute{
+Universidade Técnica de Lisboa\\
+Instituto Superior Técnico\\
+Av. Rovisco Pais\\
+Portugal\\
+\email{carlosefonseca@ist.utl.pt}\\
+2010
+}
+
+\maketitle
+
+\begin{abstract}
+	Digital photography has been a part of people's lives for the past decade, growing on hard drives, but image visualization has not been evolving enough to accompany this growth. Most people keep photos on folders or use software that can't display a large number of photos at the same time, not providing a good overview of their collection.
+
+	This work grew from the features of other works of alternative image visualizations and tries to bring a better way for regular people to explore their photo libraries and learn more about them.
+
+	This work provides an extensible backend system intended for image and metadata processing, gathering information about the user's photos, currently colors, faces, dates, paths and keywords, but, since it's extensible, could be used for much more.
+
+	We also created a visualization application to use the processed data and provide it to the users, in an interface that is clean and simple. It starts by displaying all the added images on the screen, at the same time, in a grid, grouped by dates. From here, the user can zoom in and out and change the display to organize the images by colors, faces or paths, and can filter using a mix of any data gathered by the backend . This way, users can view and explore their libraries in a different way from what they have been doing.
+	
+\end{abstract}
+
+%\keywords{organisational Engineering, organisation Redesign, Action Capture}
+
+
+\input{Chapters/1_Introduction}
+\input{Chapters/2_Related_Work}
+\input{Chapters/3_Solution_Requirements}
+\input{Chapters/4_Implementation}
+\input{Chapters/5_Evaluation}
+\input{Chapters/6_Conclusions}
+
+\bibliographystyle{acm}
+\bibliography{../Thesis_bib_DB} % bibliography.bib is the name of the Bibliography in this case
+
+\end{document}

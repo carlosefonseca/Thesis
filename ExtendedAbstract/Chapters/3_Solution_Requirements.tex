@@ -1,0 +1,90 @@
+\section{Solution Requirements} % (fold)
+\label{chapter:solution_requirements}
+
+
+We have the vision of a system that displays a large set of user’s photos at the same time, in various arrangements, revealing patterns, differences and similarities between them.
+
+
+\subsection{Main Goals} % (fold)
+\label{reqs:main_goal}
+
+The main goal of this thesis is to provide a different approach to the photo collection browsing methods. More specifically, the work should:
+
+
+Extract interesting information about the images so it's possible to organize and classify them. We chose face detection, color detection, image sequences and metadata extraction.
+
+
+Provide an interaction with the full set of images and, if the want to, make smaller sets from the full library.
+
+
+Efficiently display a large number of images in a single screen by using some techniques to reduce clutter.
+
+Allow the manipulation of the display by different groups, sorts, filters, selections, zooming and panning.
+	
+With this capabilities, our work should be able to provide the user not only a better understanding of the collection, but also with an easy and interesting way to visually combine and view photographs.
+
+
+%be able to handle thousands of images and display them all on the screen while maintaining responsiveness and giving useful information. The system's \ac{UI} should be clear and easy to use, allowing the user to navigate through the display of photos, through zooming and panning, and to reorganize the display the photos in a number of ways.
+
+%The system should also gather as much information as it can from the photos, such as date and time, relevant colors, presence of people, type of photograph, user organization or location. While some of this information is already embedded in today's digital photographs as metadata, written by the digital camera when the photo was taken, others are usually not and need to be calculated or extracted. Faces and relevant color information are an example of that and the system must be prepared to extract this features from the image. The system must provide some capability for other feature extraction methods to be easily added in the future. All this information will then be used by the user to reorganize and filter the photos on display.
+
+
+%§ We will now detail the work done, taking this requirements into account.
+
+% subsection main_goal (end)
+
+
+
+
+
+
+
+
+
+\subsection{Implementation Requirements} % (fold)
+\label{reqs:Implementation_Requirements}
+
+In addition to the referred main goals, we set ourselves some requirements for our implementation. With them, we want our work to get closer to a real application, that real users can use and have some flexibility for it to evolve with time.
+Therefore, we set the following requirements: Ease of use, Extensibility, Performance and Persistency.
+
+\hide{\textbf{Ease of Use} % (fold)
+\label{reqs:ease_of_use}
+
+Ease of use is one of the most important characteristics of any piece of software and can shape how well it will sell. Much more attention has been given to the \ac{UX} in the last few years. Systems that are easier to use, get the job done faster, are more enjoyable to use and allow less experienced users to use them.
+
+Since this is such an important characteristic, we aimed at providing a simple interaction from the beginning to the end, while also providing a powerful system, even though it could be even more refined in a few areas.
+
+% subsubsection ease_of_use (end)
+
+
+
+\textbf{Extensibility} % (fold)
+\label{reqs:Extensibility}
+
+The extensibility factor of a system is also important for the added value that can be obtained by quickly adding new features, either by the developers or by third parties. We made some parts of our work with this in mind, by allowing either external plugins or by generalization of code, allowing for future improvements with less trouble.
+
+% subsubsection Extensibility (end)
+
+
+
+\textbf{Performance} % (fold)
+\label{reqs:Performance}
+
+One of our main goals is to display a large set of images on the screen, but this brings problems since each image, in full-size, can take a good set of resources of the system. If we multiply this resources for a thousand images, we will not have a performent work.
+
+Therefore, we set this requirement for having a performent work, that can be used with at least a few thousand images without taking down the system while using it.
+% subsubsection Performance (end)
+
+
+
+
+\textbf{Persistency}
+
+Our system will spend sometime generating and gathering data for each of the available feature extractors, for each image. To avoid having to re-do work in case of a failure, addition of more images to the collection or stopping to resume later, the system must store the data after its generation. This should be accomplished using a system wide framework to provide easy storing of all the data. Since this work is intended to be an exploration of visualization concepts, so we will not support interoperability from our system to others by using MPEG-7 or other metadata descriptor standards, but instead use something that is simpler to implement.
+
+
+% subsection design_goal (end)
+
+
+}
+
